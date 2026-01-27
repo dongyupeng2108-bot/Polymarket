@@ -1,0 +1,12 @@
+# ignore everything by default
+*
+
+# allow only these folders
+!/rules/
+!/rules/**
+
+!/data_contract/
+!/data_contract/**
+
+# allow git files
+!.gitignore
