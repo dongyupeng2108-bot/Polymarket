@@ -98,11 +98,15 @@
 - `LATEST.json`（本任务目录内 + 全局可选）
 
 ### 6.2 Full Envelope 格式规范 (v3.8 强制)
-`notify_<task_id>.txt` 内容必须包含以下 4 个标记区块，**缺一不可**：
+notify_<task_id>.txt 内容必须包含以下 4 个标记区块，**缺一不可**：
 1.  `RESULT_JSON` (完整 JSON 内容)
 2.  `LOG_HEAD` (日志前 50 行)
 3.  `LOG_TAIL` (日志后 50 行)
 4.  `INDEX` (交付物索引 JSON)
+
+### 6.2.1 回报契约 v3.9+ (绑定校验)
+- 必须包含 `report_file` 字段指向 `notify_<task_id>.txt`（权威回报文件）
+- 必须包含 `report_sha256_short` 字段与 `report_file` 的 SHA256 前 8 位一致
 
 > **Gatekeeper 拦截**：如果 `sender.ts` 检测到缺失上述任一标记，将拒绝发送并报错。
 

@@ -65,6 +65,7 @@
 - **技术栈**: Next.js 16, React 19, Tailwind v4, Prisma, Playwright。
 - **原则**: 严格类型(Prisma), 异步I/O(try/catch), 表现层优先服务端组件。
 - **AI 协议**: 复杂任务必须遵循 Intent -> Analysis -> Plan -> Action 流程。
+- **回报锚点**: 禁止回贴改写版，必须贴 notify 原文；以 report_sha 作为验收锚点。
 
 ## 4. 变更原则
 - 任何新增/修改状态词，必须先写入本 Rules 的 名词定义/口径，再进入开发。
