@@ -405,11 +405,26 @@ async function validate(resultDir, taskId, report) {
                  if (!reportFileInIndex) {
                      fail(report, ERR.REPORT_BINDING_INDEX_MISSING, `Report file '${resultData.report_file}' must be listed in deliverables index.`);
                  } else {
-                     // Rule E: Stats Match
-                     if (resultData.report_sha256_short && reportFileInIndex.sha256_short !== resultData.report_sha256_short) {
-                         fail(report, ERR.REPORT_BINDING_MISMATCH, `Index SHA for report file (${reportFileInIndex.sha256_short}) does not match RESULT_JSON claim (${resultData.report_sha256_short}).`);
+                     // Check Report File Index SHA (Must be 8 char hex, NO PLACEHOLDERS)
+                     const sha = reportFileInIndex.sha256_short;
+                     if (!/^[0-9a-f]{8}$/.test(sha)) {
+                         fail(report, ERR.REPORT_BINDING_INVALID_FORMAT, `Report file index entry SHA must be 8 lowercase hex characters. Found: '${sha}'`);
+                     }
+                     // Check Consistency with RESULT_JSON
+                     if (sha !== resultData.report_sha256_short) {
+                         fail(report, ERR.REPORT_BINDING_MISMATCH, `Index SHA for report file (${sha}) does not match RESULT_JSON SHA (${resultData.report_sha256_short})`);
                      }
                  }
+            }
+
+            // General Index Entry Validation (No Placeholders allowed generally, except SELF_REF)
+            if (Array.isArray(indexData.files)) {
+                indexData.files.forEach(f => {
+                    const sha = f.sha256_short || '';
+                    if (sha !== 'SELF_REF' && !/^[0-9a-f]{8}$/.test(sha)) {
+                        fail(report, ERR.INDEX_MISSING_HASH_SIZE, `Index entry '${f.name || f.path}' has invalid sha256_short: '${sha}'. Must be 8 hex chars or 'SELF_REF'.`);
+                    }
+                });
             }
 
             const missingHashFiles = [];
