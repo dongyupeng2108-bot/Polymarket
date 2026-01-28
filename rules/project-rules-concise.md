@@ -32,6 +32,7 @@
 - **Shine (清扫)**: 提交前确保无 Lint 错误，格式化代码。
 - **Standardize (清洁)**: 严格遵守命名规范和架构模式。
 - **Sustain (素养)**: 坚持 Fail-fast 和 Full Envelope 纪律。
+- **Tooling (工具)**: 优先使用 IDE 原生工具 (Read/Write)；Shell 命令需兼容 PowerShell 并清理临时文件。
 
 ### 6A (执行标准)
 - **Alignment (对齐)**: 深刻理解 Master Plan 和用户意图 (Intent)。
