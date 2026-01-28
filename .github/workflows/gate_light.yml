@@ -1,54 +1,16 @@
-name: Gate Light
+- name: Run Gate Light (Fixtures)
+  run: |
+    set -euo pipefail
 
-on:
-  push:
-    branches: [ "**" ]
-  pull_request:
-    branches: [ "**" ]
+    echo "Good fixture must PASS"
+    conftest test rules/gates/fixtures/good_minimal.json -p rules/gates/rego
 
-jobs:
-  gate-light:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Conftest
-        run: |
-          wget https://github.com/open-policy-agent/conftest/releases/download/v0.45.0/conftest_0.45.0_Linux_x86_64.tar.gz
-          tar xzf conftest_0.45.0_Linux_x86_64.tar.gz
-          sudo mv conftest /usr/local/bin
-
-      - name: Run Gate Light (Fixtures)
-        run: |
-          echo "Running Gate Light on Fixtures..."
-          # Expected: good_minimal.json should PASS
-          conftest test rules/gates/fixtures/good_minimal.json -p rules/gates/rego
-          
-          # Expected: bad examples should FAIL
-          # We use || true to prevent the step from failing immediately, 
-          # but we should verify they actually failed if we were doing a rigorous self-test CI.
-          # For this task, the goal is to define the workflow that runs the gate.
-          # In a real scenario, we would run this against the ACTUAL task report.
-          # Here we demonstrate it runs.
-          
-          echo "Checking Bad Fixtures (Expect Failure)..."
-          if conftest test rules/gates/fixtures/bad_hc_missing_endpoint.json -p rules/gates/rego; then
-            echo "Error: bad_hc_missing_endpoint.json passed but should have failed!"
-            exit 1
-          else
-            echo "Success: bad_hc_missing_endpoint.json failed as expected."
-          fi
-
-          if conftest test rules/gates/fixtures/bad_index_size0_or_badsha.json -p rules/gates/rego; then
-            echo "Error: bad_index_size0_or_badsha.json passed but should have failed!"
-            exit 1
-          else
-            echo "Success: bad_index_size0_or_badsha.json failed as expected."
-          fi
-          
-          if conftest test rules/gates/fixtures/bad_forbidden_wording.json -p rules/gates/rego; then
-             echo "Error: bad_forbidden_wording.json passed but should have failed!"
-             exit 1
-          else
-             echo "Success: bad_forbidden_wording.json failed as expected."
-          fi
+    echo "Bad fixtures must FAIL (expected)"
+    for f in rules/gates/fixtures/bad_*.json; do
+      if conftest test "$f" -p rules/gates/rego; then
+        echo "ERROR: $f unexpectedly PASS"
+        exit 1
+      else
+        echo "OK: $f failed as expected"
+      fi
+    done
