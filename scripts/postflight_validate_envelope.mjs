@@ -29,7 +29,9 @@ const ERR = {
     RESULT_JSON_TOO_THIN: 'POSTFLIGHT_RESULT_JSON_TOO_THIN',
     // v3.9+ Report Binding
     REPORT_BINDING_MISSING: 'POSTFLIGHT_REPORT_BINDING_MISSING',
-    REPORT_BINDING_MISMATCH: 'POSTFLIGHT_REPORT_BINDING_MISMATCH'
+    REPORT_BINDING_INVALID_FORMAT: 'POSTFLIGHT_REPORT_BINDING_INVALID_FORMAT',
+    REPORT_BINDING_MISMATCH: 'POSTFLIGHT_REPORT_BINDING_MISMATCH',
+    REPORT_BINDING_INDEX_MISSING: 'POSTFLIGHT_REPORT_BINDING_INDEX_MISSING'
 };
 
 // --- Utils ---
@@ -151,7 +153,8 @@ async function runSelfTest(outputFile) {
         fs.writeFileSync(path.join(dir, 'deliverables_index_M_TEST.json'), JSON.stringify({ 
             files: [
                 { name: 'healthcheck.txt', size: 20, sha256_short: '12345678' },
-                { name: 'ui_copy_details.json', size: 2, sha256_short: '12345678' }
+                { name: 'ui_copy_details.json', size: 2, sha256_short: '12345678' },
+                { name: 'notify_M_TEST.txt', size: notifyContent.length, sha256_short: notifyShaShort }
             ] 
         }));
         fs.writeFileSync(path.join(dir, 'LATEST.json'), '{}');
@@ -174,6 +177,66 @@ async function runSelfTest(outputFile) {
         fs.writeFileSync(path.join(dir, 'deliverables_index_M_TEST.json'), JSON.stringify({ files: [] }));
         fs.writeFileSync(path.join(dir, 'LATEST.json'), '{}');
     }, ERR.RESULT_JSON_TOO_THIN);
+
+    // Case G: Report Hash Pending (Rule B)
+    await runTest('Case_G_ReportHashPending', (dir) => {
+        fs.writeFileSync(path.join(dir, 'result_M_TEST.json'), JSON.stringify({ 
+            status: 'DONE', 
+            summary: 'Valid summary.',
+            report_file: 'notify_M_TEST.txt',
+            report_sha256_short: 'PENDING' // Invalid format
+        }));
+        fs.writeFileSync(path.join(dir, 'notify_M_TEST.txt'), 'RESULT_JSON\nLOG_HEAD\nValid Content\nLOG_TAIL\nINDEX');
+        fs.writeFileSync(path.join(dir, 'run_M_TEST.log'), 'x'.repeat(1000));
+        fs.writeFileSync(path.join(dir, 'healthcheck.txt'), '/ -> 200\n/pairs -> 200');
+        fs.writeFileSync(path.join(dir, 'deliverables_index_M_TEST.json'), JSON.stringify({ 
+            files: [{ name: 'healthcheck.txt', size: 20, sha256_short: '12345678' }] 
+        })); // Missing report_file in index
+        fs.writeFileSync(path.join(dir, 'LATEST.json'), '{}');
+    }, ERR.REPORT_BINDING_INVALID_FORMAT);
+
+    // Case H: Report File Not In Index (Rule C)
+    await runTest('Case_H_ReportFileNotInIndex', (dir) => {
+        const notifyContent = 'RESULT_JSON\nLOG_HEAD\nValid Content\nLOG_TAIL\nINDEX\n/ -> 200\n/pairs -> 200';
+        const sha = calculateFileHash(path.join(dir, 'notify_M_TEST.txt')) || '12345678'; // Fake it if file not written yet, but we write it below
+        
+        // Write notify first to get hash
+        fs.writeFileSync(path.join(dir, 'notify_M_TEST.txt'), notifyContent);
+        const realSha = calculateFileHash(path.join(dir, 'notify_M_TEST.txt')).substring(0, 8);
+
+        fs.writeFileSync(path.join(dir, 'result_M_TEST.json'), JSON.stringify({ 
+            status: 'DONE', 
+            summary: 'Valid summary.',
+            report_file: 'notify_M_TEST.txt',
+            report_sha256_short: realSha
+        }));
+        fs.writeFileSync(path.join(dir, 'run_M_TEST.log'), 'x'.repeat(1000));
+        fs.writeFileSync(path.join(dir, 'healthcheck.txt'), '/ -> 200\n/pairs -> 200');
+        fs.writeFileSync(path.join(dir, 'deliverables_index_M_TEST.json'), JSON.stringify({ 
+            files: [{ name: 'healthcheck.txt', size: 20, sha256_short: '12345678' }] 
+        })); // Missing report_file in index
+        fs.writeFileSync(path.join(dir, 'LATEST.json'), '{}');
+    }, ERR.REPORT_BINDING_INDEX_MISSING);
+
+    // Case I: Report Hash Mismatch (Rule D)
+    await runTest('Case_I_ReportHashMismatch', (dir) => {
+        fs.writeFileSync(path.join(dir, 'notify_M_TEST.txt'), 'Content A');
+        fs.writeFileSync(path.join(dir, 'result_M_TEST.json'), JSON.stringify({ 
+            status: 'DONE', 
+            summary: 'Valid summary.',
+            report_file: 'notify_M_TEST.txt',
+            report_sha256_short: '12345678' // Wrong hash
+        }));
+        fs.writeFileSync(path.join(dir, 'run_M_TEST.log'), 'x'.repeat(1000));
+        fs.writeFileSync(path.join(dir, 'healthcheck.txt'), '/ -> 200\n/pairs -> 200');
+        fs.writeFileSync(path.join(dir, 'deliverables_index_M_TEST.json'), JSON.stringify({ 
+            files: [
+                { name: 'notify_M_TEST.txt', size: 9, sha256_short: '12345678' }, // Index matches JSON claim, but both wrong vs file
+                { name: 'healthcheck.txt', size: 20, sha256_short: '12345678' }
+            ] 
+        }));
+        fs.writeFileSync(path.join(dir, 'LATEST.json'), '{}');
+    }, ERR.REPORT_BINDING_MISMATCH);
 
     const summary = results.join('\n');
     if (outputFile) fs.writeFileSync(outputFile, summary);
@@ -234,18 +297,21 @@ async function validate(resultDir, taskId, report) {
             }
 
             // --- GATE: Report Binding (v3.9+) ---
-            // 1. Check existence of fields
+            // Rule A: Check existence of fields
             if (!resultData.report_file || !resultData.report_sha256_short) {
                 fail(report, ERR.REPORT_BINDING_MISSING, `RESULT_JSON must contain 'report_file' and 'report_sha256_short' to bind the report.`);
             } else {
-                // 2. Check file existence
-                // Handle case where report_file might be relative or absolute (but inside resultDir usually)
-                // We expect it to be a filename in the resultDir
+                // Rule B: Check Hash Format (Strict lowercase 8 hex chars)
+                const hashRegex = /^[0-9a-f]{8}$/;
+                if (!hashRegex.test(resultData.report_sha256_short)) {
+                    fail(report, ERR.REPORT_BINDING_INVALID_FORMAT, `report_sha256_short must be 8 lowercase hex characters. Found: ${resultData.report_sha256_short}`);
+                }
+
+                // Rule D: Check file existence and Hash Match
                 const reportFilePath = path.join(resultDir, resultData.report_file);
                 if (!fs.existsSync(reportFilePath)) {
                     fail(report, ERR.REPORT_BINDING_MISSING, `Report file specified in RESULT_JSON not found: ${resultData.report_file}`);
                 } else {
-                    // 3. Check SHA match
                     const realSha = calculateFileHash(reportFilePath);
                     const realShaShort = realSha ? realSha.substring(0, 8) : null;
                     if (realShaShort !== resultData.report_sha256_short) {
@@ -333,6 +399,19 @@ async function validate(resultDir, taskId, report) {
             indexData = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
             report.checks.index = { parsed: true, file_count: indexData.files?.length || 0, failures: [] };
             
+            // Rule C: Report File in Index (v3.9+)
+            if (resultData && resultData.report_file) {
+                 const reportFileInIndex = Array.isArray(indexData.files) ? indexData.files.find(f => (f.name || f.path) === resultData.report_file) : null;
+                 if (!reportFileInIndex) {
+                     fail(report, ERR.REPORT_BINDING_INDEX_MISSING, `Report file '${resultData.report_file}' must be listed in deliverables index.`);
+                 } else {
+                     // Rule E: Stats Match
+                     if (resultData.report_sha256_short && reportFileInIndex.sha256_short !== resultData.report_sha256_short) {
+                         fail(report, ERR.REPORT_BINDING_MISMATCH, `Index SHA for report file (${reportFileInIndex.sha256_short}) does not match RESULT_JSON claim (${resultData.report_sha256_short}).`);
+                     }
+                 }
+            }
+
             const missingHashFiles = [];
             const enrichedFiles = [];
 
