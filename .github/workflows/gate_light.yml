@@ -19,25 +19,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          VER="$(python3 - <<'PY'
-import json, urllib.request
-url="https://api.github.com/repos/open-policy-agent/conftest/releases/latest"
-data=json.load(urllib.request.urlopen(url))
-tag=data["tag_name"]
-print(tag.lstrip("v"))
-PY
-          )"
-          curl -sSL -o conftest.tar.gz "https://github.com/open-policy-agent/conftest/releases/download/v${VER}/conftest_${VER}_Linux_x86_64.tar.gz"
+          VERSION="0.57.0"
+          curl -sSL "https://github.com/open-policy-agent/conftest/releases/download/v${VERSION}/conftest_${VERSION}_Linux_x86_64.tar.gz" -o conftest.tar.gz
           tar -xzf conftest.tar.gz conftest
           sudo mv conftest /usr/local/bin/conftest
           conftest --version
-
-      - name: Sanity check files
-        shell: bash
-        run: |
-          set -euo pipefail
-          test -f rules/gates/rego/gate_light.rego
-          test -f rules/gates/fixtures/good_minimal.json
 
       - name: Run Gate Light (Fixtures)
         shell: bash
@@ -45,23 +31,24 @@ PY
           set -euo pipefail
           shopt -s nullglob
 
+          POLICY_DIR="rules/gates/rego"
+          FIX_DIR="rules/gates/fixtures"
+
           echo "Good fixture must PASS"
-          conftest test rules/gates/fixtures/good_minimal.json -p rules/gates/rego
+          conftest test --all-namespaces "${FIX_DIR}/good_minimal.json" -p "${POLICY_DIR}"
 
           echo "Bad fixtures must FAIL (expected)"
-          bad_files=(rules/gates/fixtures/bad_*.json)
+          bad_files=("${FIX_DIR}"/bad_*.json)
           if [ ${#bad_files[@]} -eq 0 ]; then
-            echo "ERROR: No bad fixtures found (bad_*.json)."
+            echo "ERROR: no bad fixtures found"
             exit 1
           fi
 
           for f in "${bad_files[@]}"; do
-            if conftest test "$f" -p rules/gates/rego; then
+            if conftest test --all-namespaces "$f" -p "${POLICY_DIR}"; then
               echo "ERROR: $f unexpectedly PASS"
               exit 1
             else
               echo "OK: $f failed as expected"
             fi
           done
-
-          echo "Gate Light fixtures check PASSED"
