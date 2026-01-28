@@ -2,9 +2,7 @@ name: Gate Light
 
 on:
   push:
-    branches: ["**"]
   pull_request:
-    branches: ["**"]
 
 permissions:
   contents: read
@@ -13,27 +11,22 @@ jobs:
   gate-light:
     name: gate-light
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Conftest (Conftest)
+      - name: Install Conftest
         shell: bash
         run: |
           set -euo pipefail
-
-          echo "Detecting latest Conftest release..."
           VER="$(python3 - <<'PY'
 import json, urllib.request
 url="https://api.github.com/repos/open-policy-agent/conftest/releases/latest"
 data=json.load(urllib.request.urlopen(url))
-tag=data["tag_name"]  # e.g. v0.56.0
+tag=data["tag_name"]
 print(tag.lstrip("v"))
 PY
           )"
-
-          echo "Conftest version: ${VER}"
           curl -sSL -o conftest.tar.gz "https://github.com/open-policy-agent/conftest/releases/download/v${VER}/conftest_${VER}_Linux_x86_64.tar.gz"
           tar -xzf conftest.tar.gz conftest
           sudo mv conftest /usr/local/bin/conftest
@@ -43,12 +36,6 @@ PY
         shell: bash
         run: |
           set -euo pipefail
-          echo "PWD=$(pwd)"
-          echo "List policies:"
-          ls -la rules/gates/rego || true
-          echo "List fixtures:"
-          ls -la rules/gates/fixtures || true
-
           test -f rules/gates/rego/gate_light.rego
           test -f rules/gates/fixtures/good_minimal.json
 
@@ -63,9 +50,8 @@ PY
 
           echo "Bad fixtures must FAIL (expected)"
           bad_files=(rules/gates/fixtures/bad_*.json)
-
           if [ ${#bad_files[@]} -eq 0 ]; then
-            echo "ERROR: No bad fixtures found (rules/gates/fixtures/bad_*.json)."
+            echo "ERROR: No bad fixtures found (bad_*.json)."
             exit 1
           fi
 
