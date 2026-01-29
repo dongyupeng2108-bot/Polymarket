@@ -18,14 +18,14 @@
 - **Full Envelope**: `notify.txt` 必须包含 `RESULT_JSON`, `LOG_HEAD`, `LOG_TAIL`, `INDEX`。
 - **Smart Agent**: 必须读取并输出 `notify.txt` 内容。
 - **Status Gate (v3.9)**: `RESULT_JSON.status` 必须为 `DONE` 或 `FAILED`。禁止 `success`, `ok` 或 `GENERATED_BY_SCRIPT`。
-- **Index Gate (v3.9)**: `INDEX` 必须包含每个文件的 `size` (bytes) 和 `sha256_short` (≥8 chars)。缺失则 FAIL（允许生成 enriched backfill 但仍判负）。
-- **Report Binding Gate (v3.9)**: RESULT_JSON.report_file must exist & match INDEX. report_sha256_short must be 8-char lowercase hex & match actual file. INDEX must include report_file.
+- **Index Gate (v3.9)**: `INDEX` 必须包含每个文件的 `size` (bytes) 和 `sha256_short` (≥8 chars)。必须包含 `report_file`, `scripts/postflight_validate_envelope.mjs`, `reports/healthcheck_root.txt`, `reports/healthcheck_pairs.txt` 等关键证据，且 size > 0。缺失或占位符则 FAIL。
 
 4. 质量与证据门禁 (Quality Gates)
+- **Gate_NO_EXTERNAL_EVIDENCE_WORDING (v3.9)**: notify/LOG_TAIL/正文中出现 `See run.log`, `See attached`, `See verification reports` 等外置证据措辞一律 FAIL。
 - **反虚报 (Claim-Fix Gate)**: 声称“已修复”必须包含：复现步骤 + 关键证据摘录(≤30行) + 修复后对照(≤30行)。无对照 = FAILED。
 - **网站健康 (Healthcheck Gate)**:
   - 必须验证 端口53121 / 页面 / API 存活。
-  - **Summary Contract (v3.9)**: 必须在 `notify.txt` 正文中直接摘录 `/ -> 200` 和 `/pairs -> 200` 两行关键结果。
+  - **Summary Contract (v3.9)**: 必须在 `notify.txt` 正文中直接摘录 `/ -> 200` 和 `/pairs -> 200` 两行关键结果。仅出现 `HTTP:200` 视为 FAIL。
 
 5. 错误控制与防御机制 (Error Defense)
 - **重复返工 (Two-Strike)**: 同一根因连续 2 次返工 -> 暂停，通知老板协商文档。下一任务强制为 **RCA 纯诊断** (禁止修复)。

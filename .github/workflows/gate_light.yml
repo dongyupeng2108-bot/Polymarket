@@ -1,0 +1,54 @@
+name: Gate Light
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gate-light:
+    name: gate-light
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Conftest
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="0.57.0"
+          curl -sSL "https://github.com/open-policy-agent/conftest/releases/download/v${VERSION}/conftest_${VERSION}_Linux_x86_64.tar.gz" -o conftest.tar.gz
+          tar -xzf conftest.tar.gz conftest
+          sudo mv conftest /usr/local/bin/conftest
+          conftest --version
+
+      - name: Run Gate Light (Fixtures)
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+
+          POLICY_DIR="rules/gates/rego"
+          FIX_DIR="rules/gates/fixtures"
+
+          echo "Good fixture must PASS"
+          conftest test --all-namespaces "${FIX_DIR}/good_minimal.json" -p "${POLICY_DIR}"
+
+          echo "Bad fixtures must FAIL (expected)"
+          bad_files=("${FIX_DIR}"/bad_*.json)
+          if [ ${#bad_files[@]} -eq 0 ]; then
+            echo "ERROR: no bad fixtures found"
+            exit 1
+          fi
+
+          for f in "${bad_files[@]}"; do
+            if conftest test --all-namespaces "$f" -p "${POLICY_DIR}"; then
+              echo "ERROR: $f unexpectedly PASS"
+              exit 1
+            else
+              echo "OK: $f failed as expected"
+            fi
+          done
