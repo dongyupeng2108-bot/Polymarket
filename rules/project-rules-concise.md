@@ -1,6 +1,7 @@
 # Arb Validate Web - 项目规则总纲 (极简版)
 
-> 进度控制: 开发前务必阅读 [PROJECT_MASTER_PLAN.md](PROJECT_MASTER_PLAN.md) 获取当前里程碑。
+> 进度控制: Plan（计划）是里程碑与分支台账的唯一事实源 (Single Source of Truth)。
+> **更新频率**: 仅当老板在新聊天窗口明确要求时更新 Plan (PROJECT_MASTER_PLAN.md)。
 
 ## 1. 核心定义 (口径统一)
 - Pair (交易对): 
