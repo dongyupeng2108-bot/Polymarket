@@ -1,48 +1,42 @@
 name: Gate Light
 
 on:
-  workflow_dispatch:
-  push:
-    branches: [ "**" ]
   pull_request:
     branches: [ "**" ]
+  workflow_dispatch:
 
 jobs:
   gate-light:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Actionlint
+        uses: reviewdog/action-actionlint@v1
+        with:
+          fail_on_error: true
+
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Run Gate Light Script (Structure, Syntax, Leaks)
-        run: node scripts/gate_light.mjs
+      - name: Install AJV
+        run: npm install -g ajv-cli
+
+      - name: Schema Validation
+        run: |
+          ajv validate -s rules/gates/schema/envelope.schema.json -d "rules/gates/fixtures/*.json"
 
       - name: Install Conftest
-        run: |
-          wget https://github.com/open-policy-agent/conftest/releases/download/v0.45.0/conftest_0.45.0_Linux_x86_64.tar.gz
-          tar xzf conftest_0.45.0_Linux_x86_64.tar.gz
-          sudo mv conftest /usr/local/bin
+        uses: open-policy-agent/conftest-action@v2
 
-      - name: Run Gate Light (Fixtures)
+      - name: Run Conftest Policies
         run: |
-          echo "Running Gate Light on Fixtures..."
-          # Expected: good_minimal.json should PASS
-          conftest test rules/gates/fixtures/good_minimal.json -p rules/gates/rego
-          
-          echo "Checking Bad Fixtures (Expect Failure)..."
-          # Verify bad fixtures fail (suppress exit code for demo, or verify logic)
-          # Here we just run them to ensure they are processed.
-          # In a real gate, we would run strict checks.
-          # For this task, we just ensure conftest runs.
-          
-          # We check one bad fixture and expect failure
-          if conftest test rules/gates/fixtures/bad_hc_missing_endpoint.json -p rules/gates/rego; then
-            echo "Error: bad_hc_missing_endpoint.json passed but should have failed!"
-            exit 1
-          else
-            echo "Success: bad_hc_missing_endpoint.json failed as expected."
-          fi
+          conftest test -p rules/gates/rego rules/gates/fixtures/*.json
