@@ -2,54 +2,155 @@ name: Gate Light
 
 on:
   workflow_dispatch:
-  push:
   pull_request:
-
-permissions:
-  contents: read
+  push:
 
 jobs:
   gate-light:
     name: gate-light
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    env:
+      ACTIONLINT_VERSION: "1.7.10"
+      GITLEAKS_VERSION: "8.18.4"
+      CONFTEST_VERSION: "0.57.0"
+
+      SCHEMA_PATH: "rules/gates/schema/envelope.schema.json"
+      POLICY_DIR: "rules/gates/rego"
+      FIX_DIR: "rules/gates/fixtures"
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install Conftest
+      # ---------- A) actionlint（工作流静态检查） ----------
+      - name: Install actionlint
         shell: bash
         run: |
           set -euo pipefail
-          VERSION="0.57.0"
-          curl -sSL "https://github.com/open-policy-agent/conftest/releases/download/v${VERSION}/conftest_${VERSION}_Linux_x86_64.tar.gz" -o conftest.tar.gz
+          curl -sSfL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash -o download-actionlint.bash
+          bash download-actionlint.bash "${ACTIONLINT_VERSION}"
+          sudo mv actionlint /usr/local/bin/actionlint
+          actionlint -version
+
+      - name: actionlint
+        shell: bash
+        run: |
+          set -euo pipefail
+          actionlint
+
+      # ---------- B) gitleaks（密钥泄漏扫描） ----------
+      - name: Install gitleaks
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o gitleaks.tar.gz
+          tar -xzf gitleaks.tar.gz gitleaks
+          sudo mv gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: gitleaks
+        shell: bash
+        run: |
+          set -euo pipefail
+          # 只扫工作区文件（不扫 git 历史），避免 PR 上重复/耗时
+          gitleaks detect --no-git --source . --redact
+
+      # ---------- C) Schema（结构校验 fixtures） ----------
+      - name: Schema validate fixtures
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ ! -f "${SCHEMA_PATH}" ]; then
+            echo "::error::Missing schema: ${SCHEMA_PATH}"
+            exit 1
+          fi
+          if [ ! -d "${FIX_DIR}" ]; then
+            echo "::error::Missing fixtures dir: ${FIX_DIR}"
+            exit 1
+          fi
+
+          python -m pip install --upgrade pip
+          python -m pip install jsonschema==4.23.0
+
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          schema_path = Path("rules/gates/schema/envelope.schema.json")
+          fix_dir = Path("rules/gates/fixtures")
+
+          fixtures = sorted(fix_dir.glob("*.json"))
+          if not fixtures:
+            print("::error::No fixtures found under rules/gates/fixtures/*.json")
+            sys.exit(1)
+
+          schema = json.loads(schema_path.read_text(encoding="utf-8"))
+          v = Draft202012Validator(schema)
+
+          ok = True
+          for fx in fixtures:
+            try:
+              data = json.loads(fx.read_text(encoding="utf-8"))
+            except Exception as e:
+              ok = False
+              print(f"::error file={fx}::Invalid JSON: {e}")
+              continue
+
+            errs = sorted(v.iter_errors(data), key=lambda e: list(e.path))
+            if errs:
+              ok = False
+              print(f"::error file={fx}::Schema validation failed ({len(errs)} error(s))")
+              for e in errs[:20]:
+                loc = "/".join(map(str, e.path))
+                print(f"  - {loc}: {e.message}")
+
+          sys.exit(0 if ok else 1)
+          PY
+
+      # ---------- D) Conftest（Rego 策略） ----------
+      - name: Install conftest
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSfL "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" -o conftest.tar.gz
           tar -xzf conftest.tar.gz conftest
           sudo mv conftest /usr/local/bin/conftest
           conftest --version
 
-      - name: Run Gate Light (Fixtures)
+      - name: Conftest (good fixtures must PASS)
         shell: bash
         run: |
           set -euo pipefail
-          shopt -s nullglob
+          if ! ls "${FIX_DIR}"/good_*.json >/dev/null 2>&1; then
+            echo "::error::No good_*.json fixtures found under ${FIX_DIR}"
+            exit 1
+          fi
+          conftest test -p "${POLICY_DIR}" "${FIX_DIR}"/good_*.json
 
-          POLICY_DIR="rules/gates/rego"
-          FIX_DIR="rules/gates/fixtures"
-
-          echo "Good fixture must PASS"
-          conftest test --all-namespaces "${FIX_DIR}/good_minimal.json" -p "${POLICY_DIR}"
-
-          echo "Bad fixtures must FAIL (expected)"
-          bad_files=("${FIX_DIR}"/bad_*.json)
-          if [ ${#bad_files[@]} -eq 0 ]; then
-            echo "ERROR: no bad fixtures found"
+      - name: Conftest (bad fixtures must be DENIED, but job should PASS)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! ls "${FIX_DIR}"/bad_*.json >/dev/null 2>&1; then
+            echo "::error::No bad_*.json fixtures found under ${FIX_DIR}"
             exit 1
           fi
 
-          for f in "${bad_files[@]}"; do
-            if conftest test --all-namespaces "$f" -p "${POLICY_DIR}"; then
-              echo "ERROR: $f unexpectedly PASS"
-              exit 1
-            else
-              echo "OK: $f failed as expected"
-            fi
-          done
+          set +e
+          conftest test -p "${POLICY_DIR}" "${FIX_DIR}"/bad_*.json
+          rc=$?
+          set -e
+
+          if [ "$rc" -eq 0 ]; then
+            echo "::error::bad_*.json unexpectedly PASSED policy (should be denied)"
+            exit 1
+          fi
+
+          echo "::notice::bad fixtures were DENIED as expected"
