@@ -70,49 +70,20 @@ jobs:
 
       # d) Conftest（策略测试工具）：good 必须 PASS；bad 必须 DENY（但 job 总体 PASS）
       - name: Install Conftest
-        shell: bash
-        env:
-          CONFTEST_VERSION: "0.62.0"
+        uses: open-policy-agent/conftest-action@v2
+
+      - name: Run Conftest Policies (Good Fixtures)
         run: |
-          set -euo pipefail
-          ARCH="$(arch)"
-          SYSTEM="$(uname)"
+          conftest test --namespace gates -p rules/gates/rego rules/gates/fixtures/good_*.json
 
-          echo "Installing conftest v${CONFTEST_VERSION} for ${SYSTEM}_${ARCH}..."
-          curl -fsSL -o conftest.tar.gz \
-            "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_${SYSTEM}_${ARCH}.tar.gz"
-
-          tar -xzf conftest.tar.gz conftest
-          sudo mv conftest /usr/local/bin/conftest
-          conftest --version
-
-      - name: Conftest policy (good fixtures must PASS)
-        shell: bash
+      - name: Run Conftest Policies (Bad Fixtures - Expected Deny)
         run: |
-          set -euo pipefail
-          ls -la rules/gates/rego
-          ls -la rules/gates/fixtures
-
-          if ! ls rules/gates/fixtures/good_*.json >/dev/null 2>&1; then
-            echo "::error::No good fixtures found (rules/gates/fixtures/good_*.json)"
-            exit 1
-          fi
-
-          conftest test -p rules/gates/rego rules/gates/fixtures/good_*.json
-
-      - name: Conftest policy (bad fixtures must be DENIED)
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if ! ls rules/gates/fixtures/bad_*.json >/dev/null 2>&1; then
-            echo "::error::No bad fixtures found (rules/gates/fixtures/bad_*.json)"
-            exit 1
-          fi
-
-          if conftest test -p rules/gates/rego rules/gates/fixtures/bad_*.json; then
-            echo "::error::Bad fixtures unexpectedly PASSED policy checks."
+          # We expect this command to fail (exit code 1) because of policy violations.
+          # If it succeeds (exit code 0), then our negative tests failed to catch the issue.
+          if conftest test --namespace gates -p rules/gates/rego rules/gates/fixtures/bad_*.json; then
+            echo "::error::Bad fixtures unexpectedly PASSED the policy check!"
             exit 1
           else
             echo "::notice::Bad fixtures were DENIED as expected."
+            exit 0
           fi
