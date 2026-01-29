@@ -1,6 +1,7 @@
 name: Gate Light
 
 on:
+  workflow_dispatch:
   push:
   pull_request:
 
