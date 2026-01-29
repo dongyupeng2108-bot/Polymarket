@@ -1,29 +1,29 @@
 package gates
 
 # Gate_HC_ENDPOINT
-deny[msg] {
+deny contains msg if {
     input.healthcheck.root != 200
     msg := "Gate_HC_ENDPOINT: healthcheck.root must be 200"
 }
 
-deny[msg] {
+deny contains msg if {
     input.healthcheck.pairs != 200
     msg := "Gate_HC_ENDPOINT: healthcheck.pairs must be 200"
 }
 
 # Gate_INDEX_REPRODUCIBLE
-deny[msg] {
+deny contains msg if {
     # Check for healthcheck files
     not has_file_pattern(input.index_files, "reports/healthcheck_root.txt")
     msg := "Gate_INDEX_REPRODUCIBLE: Missing reports/healthcheck_root.txt in index"
 }
 
-deny[msg] {
+deny contains msg if {
     not has_file_pattern(input.index_files, "reports/healthcheck_pairs.txt")
     msg := "Gate_INDEX_REPRODUCIBLE: Missing reports/healthcheck_pairs.txt in index"
 }
 
-deny[msg] {
+deny contains msg if {
     # Check for report_file if specified in envelope
     input.report_file
     not has_file_exact(input.index_files, input.report_file)
@@ -31,31 +31,31 @@ deny[msg] {
 }
 
 # Check size > 0 and SHA format for ALL files
-deny[msg] {
+deny contains msg if {
     file := input.index_files[_]
     file.size <= 0
     msg := sprintf("Gate_INDEX_REPRODUCIBLE: File '%v' has size <= 0", [file.path])
 }
 
-deny[msg] {
+deny contains msg if {
     file := input.index_files[_]
     not regex.match("^[0-9a-f]{8}$", file.sha256_short)
     msg := sprintf("Gate_INDEX_REPRODUCIBLE: File '%v' has invalid SHA '%v' (must be 8 hex)", [file.path, file.sha256_short])
 }
 
 # Gate_NO_EXTERNAL_EVIDENCE
-deny[msg] {
+deny contains msg if {
     count(input.forbidden_phrases_hit) > 0
     msg := sprintf("Gate_NO_EXTERNAL_EVIDENCE: Found forbidden phrases: %v", [input.forbidden_phrases_hit])
 }
 
-# Helpers
-has_file_pattern(files, pattern) {
+# Helpers (Rego v1 syntax)
+has_file_pattern(files, pattern) if {
     file := files[_]
     contains(file.path, pattern)
 }
 
-has_file_exact(files, path_str) {
+has_file_exact(files, path_str) if {
     file := files[_]
     file.path == path_str
 }
