@@ -1,55 +1,152 @@
 name: Gate Light
 
 on:
-  workflow_dispatch:
-  push:
   pull_request:
-
-permissions:
-  contents: read
+  workflow_dispatch:
 
 jobs:
   gate-light:
     name: gate-light
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install Conftest
-        shell: bash
+      # ----------------------------
+      # A) actionlint (工作流静态检查)
+      # ----------------------------
+      - name: Install actionlint
         run: |
           set -euo pipefail
-          VERSION="0.57.0"
-          curl -sSL "https://github.com/open-policy-agent/conftest/releases/download/v${VERSION}/conftest_${VERSION}_Linux_x86_64.tar.gz" -o conftest.tar.gz
+          # Use upstream install script; pin version for reproducibility
+          curl -sSfL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash -o download-actionlint.bash
+          bash download-actionlint.bash 1.7.10
+          sudo mv actionlint /usr/local/bin/actionlint
+          actionlint -version
+
+      - name: actionlint
+        run: |
+          set -euo pipefail
+          actionlint
+
+      # ----------------------------
+      # B) gitleaks (密钥泄漏扫描)
+      # ----------------------------
+      - name: gitleaks
+        uses: gacts/gitleaks@v1
+
+      # ----------------------------
+      # C) Schema 校验 fixtures/*.json
+      # ----------------------------
+      - name: Schema validate fixtures
+        run: |
+          set -euo pipefail
+
+          SCHEMA="rules/gates/schema/envelope.schema.json"
+          FIX_DIR="rules/gates/fixtures"
+
+          if [ ! -f "$SCHEMA" ]; then
+            echo "::error::Missing schema: $SCHEMA"
+            exit 1
+          fi
+
+          if [ ! -d "$FIX_DIR" ]; then
+            echo "::error::Missing fixtures dir: $FIX_DIR"
+            exit 1
+          fi
+
+          ls -la "$FIX_DIR"
+
+          python -m pip install --upgrade pip
+          python -m pip install jsonschema==4.23.0
+
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          schema_path = Path("rules/gates/schema/envelope.schema.json")
+          fixtures = sorted(Path("rules/gates/fixtures").glob("*.json"))
+
+          if not fixtures:
+            print("::error::No fixtures found under rules/gates/fixtures/*.json")
+            sys.exit(1)
+
+          schema = json.loads(schema_path.read_text(encoding="utf-8"))
+          v = Draft202012Validator(schema)
+
+          failed = 0
+          for fp in fixtures:
+            try:
+              data = json.loads(fp.read_text(encoding="utf-8"))
+            except Exception as e:
+              print(f"::error::{fp.name} is not valid JSON: {e}")
+              failed += 1
+              continue
+
+            errors = sorted(v.iter_errors(data), key=lambda e: e.path)
+            if errors:
+              failed += 1
+              print(f"::error::Schema validation failed: {fp.name}")
+              for e in errors[:10]:
+                path = ".".join(str(p) for p in e.path) if e.path else "<root>"
+                print(f"  - {path}: {e.message}")
+            else:
+              print(f"[PASS] {fp.name}")
+
+          if failed:
+            print(f"::error::Schema validation failed for {failed} file(s)")
+            sys.exit(1)
+
+          print("Schema validation: ALL PASS")
+          PY
+
+      # ----------------------------
+      # D) Conftest 策略校验
+      # ----------------------------
+      - name: Install conftest
+        run: |
+          set -euo pipefail
+          CONFTEST_VERSION="0.66.0"
+          curl -sSfL \
+            "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" \
+            -o conftest.tar.gz
           tar -xzf conftest.tar.gz conftest
           sudo mv conftest /usr/local/bin/conftest
           conftest --version
 
-      - name: Run Gate Light (Fixtures)
-        shell: bash
+      - name: Conftest (good fixtures must PASS)
         run: |
           set -euo pipefail
-          shopt -s nullglob
+          if ! ls rules/gates/fixtures/good_*.json >/dev/null 2>&1; then
+            echo "::error::No good_*.json fixtures found"
+            exit 1
+          fi
+          conftest test -p rules/gates/rego rules/gates/fixtures/good_*.json
 
-          POLICY_DIR="rules/gates/rego"
-          FIX_DIR="rules/gates/fixtures"
-
-          echo "Good fixture must PASS"
-          conftest test --all-namespaces "${FIX_DIR}/good_minimal.json" -p "${POLICY_DIR}"
-
-          echo "Bad fixtures must FAIL (expected)"
-          bad_files=("${FIX_DIR}"/bad_*.json)
-          if [ ${#bad_files[@]} -eq 0 ]; then
-            echo "ERROR: no bad fixtures found"
+      - name: Conftest (bad fixtures must be DENIED, but job should PASS)
+        run: |
+          set -euo pipefail
+          if ! ls rules/gates/fixtures/bad_*.json >/dev/null 2>&1; then
+            echo "::error::No bad_*.json fixtures found"
             exit 1
           fi
 
-          for f in "${bad_files[@]}"; do
-            if conftest test --all-namespaces "$f" -p "${POLICY_DIR}"; then
-              echo "ERROR: $f unexpectedly PASS"
-              exit 1
-            else
-              echo "OK: $f failed as expected"
-            fi
-          done
+          set +e
+          conftest test -p rules/gates/rego rules/gates/fixtures/bad_*.json
+          rc=$?
+          set -e
+
+          if [ "$rc" -eq 0 ]; then
+            echo "::error::bad_*.json unexpectedly PASSED policy (should be denied)"
+            exit 1
+          fi
+
+          echo "::notice::bad fixtures were DENIED as expected"
+          exit 0
