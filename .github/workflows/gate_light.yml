@@ -11,12 +11,12 @@ jobs:
   gate-light:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Run Gate Light Script (Structure, Syntax, Leaks)
         run: node scripts/gate_light.mjs
@@ -26,6 +26,7 @@ jobs:
           wget https://github.com/open-policy-agent/conftest/releases/download/v0.45.0/conftest_0.45.0_Linux_x86_64.tar.gz
           tar xzf conftest_0.45.0_Linux_x86_64.tar.gz
           sudo mv conftest /usr/local/bin
+          conftest --version
 
       - name: Run Gate Light (Fixtures)
         run: |
