@@ -62,7 +62,12 @@ jobs:
           sys.exit(0 if ok else 1)
           PY
 
-      # d) Conftest
+      # d) Dictionary Sync Check
+      - name: Dictionary Sync Check
+        run: |
+          node scripts/check_dictionary_update.mjs
+
+      # e) Conftest
       - name: Install Conftest
         run: |
           LATEST_VERSION=$(curl -s "https://api.github.com/repos/open-policy-agent/conftest/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
