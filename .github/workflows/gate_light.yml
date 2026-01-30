@@ -1,55 +1,88 @@
 name: Gate Light
 
-on:
-  workflow_dispatch:
-  push:
-  pull_request:
-
-permissions:
-  contents: read
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  gate-light:
+  gate-light-check:
     name: gate-light
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install Conftest
+      # a) actionlint (Workflow static check)
+      - name: Actionlint
+        uses: devops-actions/actionlint@e7ee33fbf5aa8c9f9ee1145137f3e52e25d6a35b # v0.1.3
+
+      # b) gitleaks
+      - name: Gitleaks
+        uses: gacts/gitleaks@v1
+
+      # c) Schema validation
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Schema validation (rules/gates/fixtures/*.json)
         shell: bash
         run: |
           set -euo pipefail
-          VERSION="0.57.0"
-          curl -sSL "https://github.com/open-policy-agent/conftest/releases/download/v${VERSION}/conftest_${VERSION}_Linux_x86_64.tar.gz" -o conftest.tar.gz
-          tar -xzf conftest.tar.gz conftest
-          sudo mv conftest /usr/local/bin/conftest
+          python -m pip install --disable-pip-version-check --no-cache-dir jsonschema
+
+          python - <<'PY'
+          import glob, json, sys
+          from pathlib import Path
+          import jsonschema
+
+          schema_path = Path("rules/gates/schema/envelope.schema.json")
+          if not schema_path.exists():
+              print(f"::error::Missing schema: {schema_path}")
+              sys.exit(1)
+
+          schema = json.loads(schema_path.read_text(encoding="utf-8"))
+          files = sorted(glob.glob("rules/gates/fixtures/*.json"))
+          if not files:
+              print("::error::No fixture json files found under rules/gates/fixtures/")
+              sys.exit(1)
+
+          ok = True
+          for fp in files:
+              try:
+                  data = json.loads(Path(fp).read_text(encoding="utf-8"))
+                  jsonschema.validate(instance=data, schema=schema)
+                  print(f"[PASS] {fp}")
+              except Exception as e:
+                  ok = False
+                  print(f"::error file={fp}::{e}")
+
+          sys.exit(0 if ok else 1)
+          PY
+
+      # d) Conftest
+      - name: Install Conftest
+        run: |
+          LATEST_VERSION=$(curl -s "https://api.github.com/repos/open-policy-agent/conftest/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
+          curl -LO "https://github.com/open-policy-agent/conftest/releases/download/v${LATEST_VERSION}/conftest_${LATEST_VERSION}_Linux_x86_64.tar.gz"
+          tar xzf "conftest_${LATEST_VERSION}_Linux_x86_64.tar.gz"
+          sudo mv conftest /usr/local/bin
           conftest --version
 
-      - name: Run Gate Light (Fixtures)
-        shell: bash
+      - name: Run Conftest Policies (Good Fixtures)
         run: |
-          set -euo pipefail
-          shopt -s nullglob
+          conftest test --namespace gates -p rules/gates/rego rules/gates/fixtures/good_*.json
 
-          POLICY_DIR="rules/gates/rego"
-          FIX_DIR="rules/gates/fixtures"
-
-          echo "Good fixture must PASS"
-          conftest test --all-namespaces "${FIX_DIR}/good_minimal.json" -p "${POLICY_DIR}"
-
-          echo "Bad fixtures must FAIL (expected)"
-          bad_files=("${FIX_DIR}"/bad_*.json)
-          if [ ${#bad_files[@]} -eq 0 ]; then
-            echo "ERROR: no bad fixtures found"
+      - name: Run Conftest Policies (Bad Fixtures - Expected Deny)
+        run: |
+          # We expect this command to fail (exit code 1) because of policy violations.
+          # If it succeeds (exit code 0), then our negative tests failed to catch the issue.
+          if conftest test --namespace gates -p rules/gates/rego rules/gates/fixtures/bad_*.json; then
+            echo "::error::Bad fixtures unexpectedly PASSED the policy check!"
             exit 1
+          else
+            echo "::notice::Bad fixtures were DENIED as expected."
+            exit 0
           fi
-
-          for f in "${bad_files[@]}"; do
-            if conftest test --all-namespaces "$f" -p "${POLICY_DIR}"; then
-              echo "ERROR: $f unexpectedly PASS"
-              exit 1
-            else
-              echo "OK: $f failed as expected"
-            fi
-          done

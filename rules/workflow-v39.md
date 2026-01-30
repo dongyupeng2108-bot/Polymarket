@@ -10,7 +10,8 @@
   - **禁用前缀**: `TraeTask`, `TraeTask_` (出现即判失败)。
   - **必备要素**: 含 `milestone: Mx` 和 `RUN:`，末行 sentinel。
 
-2. 自动化执行 (Strict Parser)
+2. 自动化执行 (Strict Parser & CI)
+- **Gate Light (CI)**: 所有 PR 必须通过 `gate-light` 工作流检查 (含 actionlint, gitleaks, schema, conftest)。
 - **NoCode 仍需 RUN**: 即使是“证据补遗”任务，必须含 `RUN:` 块。可用 `CMD: echo "EVIDENCE_ONLY_NOOP"` 占位。
 - **Fail-fast**: 任意命令非 0 退出 -> FAILED。
 
