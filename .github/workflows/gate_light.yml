@@ -64,7 +64,12 @@ jobs:
 
       # d) Conftest
       - name: Install Conftest
-        uses: open-policy-agent/conftest-action@v2
+        run: |
+          LATEST_VERSION=$(curl -s "https://api.github.com/repos/open-policy-agent/conftest/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
+          curl -LO "https://github.com/open-policy-agent/conftest/releases/download/v${LATEST_VERSION}/conftest_${LATEST_VERSION}_Linux_x86_64.tar.gz"
+          tar xzf conftest_${LATEST_VERSION}_Linux_x86_64.tar.gz
+          sudo mv conftest /usr/local/bin
+          conftest --version
 
       - name: Run Conftest Policies (Good Fixtures)
         run: |
