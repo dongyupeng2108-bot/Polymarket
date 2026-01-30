@@ -9,6 +9,9 @@
   - **允许前缀**: 仅 `task_id:` (必须是首个非空行)。
   - **里程碑标签**: `milestone:` 行需追加中文提醒标签（如 `P0.1 计划治理分支(...)`）。
   - **必备要素**: 含 `milestone: Mx` 和 `RUN:`，末行 sentinel。
+- **分支策略 (Branch Strategy)**:
+  - **One-to-One**: 里程碑分支标签与 GitHub 分支一一对应。
+  - **Reuse**: 同一标签下多任务复用同一分支/PR，禁止随意新建分支。
 
 2. 自动化执行 (Strict Parser & CI)
 - **Gate Light (CI)**: 所有 PR 必须通过 `gate-light` 工作流检查 (含 actionlint, gitleaks, schema, conftest, dictionary-check)。
