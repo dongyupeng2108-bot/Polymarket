@@ -38,6 +38,17 @@ milestone: P0.1 计划治理分支(feat/plan-p0-governance)
   - [x] **Plan Restructure**: 重构里程碑结构，引入 P0 层级与 Open Branches 表。
   - [x] **Doc Governance**: 三大文档瘦身，建立 Glossary 与 Data Dictionary。
   - [x] **Gate Enforcement**: gate-light 新增字典同步检查。
+- **P0.2 质量补齐分支(plan-quality-gaps)**: 设计闸门 (Design Note)
+  - [ ] **Design Gate**: 任务模板新增 Design Note 字段（目标/改动/影响/风险/验收/回滚），并在 PLAN 说明必填场景。
+  - [ ] **DoD**: 新增条款可被执行且不冲突。
+- **P0.3 测试护栏分支(plan-test-matrix)**: 测试体系最小集
+  - [ ] **Test Matrix**: 定义“冒烟测试 1 条 + 回归最小集”的范围与触发规则。
+- **P0.4 发布回滚分支(plan-release-rollback)**: 环境与回滚手册
+  - [ ] **Rollback**: 明确 staging/prod 区分与回滚路径（Tag/Commit 操作口径）。
+- **P0.5 数据回放分支(plan-data-replay)**: 快照与可重放
+  - [ ] **Replayability**: 规定 Scan/Opportunity 最小快照落地要求及“可重放一致”验收口径。
+- **P0.6 安全权限分支(plan-security-boundary)**: 密钥与权限边界
+  - [ ] **Security**: 建立密钥清单、最小权限与日志脱敏规则。
 
 ### ✅ M0: 基础设施与自动化闭环 (Completed)
 - **M0.1 基础工作流**:
@@ -94,6 +105,11 @@ milestone: P0.1 计划治理分支(feat/plan-p0-governance)
 | milestone_branch_tag | milestone | last_task_id | last_update | status | last_summary | next_action |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 计划治理分支(feat/plan-p0-governance) | P0.1 | 070 | 2026-01-31 | DOING | Plan重构与字典治理中 | 完成脚本与提交 |
+| 质量补齐分支(feat/plan-quality-gaps) | P0.2 | 071 | 2026-01-31 | DOING | 写入薄弱环节Backlog | 提交PR |
+| 测试护栏分支(feat/plan-test-matrix) | P0.3 | - | - | TODO | - | - |
+| 发布回滚分支(feat/plan-release-rollback) | P0.4 | - | - | TODO | - | - |
+| 数据回放分支(feat/plan-data-replay) | P0.5 | - | - | TODO | - | - |
+| 安全权限分支(feat/plan-security-boundary) | P0.6 | - | - | TODO | - | - |
 | 门禁分支(feat/gates-unify-073) | M0.1 | 073 | 2026-01-30 | DOING | Gate-light 修复中 | 等待 PR 合并 |
 
 ---
