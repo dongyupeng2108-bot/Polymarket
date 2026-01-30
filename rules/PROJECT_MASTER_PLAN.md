@@ -107,3 +107,36 @@ milestone: M1.5
 - **Protocol**: 必须显式输出 `notify` 文件内容，禁止只给路径。
 - **Finalizer**: 禁止用 SELF_REF 伪造产物存在/内容；SELF_REF 仅允许作为 deliverables_index 的 sha256_short 特殊值，并且条目对应文件必须真实存在。
 - **Network**: Node.js fetch 在代理环境下必须特殊处理 localhost。
+
+---
+
+## 6. 每日进度日志 (Daily Progress Log)
+
+### 2026-01-30｜Gate Light（轻量门禁）PR 检查异常处理进度
+
+**背景**
+- **PR（拉取请求）**：Feat/gates unify 073 #6（从 feat/gates-unify-073 合并到 main）
+- **目标**：让 gate-light Required check（必需检查）稳定出结果并可合并
+
+**已发生问题与定位结论**
+1. **最初失败：Rego（策略）语法不兼容**
+   - **现象**：Conftest（策略测试工具）加载策略时报 rego_parse_error（要求 if / contains 关键字等）
+   - **结论**：OPA/Rego 版本语法要求更严格，旧写法不被接受
+2. **修语法后失败：bad fixtures（负例）意外通过**
+   - **现象**：日志显示 “Bad fixtures unexpectedly PASSED policy checks.”
+   - **结论**：负例用例没有触发 deny（拒绝）规则，或 Conftest（策略测试工具）命名空间/入口匹配有偏差（例如 --namespace gates 与策略包名/规则输出不一致）
+3. **最新异常：Required check 长时间卡 Expected**
+   - **现象**：PR 页面显示 gate-light 为 “Expected — Waiting for status to be reported” 持续 30+ 分钟
+   - **高概率根因候选**：
+     - 分支保护（branch protection｜分支保护）里要求的检查名 ≠ 实际 workflow/job 上报的检查名
+     - workflow 文件路径不在 .github/workflows/ 导致不触发
+     - 需要审批才能运行（例如来自 fork 或 bot 触发限制），未点批准
+     - workflow 未产生 run（运行记录）或被跳过
+
+**已做决策/约定**
+- 改动应提交到 feat/gates-unify-073 分支；push 后原 PR 会自动更新，无需重新开 PR
+- 优先走“最小修复”：先对齐检查名/触发链路，再处理策略逻辑细节
+
+**当前动作**
+- **已下发 Trae 排查任务**：TraeTask_M0_GateLight_260130_001
+- **目标**：确认 Actions（工作流）是否有 run、核对 workflow 路径、核对分支保护 Required checks 名称与实际 check 名称是否一致，并给出最小修复方案与老板需要点击的具体位置。
