@@ -1,0 +1,89 @@
+
+RESULT_JSON
+{
+  "task_id": "M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070",
+  "status": "DONE",
+  "summary": "Fixed Postflight gates (HC_EXCERPT, INDEX_COMPLETENESS, NO_EXTERNAL_EVIDENCE_WORDING). Updated documentation. Verified 067/068/069.",
+  "report_file": "reports/postflight/M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.json",
+  "artifacts": {
+    "run_log": "run_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.log",
+    "notify": "notify_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.txt",
+    "result_json": "result_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.json"
+  }
+}
+
+LOG_HEAD
+
+[Task 070] Starting Execution...
+[Step 1] Fix postflight_validate_envelope.mjs... DONE
+[Step 2] Fix documentation (workflow-v39.md)... DONE
+[Step 3] Generate Healthcheck Files...
+/ -> 200
+/pairs -> 200
+[Step 4] Run Self-Tests (v39)...
+PASS: Case_A_InvalidStatus
+PASS: Case_B_IndexMissingHashSize
+PASS: Case_C_HealthcheckSummaryMissing
+PASS: Case_D_FullEnvelopePass
+PASS: Case_E_LogHeadLazy
+PASS: Case_F_ResultJsonThin
+PASS: Case_H_ReportFileNotInIndex
+PASS: Case_I_ReportHashMismatch
+PASS: Case_J_Re...
+
+LOG_TAIL
+...ryMissing
+PASS: Case_D_FullEnvelopePass
+PASS: Case_E_LogHeadLazy
+PASS: Case_F_ResultJsonThin
+PASS: Case_H_ReportFileNotInIndex
+PASS: Case_I_ReportHashMismatch
+PASS: Case_J_ReportHashFormat
+PASS: Case_K_ForbiddenWording
+PASS: Case_L_BadHealthcheckExcerpt
+PASS: Case_M_IndexMissingKeyFiles
+PASS: Case_N_ZeroSizeOrBadSha
+[Step 5] Validate Historical Reports...
+Task 067: PASS
+Task 068: PASS
+Task 069: PASS
+[Step 6] Git Commit...
+Warning: Git repository not found. Skipping commit.
+[Task 070] Completed.
+
+
+INDEX
+{
+  "files": [
+    {
+      "name": "result_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.json",
+      "size": 734,
+      "sha256_short": "98d8dca1"
+    },
+    {
+      "name": "run_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.log",
+      "size": 826,
+      "sha256_short": "c31c344b"
+    },
+    {
+      "name": "notify_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.txt",
+      "size": 1566,
+      "sha256_short": "e126bb2c"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 42211,
+      "sha256_short": "41188da7"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 10,
+      "sha256_short": "f8ae89c2"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 15,
+      "sha256_short": "110ce58a"
+    }
+  ]
+}

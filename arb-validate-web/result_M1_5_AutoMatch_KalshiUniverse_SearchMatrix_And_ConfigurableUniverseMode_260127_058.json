@@ -1,0 +1,11 @@
+{
+  "task_id": "M1_5_AutoMatch_KalshiUniverse_SearchMatrix_And_ConfigurableUniverseMode_260127_058",
+  "milestone": "M1_5",
+  "status": "DONE",
+  "summary": "Implemented configurable Kalshi Universe strategies (public_all/search_keywords/prefix_filter) and Search Matrix probe. Confirmed Public Search is EFFECTIVE for crypto/politics keywords. Backend now provides actionable advice in debug fields (e.g., advising search_keywords mode when domain mismatch is detected).",
+  "debug": {
+    "kalshi_search_effective": true,
+    "advice_generated": true,
+    "matrix_conclusion": "SEARCH_EFFECTIVE"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "status": "DONE",
+  "error": null,
+  "data": {
+    "task_id": "M1_5_PairsMgmt_AutoMatch_Task035_Diag_ZeroScan_Reconnect_AllUnverified_260126_035",
+    "files_modified": [
+      "src/app/api/pairs/auto-match/stream/route.ts",
+      "scripts/verify_task_035.mjs"
+    ],
+    "verification": "verify_task_035.mjs passed",
+    "message": "Fixed SSE stream termination and ScanRun persistence. Verified that empty results now trigger proper termination instead of infinite reconnection loops."
+  }
+}

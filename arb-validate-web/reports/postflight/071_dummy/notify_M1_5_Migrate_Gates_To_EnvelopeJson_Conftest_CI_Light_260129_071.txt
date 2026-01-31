@@ -1,0 +1,15 @@
+RESULT_JSON:
+{
+  "status": "DONE"
+}
+
+LOG_HEAD:
+Start
+...
+
+LOG_TAIL:
+End
+
+INDEX:
+reports/healthcheck_root.txt 10 abcdef01
+reports/healthcheck_pairs.txt 15 abcdef02

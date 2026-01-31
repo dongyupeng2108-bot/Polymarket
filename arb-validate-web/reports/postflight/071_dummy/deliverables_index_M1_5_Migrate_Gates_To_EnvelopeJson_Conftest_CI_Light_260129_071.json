@@ -1,0 +1,7 @@
+{
+  "files": [
+    { "name": "reports/healthcheck_root.txt", "size": 10, "sha256_short": "abcdef01" },
+    { "name": "reports/healthcheck_pairs.txt", "size": 15, "sha256_short": "abcdef02" },
+    { "name": "reports/postflight/M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json", "size": 500, "sha256_short": "abcdef03" }
+  ]
+}

@@ -1,0 +1,2 @@
+[HealthCheck] / -> 200
+[HealthCheck] /pairs -> 200

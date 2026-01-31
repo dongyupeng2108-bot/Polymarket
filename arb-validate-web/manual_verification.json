@@ -1,0 +1,31 @@
+{
+  "verified_by": "Trae",
+  "timestamp": "2026-01-31T01:10:00Z",
+  "items": [
+    {
+      "check": "AutoMatch Scanned Count Fix",
+      "status": "PASS",
+      "notes": "Verified logic sets stats.scanned = pmEvents.length, ensuring count > 0 when pm_events_count > 0."
+    },
+    {
+      "check": "Kalshi Degraded Mode",
+      "status": "PASS",
+      "notes": "Verified DB fallback logic executes when khMarkets is empty. Correctly sets isDegraded=true and loads cached pairs."
+    },
+    {
+      "check": "Candidate Generation Fallback",
+      "status": "PASS",
+      "notes": "Verified low_confidence fallback logic. Adds candidates even with low score if degraded or low candidate count."
+    },
+    {
+      "check": "UI Reason Display",
+      "status": "PASS",
+      "notes": "Frontend code updated to display progress.reason in completion Alert and Copy Details."
+    },
+    {
+      "check": "Health Check",
+      "status": "PASS",
+      "notes": "Port 53121 is active. / and /pairs return 200 OK."
+    }
+  ]
+}

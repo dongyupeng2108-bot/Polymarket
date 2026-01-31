@@ -1,0 +1,51 @@
+{
+  "task_id": "M1_5_PairsMgmt_AutoMatch_Task038_KalshiFetch_HTTP400_DiagFix_UIStopReconnect_260126_038",
+  "version": "2.0",
+  "status": "DONE",
+  "started_at": "2026-01-26T12:51:24.054Z",
+  "ended_at": "2026-01-26T12:52:27.339Z",
+  "parser_mode": "strict",
+  "commands_total": 2,
+  "commands_executed": 2,
+  "retries": 0,
+  "acceptance_check": [
+    {
+      "item": "Log Found",
+      "pass": true,
+      "note": "existing_run_log"
+    },
+    {
+      "item": "Markers Detected",
+      "pass": true,
+      "note": "SMART_AGENT_HANDOVER_START, SMART_AGENT_RESULT_FOUND"
+    },
+    {
+      "item": "R2: Non-Zero Commands",
+      "pass": true
+    },
+    {
+      "item": "Manual Verification (Trae)",
+      "pass": true
+    },
+    {
+      "item": "Deliverables Index Present",
+      "pass": true
+    },
+    {
+      "item": "Deliverables Index References Exist",
+      "pass": true
+    }
+  ],
+  "markers_detected": [
+    "SMART_AGENT_HANDOVER_START",
+    "SMART_AGENT_RESULT_FOUND"
+  ],
+  "zip_disabled": true,
+  "zip_requested": "off",
+  "zip_generated": false,
+  "artifacts": {
+    "result_json": "result_M1_5_PairsMgmt_AutoMatch_Task038_KalshiFetch_HTTP400_DiagFix_UIStopReconnect_260126_038.json",
+    "notify_txt": "notify_M1_5_PairsMgmt_AutoMatch_Task038_KalshiFetch_HTTP400_DiagFix_UIStopReconnect_260126_038.txt",
+    "latest_json": "LATEST.json"
+  }
+}

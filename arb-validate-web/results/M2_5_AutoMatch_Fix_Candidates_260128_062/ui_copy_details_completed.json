@@ -1,0 +1,29 @@
+{
+  "request_id": "a5ecdbad",
+  "ts": 1769531996194,
+  "kalshi_endpoint": "/markets",
+  "kalshi_params_summary": {
+    "limit": 1000,
+    "status": "open",
+    "mve_filter": "exclude",
+    "pages_fetched": 5
+  },
+  "kh_prefix_counts_top10": {
+    "KXNCAAMBTOTAL": 393,
+    "KXNCAAMBSPREAD": 381,
+    "KXUSDJPYH": 300,
+    "KXEURUSDH": 300,
+    "KXNCAAWBGAME": 184,
+    "KXPGAMAKECUT": 141,
+    "KXPGATOP5": 141,
+    "KXPGATOP10": 141,
+    "KXPGATOP20": 141,
+    "KXPGATOUR": 141
+  },
+  "domain_mismatch_guess": {
+    "is_mismatch": false,
+    "ratio": 0.52,
+    "mve_filter": "exclude",
+    "reason": "Sports dominance: 52.0%"
+  }
+}

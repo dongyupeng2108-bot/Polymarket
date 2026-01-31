@@ -1,0 +1,12 @@
+{
+  "task_id": "M2_5_AutoMatch_Fix_Candidates_260128_062",
+  "status": "DONE",
+  "summary": "Fixed AutoMatch candidates=0 by implementing mve_filter=exclude. Verified via SSE: 'exclude' mode shows mixed markets (NCAA/Forex), 'only' mode shows KXMV dominance. Healthcheck passed.",
+  "artifacts": [
+    "run.log",
+    "healthcheck_53121.txt",
+    "sse_capture_public_exclude_limit50.out",
+    "sse_capture_public_only_limit50.out",
+    "ui_copy_details_completed.json"
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "pm_events_count": 50,
+  "kalshi_markets_count": 200,
+  "kalshi_pages_fetched": 0,
+  "last_cursor_present": false,
+  "proxy_effective": true,
+  "candidate_count": 0,
+  "samples": {
+    "pm": [
+      {
+        "id": "16167",
+        "slug": "microstrategy-sell-any-bitcoin-in-2025",
+        "title": "MicroStrategy sells any Bitcoin by ___ ?",
+        "normalized_key": "microstrategysellsanybitcoinby?"
+      },
+      {
+        "id": "16183",
+        "slug": "kraken-ipo-in-2025",
+        "title": "Kraken IPO by ___ ?",
+        "normalized_key": "krakenipoby?"
+      },
+      {
+        "id": "16263",
+        "slug": "macron-out-in-2025",
+        "title": "Macron out by...?",
+        "normalized_key": "macronoutby?"
+      }
+    ],
+    "kh": [
+      {
+        "ticker": "KXDOTA2GAME-26JAN28AURPIP-PIP",
+        "title": "Will Pipsqueak+4 win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+        "normalized_key": "willpipsqueak+4wintheauroravspipsqueak+4dota2match?"
+      },
+      {
+        "ticker": "KXDOTA2GAME-26JAN28AURPIP-AUR",
+        "title": "Will Aurora win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+        "normalized_key": "willaurorawintheauroravspipsqueak+4dota2match?"
+      },
+      {
+        "ticker": "KXCS2MAP-26JAN28G2PSSNUA-2-PSSNUA",
+        "title": "Will Passion UA win map 2 in the G2 vs. Passion UA match?",
+        "normalized_key": "willpassionuawinmap2intheg2vspassionuamatch?"
+      }
+    ]
+  },
+  "match_entry_check": {
+    "pm_1": {
+      "pm_title": "MicroStrategy sells any Bitcoin by ___ ?",
+      "pm_norm": "microstrategysellsanybitcoinby?",
+      "match_status": "NONE",
+      "kh_samples_norm": [
+        "willpipsqueak+4wintheauroravspipsqueak+4dota2match?",
+        "willaurorawintheauroravspipsqueak+4dota2match?",
+        "willpassionuawinmap2intheg2vspassionuamatch?"
+      ],
+      "diagnosis": "NO_MATCH"
+    },
+    "pm_2": {
+      "pm_title": "Kraken IPO by ___ ?",
+      "pm_norm": "krakenipoby?",
+      "match_status": "NONE",
+      "kh_samples_norm": [
+        "willpipsqueak+4wintheauroravspipsqueak+4dota2match?",
+        "willaurorawintheauroravspipsqueak+4dota2match?",
+        "willpassionuawinmap2intheg2vspassionuamatch?"
+      ],
+      "diagnosis": "NO_MATCH"
+    },
+    "pm_3": {
+      "pm_title": "Macron out by...?",
+      "pm_norm": "macronoutby?",
+      "match_status": "NONE",
+      "kh_samples_norm": [
+        "willpipsqueak+4wintheauroravspipsqueak+4dota2match?",
+        "willaurorawintheauroravspipsqueak+4dota2match?",
+        "willpassionuawinmap2intheg2vspassionuamatch?"
+      ],
+      "diagnosis": "NO_MATCH"
+    }
+  },
+  "kalshi_fetch": {
+    "base_url": "https://api.elections.kalshi.com/trade-api/v2",
+    "endpoint": "/markets",
+    "params_summary": {
+      "limit": 1000,
+      "status": "open",
+      "pages_fetched": 0
+    },
+    "auth_mode": "public",
+    "auth_present": false,
+    "universe_mode": "topic_aligned",
+    "search_matrix_summary": {
+      "election": 200,
+      "senate": 200,
+      "governor": 200,
+      "trump": 200,
+      "which": 200,
+      "launch": 200,
+      "russia": 200,
+      "best": 200,
+      "ukraine": 200,
+      "israel": 200,
+      "presidential": 200,
+      "league": 200,
+      "oscars": 200,
+      "champion": 200,
+      "token": 200,
+      "division": 200,
+      "leader": 200,
+      "nato": 200,
+      "capture": 200,
+      "next": 200
+    },
+    "keywords": [
+      "election",
+      "senate",
+      "governor",
+      "trump",
+      "which",
+      "launch",
+      "russia",
+      "best",
+      "ukraine",
+      "israel",
+      "presidential",
+      "league",
+      "oscars",
+      "champion",
+      "token",
+      "division",
+      "leader",
+      "nato",
+      "capture",
+      "next"
+    ]
+  },
+  "kh_prefix_counts_top10": {
+    "KXNBAMENTION": 30,
+    "KXCS2MAP": 24,
+    "KXNBASTL": 21,
+    "KXFOXNEWSMENTION": 16,
+    "KXSPOTIFYARTISTD": 15,
+    "KXNBABLK": 9,
+    "KXBUNDESLIGASPREAD": 8,
+    "KXATPCHALLENGERMATCH": 8,
+    "KXCS2TOTALMAPS": 6,
+    "KXBUNDESLIGATOTAL": 6
+  },
+  "pm_topic_hint_top10": {
+    "2025": 10,
+    "2026": 5,
+    "nfl": 5,
+    "year": 5,
+    "out": 4,
+    "trump": 4,
+    "election": 4,
+    "ukraine": 4,
+    "russia": 4,
+    "how": 3
+  },
+  "pm_keywords_used": [
+    "election",
+    "senate",
+    "governor",
+    "trump",
+    "which",
+    "launch",
+    "russia",
+    "best",
+    "ukraine",
+    "israel",
+    "presidential",
+    "league",
+    "oscars",
+    "champion",
+    "token",
+    "division",
+    "leader",
+    "nato",
+    "capture",
+    "next"
+  ],
+  "domain_mismatch_guess": {
+    "is_mismatch": false,
+    "confidence": 0.32,
+    "reason": "PM Keywords: [2025, 2026, nfl, year, out]. KH Prefixes: [KXNBAMENTION, KXCS2MAP, KXNBASTL]."
+  },
+  "universe_auto_switched": true,
+  "kh_title_samples_topN": [
+    "Will Pipsqueak+4 win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+    "Will Aurora win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+    "Will Passion UA win map 2 in the G2 vs. Passion UA match?",
+    "Will G2 win map 2 in the G2 vs. Passion UA match?",
+    "Will Liquid win map 2 in the NIP vs. Liquid match?",
+    "Will NIP win map 2 in the NIP vs. Liquid match?",
+    "Will over 2.5 maps be played in the NIP vs. Liquid CS2 match?",
+    "Will over 2.5 maps be played in the G2 vs. Passion UA CS2 match?",
+    "Will Passion UA win map 1 in the G2 vs. Passion UA match?",
+    "Will G2 win map 1 in the G2 vs. Passion UA match?"
+  ],
+  "from_mode": "auto",
+  "to_mode": "topic_aligned",
+  "advice": "Universe seems aligned or mismatch not detected. No action needed.",
+  "kalshi_fetch_trace": {
+    "universe_mode_effective": "topic_aligned",
+    "kalshi_endpoint": "/markets",
+    "kalshi_params_summary": {
+      "limit": 1000,
+      "status": "open",
+      "mode": "pagination",
+      "pages": 0,
+      "mve_filter": "exclude"
+    },
+    "kalshi_http_status": 200,
+    "kalshi_pages_fetched": 0,
+    "kalshi_markets_count": 200,
+    "kalshi_prefix_counts_top10": {
+      "KXNBAMENTION": 30,
+      "KXCS2MAP": 24,
+      "KXNBASTL": 21,
+      "KXFOXNEWSMENTION": 16,
+      "KXSPOTIFYARTISTD": 15,
+      "KXNBABLK": 9,
+      "KXBUNDESLIGASPREAD": 8,
+      "KXATPCHALLENGERMATCH": 8,
+      "KXCS2TOTALMAPS": 6,
+      "KXBUNDESLIGATOTAL": 6
+    },
+    "kalshi_title_samples_topN": [
+      "Will Pipsqueak+4 win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+      "Will Aurora win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+      "Will Passion UA win map 2 in the G2 vs. Passion UA match?",
+      "Will G2 win map 2 in the G2 vs. Passion UA match?",
+      "Will Liquid win map 2 in the NIP vs. Liquid match?",
+      "Will NIP win map 2 in the NIP vs. Liquid match?",
+      "Will over 2.5 maps be played in the NIP vs. Liquid CS2 match?",
+      "Will over 2.5 maps be played in the G2 vs. Passion UA CS2 match?",
+      "Will Passion UA win map 1 in the G2 vs. Passion UA match?",
+      "Will G2 win map 1 in the G2 vs. Passion UA match?"
+    ],
+    "trace_note": "endpoint uses standard pagination for public_all"
+  }
+}

@@ -1,0 +1,4 @@
+TS: 2026-01-27T19:44:24.276Z
+GET / -> 200 OK
+GET /pairs -> 200 OK
+Root Response Length: 70832

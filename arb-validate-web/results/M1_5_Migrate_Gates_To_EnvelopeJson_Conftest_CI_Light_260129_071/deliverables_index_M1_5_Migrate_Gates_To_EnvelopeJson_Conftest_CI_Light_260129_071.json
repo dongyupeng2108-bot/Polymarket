@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "results/M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071/run_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.log",
+      "size": 795,
+      "sha256_short": "fd15d5d2"
+    },
+    {
+      "path": "results/M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071/result_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json",
+      "size": 629,
+      "sha256_short": "40296be2"
+    },
+    {
+      "path": "reports/healthcheck_root.txt",
+      "size": 10,
+      "sha256_short": "f8ae89c2"
+    },
+    {
+      "path": "reports/healthcheck_pairs.txt",
+      "size": 15,
+      "sha256_short": "110ce58a"
+    },
+    {
+      "path": "reports/envelopes/M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.envelope.json",
+      "size": 857,
+      "sha256_short": "d6eed6e4"
+    },
+    {
+      "path": "rules/gates/rego/gate_light.rego",
+      "size": 1725,
+      "sha256_short": "50fdabfd"
+    },
+    {
+      "path": ".github/workflows/gate_light.yml",
+      "size": 2150,
+      "sha256_short": "0fb7ac66"
+    }
+  ]
+}

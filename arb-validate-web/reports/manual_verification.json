@@ -1,0 +1,26 @@
+{
+  "task_id": "M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061",
+  "timestamp": "2026-01-28T12:27:44.682Z",
+  "status": "GENERATED_BY_SCRIPT",
+  "items": [
+    {
+      "item": "Healthcheck",
+      "result": "PASSED (See run.log)",
+      "details": "Endpoint / and /pairs responded 200 OK"
+    },
+    {
+      "item": "SSE Stream Capture",
+      "result": "PASSED",
+      "outcome": "COMPLETE",
+      "path": "reports/sse_capture_limit1000.out",
+      "duration_ms": 139207,
+      "bytes": 117273
+    },
+    {
+      "item": "Candidate Count",
+      "before": 0,
+      "after": 0,
+      "note": "Extracted from SSE debug stream"
+    }
+  ]
+}

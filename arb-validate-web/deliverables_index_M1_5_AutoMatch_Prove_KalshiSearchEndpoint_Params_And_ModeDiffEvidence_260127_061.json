@@ -1,0 +1,53 @@
+{
+  "task_id": "M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061",
+  "files": [
+    {
+      "filename": "src/app/api/pairs/auto-match/stream/route.ts",
+      "description": "Enhanced SSE stream route with debug.kalshi_fetch_trace and error handling fix",
+      "size": 44533,
+      "sha256_short": "BCA8ABA2"
+    },
+    {
+      "filename": "scripts/manual_capture_sse_autmatch.ts",
+      "description": "Enhanced capture script with trace parsing and evidence generation",
+      "size": 7561,
+      "sha256_short": "45AE8898"
+    },
+    {
+      "filename": "healthcheck_53121.txt",
+      "description": "Healthcheck verification evidence",
+      "size": 382,
+      "sha256_short": "4CE3A1ED"
+    },
+    {
+      "filename": "sse_capture_public_limit50_061.out",
+      "description": "SSE capture for public_all mode",
+      "size": 83766,
+      "sha256_short": "D0EA1AAA"
+    },
+    {
+      "filename": "sse_capture_search_limit50_061.out",
+      "description": "SSE capture for search_keywords mode",
+      "size": 68136,
+      "sha256_short": "5EEF504A"
+    },
+    {
+      "filename": "sse_capture_auto_limit50_061.out",
+      "description": "SSE capture for auto mode",
+      "size": 167056,
+      "sha256_short": "D7F3BEF9"
+    },
+    {
+      "filename": "kalshi_universe_mode_diff_061.json",
+      "description": "Evidence JSON proving endpoint/param diff between modes",
+      "size": 5051,
+      "sha256_short": "A6833295"
+    },
+    {
+      "filename": "run_M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061.log",
+      "description": "Execution log",
+      "size": 912,
+      "sha256_short": "812FD986"
+    }
+  ]
+}

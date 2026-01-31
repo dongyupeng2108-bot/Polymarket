@@ -1,0 +1,17 @@
+{
+  "task_id": "M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054",
+  "status": "success",
+  "outcome": {
+    "kalshi_probe": {
+      "dominance": "SPORTS-ONLY (87.2%)",
+      "auth_mode": "public",
+      "status": "VERIFIED"
+    },
+    "auto_match_logic": {
+      "mismatch_guard": "ACTIVE",
+      "threshold": 0.8,
+      "debug_fields": "kalshi_fetch, domain_mismatch_guess"
+    },
+    "site_health": "PASSED"
+  }
+}

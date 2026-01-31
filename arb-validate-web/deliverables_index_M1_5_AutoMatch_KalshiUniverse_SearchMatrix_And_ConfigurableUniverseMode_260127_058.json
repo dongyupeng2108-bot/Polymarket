@@ -1,0 +1,37 @@
+[
+  {
+    "path": "src/app/api/pairs/auto-match/stream/route.ts",
+    "size": 35913,
+    "sha256_short": "67790eb3"
+  },
+  {
+    "path": "scripts/manual_test_kalshi_search_matrix.ts",
+    "size": 5012,
+    "sha256_short": "be004ef4"
+  },
+  {
+    "path": "healthcheck_53121.txt",
+    "size": 372,
+    "sha256_short": "d1b5f485"
+  },
+  {
+    "path": "sse_capture_limit50.out",
+    "size": 57503,
+    "sha256_short": "87135434"
+  },
+  {
+    "path": "kalshi_search_matrix.out",
+    "size": 3546,
+    "sha256_short": "ab8181da"
+  },
+  {
+    "path": "result_M1_5_AutoMatch_KalshiUniverse_SearchMatrix_And_ConfigurableUniverseMode_260127_058.json",
+    "size": 603,
+    "sha256_short": "d2dcfc60"
+  },
+  {
+    "path": "run_M1_5_AutoMatch_KalshiUniverse_SearchMatrix_And_ConfigurableUniverseMode_260127_058.log",
+    "size": 89298,
+    "sha256_short": "8f53e45e"
+  }
+]

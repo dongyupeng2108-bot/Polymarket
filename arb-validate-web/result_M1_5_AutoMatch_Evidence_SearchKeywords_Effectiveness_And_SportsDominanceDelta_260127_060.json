@@ -1,0 +1,13 @@
+{
+  "task_id": "M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060",
+  "status": "DONE",
+  "summary": "Baseline Share: 100.0%. Search Share: 100.0%. Delta: 0.0%. Conclusion: INEFFECTIVE. Reason: Search keywords (incl. '2025', 'election') match Sports markets effectively.",
+  "artifacts": [
+    "healthcheck_53121.txt",
+    "sse_capture_public_limit50.out",
+    "sse_capture_search_limit50.out",
+    "sse_capture_auto_limit50.out",
+    "manual_verification.json",
+    "run_M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060.log"
+  ]
+}

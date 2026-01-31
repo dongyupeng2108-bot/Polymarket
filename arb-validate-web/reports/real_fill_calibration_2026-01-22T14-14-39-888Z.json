@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "timestamp": "2026-01-22T14:14:39.886Z",
+    "input": "reports/test_real_fills.csv"
+  },
+  "calibration": [
+    {
+      "bucket": "0.2-0.4",
+      "count": 2,
+      "avgPred": 0.25,
+      "avgActual": 0.5,
+      "bias": -0.25
+    },
+    {
+      "bucket": "0.4-0.6",
+      "count": 1,
+      "avgPred": 0.5,
+      "avgActual": 1,
+      "bias": -0.5
+    },
+    {
+      "bucket": "0.8-1",
+      "count": 2,
+      "avgPred": 0.85,
+      "avgActual": 0.5,
+      "bias": 0.35
+    }
+  ],
+  "ttf": {
+    "count": 3,
+    "p50_error": 1000,
+    "p90_error": 7000
+  },
+  "reasons": {
+    "TIMEOUT": 1,
+    "REJECTED": 1
+  }
+}

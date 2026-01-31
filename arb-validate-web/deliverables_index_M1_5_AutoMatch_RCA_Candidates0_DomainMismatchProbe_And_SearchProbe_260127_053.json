@@ -1,0 +1,26 @@
+{
+  "task_id": "M1_5_AutoMatch_RCA_Candidates0_DomainMismatchProbe_And_SearchProbe_260127_053",
+  "milestone": "M1.5",
+  "deliverables": [
+    {
+      "path": "src/app/api/pairs/auto-match/stream/route.ts",
+      "description": "Enhanced SSE stream with debug fields for domain mismatch analysis"
+    },
+    {
+      "path": "scripts/manual_test_kalshi_search_probe.ts",
+      "description": "Script to probe Kalshi API for keyword hits vs fetched universe"
+    },
+    {
+      "path": "sse_capture_limit50.out",
+      "description": "Evidence of SSE stream with new debug fields (kh_prefix_counts_top10, etc.)"
+    },
+    {
+      "path": "kalshi_search_probe.out",
+      "description": "Evidence of Kalshi search probe results showing domain mismatch (Sports results for Crypto/Pol keywords)"
+    },
+    {
+      "path": "healthcheck_53121.txt",
+      "description": "Healthcheck evidence for port 53121"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+RESULT_JSON
+{
+  "task_id": "M2_5_MarketTopByCategory_PM_Kalshi_Top10Tables_260128_065",
+  "status": "DONE",
+  "summary": "Generated Top 10 Tables by Category",
+  "categories_processed": 10,
+  "pm_total_rows": 0,
+  "kh_total_rows": 0
+}
+
+LOG_HEAD
+Step 1: Checking Health...
+Health Check: / -> 200 OK, /pairs -> 200 OK
+Step 2: Fetching Categories...
+
+LOG_TAIL
+[Politics] PM Top: None (undefined)
+[Politics] KH Top: None (undefined)
+[Sports] PM Top: None (undefined)
+[Sports] KH Top: None (undefined)
+[Crypto] PM Top: None (undefined)
+[Crypto] KH Top: None (undefined)
+[Finance] PM Top: None (undefined)
+[Finance] KH Top: None (undefined)
+[Geopolitics] PM Top: None (undefined)
+[Geopolitics] KH Top: None (undefined)
+[Earnings] PM Top: None (undefined)
+[Earnings] KH Top: None (undefined)
+[Tech] PM Top: None (undefined)
+[Tech] KH Top: None (undefined)
+[Culture] PM Top: None (undefined)
+[Culture] KH Top: None (undefined)
+[World] PM Top: None (undefined)
+[World] KH Top: None (undefined)
+[Economy] PM Top: None (undefined)
+[Economy] KH Top: None (undefined)
+
+INDEX
+{
+  "task_id": "M2_5_MarketTopByCategory_PM_Kalshi_Top10Tables_260128_065",
+  "files": [
+    {
+      "name": "reports/top_by_category_pm.json",
+      "size": 2,
+      "sha256_short": "4f53cda1"
+    },
+    {
+      "name": "reports/top_by_category_pm.csv",
+      "size": 0,
+      "sha256_short": "e3b0c442"
+    },
+    {
+      "name": "reports/top_by_category_kalshi.json",
+      "size": 2,
+      "sha256_short": "4f53cda1"
+    },
+    {
+      "name": "reports/top_by_category_kalshi.csv",
+      "size": 0,
+      "sha256_short": "e3b0c442"
+    },
+    {
+      "name": "reports/top_by_category_compare.csv",
+      "size": 0,
+      "sha256_short": "e3b0c442"
+    }
+  ]
+}
+
+REPORT_BODY
+Task M2_5_MarketTopByCategory_PM_Kalshi_Top10Tables_260128_065 Report
+
+Health Check:
+/ -> 200 OK
+/pairs -> 200 OK
+
+### Politics
+| Rank | Polymarket (politics) | Vol | Kalshi (POLITICS) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Sports
+| Rank | Polymarket (sports) | Vol | Kalshi (SPORTS) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Crypto
+| Rank | Polymarket (crypto) | Vol | Kalshi (CRYPTO) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Finance
+| Rank | Polymarket (business) | Vol | Kalshi (FINANCIALS) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Geopolitics
+| Rank | Polymarket (politics) | Vol | Kalshi (POLITICS) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Earnings
+| Rank | Polymarket (business) | Vol | Kalshi (ECONOMICS) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Tech
+| Rank | Polymarket (science) | Vol | Kalshi (TECHNOLOGY) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Culture
+| Rank | Polymarket (pop-culture) | Vol | Kalshi (CULTURE) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### World
+| Rank | Polymarket (world) | Vol | Kalshi (WORLD) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+
+### Economy
+| Rank | Polymarket (economy) | Vol | Kalshi (ECONOMICS) | Vol |
+|---|---|---|---|---|
+| 1 | EMPTY | 0 | EMPTY | 0 |
+| 2 | EMPTY | 0 | EMPTY | 0 |
+| 3 | EMPTY | 0 | EMPTY | 0 |
+| 4 | EMPTY | 0 | EMPTY | 0 |
+| 5 | EMPTY | 0 | EMPTY | 0 |
+| 6 | EMPTY | 0 | EMPTY | 0 |
+| 7 | EMPTY | 0 | EMPTY | 0 |
+| 8 | EMPTY | 0 | EMPTY | 0 |
+| 9 | EMPTY | 0 | EMPTY | 0 |
+| 10 | EMPTY | 0 | EMPTY | 0 |
+

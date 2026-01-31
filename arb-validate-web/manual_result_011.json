@@ -1,0 +1,12 @@
+{
+  "task_id": "M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011",
+  "status": "DONE",
+  "summary": "Completed Dashboard Fixes: 1) Backend: analytics.ts updated to create/track ScanRun records via api/scan/batch, fixing 'stuck' scan count. 2) Frontend: dashboard-client.tsx updated to poll every 2s, removed redundant 'Count > Threshold' line, and simplified 'Scan Count' subtitle. 3) API: route.ts headers added for no-store. 4) Verification: Script confirmed scan count increments (155->156) and last scan info updates correctly.",
+  "artifacts": [
+    "src/app/api/scan/batch/route.ts",
+    "src/app/dashboard-client.tsx",
+    "src/lib/i18n/zh.ts",
+    "src/lib/i18n/en.ts",
+    "src/app/api/dashboard/stats/route.ts"
+  ]
+}

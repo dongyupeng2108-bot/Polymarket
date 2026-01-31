@@ -1,0 +1,40 @@
+{
+  "task_id": "M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011",
+  "version": "2.0",
+  "status": "DONE",
+  "started_at": "2026-01-25T07:56:24.878Z",
+  "ended_at": "2026-01-25T07:56:24.880Z",
+  "parser_mode": "strict",
+  "commands_total": 0,
+  "commands_executed": 0,
+  "retries": 0,
+  "acceptance_check": [
+    {
+      "item": "Log Found",
+      "pass": true,
+      "note": "aggregated_stdio (run_step1.log)"
+    },
+    {
+      "item": "Markers Detected",
+      "pass": false,
+      "note": ""
+    },
+    {
+      "item": "Deliverables Index Present",
+      "pass": true
+    },
+    {
+      "item": "Deliverables Index References Exist",
+      "pass": true
+    }
+  ],
+  "markers_detected": [],
+  "zip_disabled": true,
+  "zip_requested": "auto",
+  "zip_generated": false,
+  "artifacts": {
+    "result_json": "result_M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011.json",
+    "notify_txt": "notify_M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011.txt",
+    "latest_json": "LATEST.json"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "task_id": "M2_5_MarketTopByCategory_PM_Kalshi_Top10Tables_260128_065",
+  "files": [
+    {
+      "name": "reports/top_by_category_pm.json",
+      "size": 2,
+      "sha256_short": "4f53cda1"
+    },
+    {
+      "name": "reports/top_by_category_pm.csv",
+      "size": 0,
+      "sha256_short": "e3b0c442"
+    },
+    {
+      "name": "reports/top_by_category_kalshi.json",
+      "size": 2,
+      "sha256_short": "4f53cda1"
+    },
+    {
+      "name": "reports/top_by_category_kalshi.csv",
+      "size": 0,
+      "sha256_short": "e3b0c442"
+    },
+    {
+      "name": "reports/top_by_category_compare.csv",
+      "size": 0,
+      "sha256_short": "e3b0c442"
+    }
+  ]
+}
