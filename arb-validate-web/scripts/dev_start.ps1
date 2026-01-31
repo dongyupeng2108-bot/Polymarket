@@ -32,10 +32,10 @@ if (Test-Path ".next") {
     Write-Host ".next does not exist. Skipping."
 }
 
-Write-Host "=== [Step 3] Start Server (No Turbopack) ===" -ForegroundColor Cyan
-Write-Host "Setting NEXT_DISABLE_TURBOPACK=1"
+Write-Host "=== [Step 3] Start Server (Force Webpack) ===" -ForegroundColor Cyan
+Write-Host "Setting NEXT_DISABLE_TURBOPACK=1 and using --webpack flag..."
 $env:NEXT_DISABLE_TURBOPACK="1"
 
 Write-Host "Running 'npm run dev'..."
-# 启动 npm run dev
-npm run dev
+# Use -- --webpack to pass the flag to the underlying next command
+npm run dev -- --webpack
