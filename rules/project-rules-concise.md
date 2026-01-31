@@ -14,7 +14,7 @@
 - 扫描过滤 (Opp): EDGE_LOW, NO_BOOK, STALE_SNAPSHOT, SIZE_LOW, RISK_REJECTED.
 
 ## 3. 技术栈
-- Core: Node.js (tsx), Next.js 16 (App), React 19, Tailwind v3 (STRICT v3; v4 PROHIBITED), PostgreSQL (Prisma).
+- Core: Node.js v24 (LTS), Next.js 16 (App), React 19, Tailwind v3 (STRICT v3; v4 PROHIBITED), PostgreSQL (Prisma).
 - Automation: Playwright, Bridge (task_manager + sender).
 - Script: 全异步 I/O，必须有顶层 try/catch，错误退出码 1。
 

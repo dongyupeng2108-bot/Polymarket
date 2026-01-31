@@ -46,7 +46,7 @@
 
 ## 4. 工程规范 (Engineering Standards)
 > 详见 [WORKFLOW_v3_9.md](workflow-v39.md)
-- **技术栈**: Next.js 16, React 19, Tailwind v3 (STRICT v3; v4 PROHIBITED), Prisma, Playwright.
+- **技术栈**: Node.js v24 (LTS), Next.js 16, React 19, Tailwind v3 (STRICT v3; v4 PROHIBITED), Prisma, Playwright.
 - **原则**: 严格类型(Prisma), 异步I/O(try/catch), 表现层优先服务端组件。
 - **AI 协议**: 复杂任务必须遵循 Intent -> Analysis -> Plan -> Action 流程。
 - **回报锚点**: 禁止回贴改写版，必须贴 notify 原文；以 report_sha 作为验收锚点。
