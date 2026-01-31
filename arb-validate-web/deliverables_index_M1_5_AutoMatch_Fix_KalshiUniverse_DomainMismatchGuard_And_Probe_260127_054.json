@@ -1,0 +1,39 @@
+{
+  "task_id": "M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054",
+  "deliverables": [
+    {
+      "path": "src/app/api/pairs/auto-match/stream/route.ts",
+      "description": "Added debug.kalshi_fetch (auth_mode, base_url) and enhanced domain mismatch logic (80% threshold)."
+    },
+    {
+      "path": "scripts/manual_test_kalshi_universe_probe.ts",
+      "description": "Probe script to verify Kalshi universe dominance (fail-fast, auth obfuscation)."
+    },
+    {
+      "path": "healthcheck_53121.txt",
+      "description": "Site health verification (port 53121)."
+    },
+    {
+      "path": "kalshi_universe_probe.out",
+      "description": "Probe execution result showing SPORTS-ONLY universe."
+    },
+    {
+      "path": "sse_capture_limit50.out",
+      "description": "SSE capture verifying debug fields and mismatch logic."
+    },
+    {
+      "path": "result_M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054.json",
+      "description": "Final task result summary."
+    },
+    {
+      "path": "report_for_chatgpt.txt",
+      "description": "Human-readable task report."
+    }
+  ],
+  "verification": {
+    "site_health": "PASSED (port 53121)",
+    "probe_result": "SPORTS-ONLY (87.2% dominance)",
+    "mismatch_logic": "VERIFIED (is_mismatch=true in sse output)",
+    "auth_safety": "VERIFIED (auth_mode=public/auth, no full keys exposed)"
+  }
+}

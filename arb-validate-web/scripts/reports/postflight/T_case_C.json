@@ -1,0 +1,30 @@
+{
+  "task_id": "T_case_C",
+  "timestamp": "2026-01-27T10:39:11.669Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_T_case_C.json",
+      "notify": "notify_T_case_C.txt",
+      "log": "run_T_case_C.log",
+      "index": "deliverables_index_T_case_C.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 627,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 0,
+      "failures": []
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "src/app/api/pairs/auto-match/stream/route.ts": {
+    "size": 35065,
+    "sha256_short": "5c91bd85"
+  },
+  "src/app/pairs/pairs-client.tsx": {
+    "size": 35333,
+    "sha256_short": "7370e36e"
+  },
+  "manual_verification.json": {
+    "size": 1017,
+    "sha256_short": "fe3fac1f"
+  },
+  "ui_copy_details_automatch_req_sim_001.json": {
+    "size": 630,
+    "sha256_short": "347c8907"
+  },
+  "reports/healthcheck_root.txt": {
+    "size": 247,
+    "sha256_short": "d1d84fe6"
+  },
+  "reports/healthcheck_pairs.txt": {
+    "size": 183,
+    "sha256_short": "2dd0fb76"
+  },
+  "run_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.log": {
+    "size": 722,
+    "sha256_short": "9f2005ec"
+  },
+  "result_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.json": {
+    "size": 192,
+    "sha256_short": "05c3689d"
+  },
+  "scripts/postflight_validate_envelope.mjs": {
+    "size": 45481,
+    "sha256_short": "e3461799"
+  },
+  "src/scripts/verify_automatch_fix.ts": {
+    "size": 1737,
+    "sha256_short": "2fa05ef4"
+  },
+  "healthcheck_53121.txt": {
+    "size": 195,
+    "sha256_short": "2c5c4dce"
+  }
+}

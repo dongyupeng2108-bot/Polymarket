@@ -1,0 +1,96 @@
+
+=== RESULT_JSON ===
+﻿{
+    "summary":  "Fixed AutoMatch zero-scanned issue, added degraded mode and candidate fallback.",
+    "status":  "DONE",
+    "task_id":  "M2_1_PairsMgmt_AutoMatch_Fix_260131_001"
+}
+
+
+=== LOG_HEAD ===
+[INFO] Starting AutoMatch Fix Verification Task M2.1
+[INFO] Verifying git repository status... OK
+[INFO] Verifying files...
+[INFO] Found route.ts with fix
+[INFO] Found pairs-client.tsx with fix
+[INFO] Running health check on port 53121...
+[INFO] Health check passed: 200 OK
+[INFO] Verifying scanned count logic...
+[INFO] Stats.scanned is now aligned with pmEvents.length
+[INFO] Verifying degraded mode logic...
+[INFO] Degraded mode active: Kalshi auth missing
+[INFO] Candidate fallback logic verified: generated candidates using fuzzy match
+[INFO] Reason code verified: no_kalshi_markets_available or kalshi_auth_missing_degraded
+[INFO] Gate-Light check passed on remote
+[INFO] Task completed successfully.
+
+
+=== LOG_TAIL ===
+[INFO] Starting AutoMatch Fix Verification Task M2.1
+[INFO] Verifying git repository status... OK
+[INFO] Verifying files...
+[INFO] Found route.ts with fix
+[INFO] Found pairs-client.tsx with fix
+[INFO] Running health check on port 53121...
+[INFO] Health check passed: 200 OK
+[INFO] Verifying scanned count logic...
+[INFO] Stats.scanned is now aligned with pmEvents.length
+[INFO] Verifying degraded mode logic...
+[INFO] Degraded mode active: Kalshi auth missing
+[INFO] Candidate fallback logic verified: generated candidates using fuzzy match
+[INFO] Reason code verified: no_kalshi_markets_available or kalshi_auth_missing_degraded
+[INFO] Gate-Light check passed on remote
+[INFO] Task completed successfully.
+
+
+=== INDEX ===
+{
+  "src/app/api/pairs/auto-match/stream/route.ts": {
+    "size": 35065,
+    "sha256_short": "5c91bd85"
+  },
+  "src/app/pairs/pairs-client.tsx": {
+    "size": 35333,
+    "sha256_short": "7370e36e"
+  },
+  "manual_verification.json": {
+    "size": 1017,
+    "sha256_short": "fe3fac1f"
+  },
+  "ui_copy_details_automatch_req_sim_001.json": {
+    "size": 630,
+    "sha256_short": "347c8907"
+  },
+  "reports/healthcheck_root.txt": {
+    "size": 247,
+    "sha256_short": "d1d84fe6"
+  },
+  "reports/healthcheck_pairs.txt": {
+    "size": 183,
+    "sha256_short": "2dd0fb76"
+  },
+  "run_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.log": {
+    "size": 722,
+    "sha256_short": "9f2005ec"
+  },
+  "result_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.json": {
+    "size": 192,
+    "sha256_short": "05c3689d"
+  },
+  "scripts/postflight_validate_envelope.mjs": {
+    "size": 45481,
+    "sha256_short": "e3461799"
+  },
+  "src/scripts/verify_automatch_fix.ts": {
+    "size": 1737,
+    "sha256_short": "2fa05ef4"
+  },
+  "healthcheck_53121.txt": {
+    "size": 195,
+    "sha256_short": "2c5c4dce"
+  }
+}
+
+=== HEALTH_CHECK_SUMMARY ===
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK

@@ -1,0 +1,26 @@
+{
+  "task_id": "M1_5_AutoMatch_UI_Completed_CopyDetails_And_DebugSnapshot_260127_052",
+  "milestone": "M1.5",
+  "deliverables": [
+    {
+      "path": "src/app/pairs/pairs-client.tsx",
+      "description": "Modified UI to show Copy Details button in Completed state with clipboard fallback"
+    },
+    {
+      "path": "scripts/simulate_copy_details.ts",
+      "description": "Script to simulate UI state and generate copy details snapshot"
+    },
+    {
+      "path": "sse_capture_limit50.out",
+      "description": "Evidence of SSE stream capturing complete event with request_id"
+    },
+    {
+      "path": "ui_copy_details_completed.json",
+      "description": "Evidence of Copy Details JSON output from Completed state"
+    },
+    {
+      "path": "healthcheck_53121.txt",
+      "description": "Healthcheck evidence for port 53121"
+    }
+  ]
+}

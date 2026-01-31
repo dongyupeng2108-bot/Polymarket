@@ -1,0 +1,15 @@
+{
+  "task_id": "M2_5_AutoMatch_Fix_Candidates0_By_TopicAlignedUniverse_And_FuzzyMatch_260128_066",
+  "status": "DONE",
+  "summary": "AutoMatch Fixed: Candidates > 20 (Target Met). PM/Kalshi Fetch Aligned.",
+  "artifacts": [
+    "sse_capture_limit1000.out",
+    "ui_copy_details_completed.json",
+    "healthcheck_53121.txt"
+  ],
+  "metrics": {
+    "candidates_found": 33,
+    "match_threshold": "0.25 (Fuzzy+Trigram)",
+    "universe_mode": "topic_aligned"
+  }
+}

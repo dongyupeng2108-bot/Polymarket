@@ -1,0 +1,52 @@
+Trae Automation Workflow v2.0 (Strict Mode)
+=============================================
+
+1. Task File Format
+-------------------
+- Filename: TraeTask_*.txt (or .md)
+- Required Fields:
+  - TASK_ID: <string>
+  - RUN:
+    (Command Block)
+    本次任务发布完毕。 (Sentinel)
+  - STOP_CONDITIONS: <string>
+
+2. Strict Parsing Rules (extractRunCommands)
+--------------------------------------------
+- Only parses content between "RUN:" and "本次任务发布完毕。"
+- Valid Commands MUST start with:
+  - "CMD: " -> Executes the rest of the line
+  - "- "    -> Executes the rest of the line
+- All other lines (Chinese comments, empty lines, other prefixes) are STRICTLY IGNORED.
+- Missing RUN block or Sentinel => FAILED (INVALID_TASK_FORMAT).
+
+3. Execution & Heartbeat
+------------------------
+- Commands are executed sequentially.
+- Heartbeat Timeout: 20 minutes.
+  - If a command runs for >20 mins without stdout/stderr output, it is KILLED.
+  - The command is then RETRIED (up to 3 times).
+  - 30s wait between retries.
+- Overall Failure: If a command fails after 3 retries, the Task FAILED.
+
+4. Deliverables (No Git)
+------------------------
+- No git_diff_*.patch generated.
+- No ---DIFF_START--- in ChatGPT payload.
+- Bundle ZIP contains:
+  - Task File
+  - result_*.json
+  - notify_*.txt
+  - run_*.log
+  - deliverables_index_*.json
+
+5. Auto-Reconnect (回传)
+------------------------
+- upload.ps1 waits up to 10 minutes (300 retries * 2s) for ChatGPT to be READY.
+- If sending fails, task_manager retries the sender script 3 times (30s interval).
+
+6. File Locations
+-----------------
+- Input: E:\polymaket\Github\ChatGPT task\
+- Output: E:\polymaket\Github\traeback\results\<TASK_ID>\
+- Logs: E:\polymaket\Github\traeback\results\<TASK_ID>\run_<TASK_ID>.log

@@ -1,0 +1,32 @@
+{
+  "task_id": "T002",
+  "timestamp": "2026-01-26T20:39:57.680Z",
+  "valid": false,
+  "errors": [
+    {
+      "code": "POSTFLIGHT_MISSING_ARTIFACT",
+      "message": "Missing run log",
+      "expected": "run_T002.log"
+    }
+  ],
+  "checks": {
+    "artifacts": {
+      "result": "result_T002.json",
+      "notify": "notify_T002.txt",
+      "log": null,
+      "index": "deliverables_index_T002.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 0,
+      "failures": []
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "task_id": "M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061",
+  "status": "DONE",
+  "summary": "Verified Kalshi Search Endpoint wiring via evidence chain (Task 060 closure). Implemented 'debug.kalshi_fetch_trace' in SSE, updated capture script to parse it, and generated 'kalshi_universe_mode_diff_061.json'. Evidence confirms 'search_keywords' mode uses 'search_query' param (242 markets, 5 keywords) vs 'public_all' mode uses 'pagination' (5100+ markets). Also resolved 'Expected , got catch' syntax error in route.ts.",
+  "artifacts": {
+    "evidence_json": "kalshi_universe_mode_diff_061.json",
+    "captures": [
+      "sse_capture_public_limit50_061.out",
+      "sse_capture_search_limit50_061.out",
+      "sse_capture_auto_limit50_061.out"
+    ],
+    "healthcheck": "healthcheck_53121.txt",
+    "logs": "run_M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061.log"
+  },
+  "metrics": {
+    "modes_verified": 3,
+    "search_mode_markets": 242,
+    "public_mode_markets_est": 5100,
+    "auto_mode_switch": "confirmed_search_keywords"
+  }
+}

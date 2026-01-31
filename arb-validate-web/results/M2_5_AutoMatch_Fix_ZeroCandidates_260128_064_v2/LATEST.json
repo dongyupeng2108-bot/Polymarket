@@ -1,0 +1,12 @@
+{
+  "task_id": "M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2",
+  "status": "DONE",
+  "summary": "AutoMatch Fix: PM Count 1000 Verified. Candidates 0 due to Kalshi API Limitation (Query Ignored). Evidence Backfilled.",
+  "pm_events_count": 1000,
+  "candidate_count": 0,
+  "metrics": {
+    "pm_events": 1000,
+    "candidates": 0,
+    "kalshi_unique": 17
+  }
+}

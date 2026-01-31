@@ -1,0 +1,11 @@
+{
+  "task_id": "M1_5_PairsMgmt_AutoMatch_Fix_260131_001",
+  "status": "passed",
+  "checks": {
+    "artifacts_present": true,
+    "envelope_complete": true,
+    "log_size_ok": true,
+    "index_valid": true,
+    "self_ref_ok": true
+  }
+}

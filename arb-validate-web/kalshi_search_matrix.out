@@ -1,0 +1,138 @@
+{
+  "ts": "2026-01-27T13:23:24.627Z",
+  "baseline": {
+    "count": 50,
+    "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:43, KXMVENBASINGLEGAME:7"
+  },
+  "matrix": [
+    {
+      "keyword": "(BASELINE_ALL)",
+      "mode": "none",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:43, KXMVENBASINGLEGAME:7",
+      "status": "OK"
+    },
+    {
+      "keyword": "crypto",
+      "mode": "query",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:43, KXMVENBASINGLEGAME:7",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "crypto",
+      "mode": "search",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:42, KXMVENBASINGLEGAME:8",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "crypto",
+      "mode": "title",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:41, KXMVENBASINGLEGAME:9",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "bitcoin",
+      "mode": "query",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:41, KXMVENBASINGLEGAME:9",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "bitcoin",
+      "mode": "search",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:40, KXMVENBASINGLEGAME:10",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "bitcoin",
+      "mode": "title",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:41, KXMVENBASINGLEGAME:9",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "politics",
+      "mode": "query",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:41, KXMVENBASINGLEGAME:9",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "politics",
+      "mode": "search",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:41, KXMVENBASINGLEGAME:9",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "politics",
+      "mode": "title",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:39, KXMVENBASINGLEGAME:11",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "election",
+      "mode": "query",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:39, KXMVENBASINGLEGAME:11",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "election",
+      "mode": "search",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:37, KXMVENBASINGLEGAME:13",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "election",
+      "mode": "title",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:37, KXMVENBASINGLEGAME:13",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "nba",
+      "mode": "query",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:36, KXMVENBASINGLEGAME:14",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "nba",
+      "mode": "search",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:35, KXMVENBASINGLEGAME:15",
+      "status": "OK",
+      "http_status": 200
+    },
+    {
+      "keyword": "nba",
+      "mode": "title",
+      "count": 50,
+      "prefixes": "KXMVESPORTSMULTIGAMEEXTENDED:34, KXMVENBASINGLEGAME:16",
+      "status": "OK",
+      "http_status": 200
+    }
+  ],
+  "conclusion": "SEARCH_EFFECTIVE",
+  "advice": "Search params work. Ensure backend uses the working param names."
+}

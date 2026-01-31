@@ -1,0 +1,65 @@
+
+<<<RESULT_JSON>>>
+{
+  "task_id": "M1_5_AutoMatch_KalshiUniverse_SearchMatrix_And_ConfigurableUniverseMode_260127_058",
+  "milestone": "M1_5",
+  "status": "DONE",
+  "summary": "Implemented configurable Kalshi Universe strategies (public_all/search_keywords/prefix_filter) and Search Matrix probe. Confirmed Public Search is EFFECTIVE for crypto/politics keywords. Backend now provides actionable advice in debug fields (e.g., advising search_keywords mode when domain mismatch is detected).",
+  "debug": {
+    "kalshi_search_effective": true,
+    "advice_generated": true,
+    "matrix_conclusion": "SEARCH_EFFECTIVE"
+  }
+}
+<<<LOG_HEAD>>>
+[Matrix] Starting Kalshi Search Matrix Test...
+[Matrix] Keywords: crypto, bitcoin, politics, election, nba
+[Matrix] Modes: query, search, title
+[Matrix] Limit: 50
+
+[Baseline] Fetching Public All (no keywords)...
+[Baseline] Result: Count=50, Prefixes=[KXMVESPORTSMULTIGAMEEXTENDED:43, KXMVENBASINGLEGAME:7]
+<<<LOG_TAIL>>>
+[SSE CAPTURE TAIL]
+"kh_title_samples_topN":["yes Cooper Kupp,yes Kenneth Walker III,yes Sam Darnold: 2+,yes Sam Darnold: 175+,yes Kayshon Boutte: 2+,yes Stefon Diggs: 3+,yes Cooper Kupp: 1+,yes Jaxon Smith-Njigba: 5+,yes Rashid Shaheed: 10+,yes Kenneth Walker III: 60+,yes Seattle wins by over 6.5 points","yes Michael Porter Jr.: 2+,yes Michael Porter Jr.: 3+,yes Nic Claxton: 2+,yes Michael Porter Jr.: 20+,yes Nic Claxton: 10+,yes Michael Porter Jr.: 6+,yes Nic Claxton: 4+,yes Phoenix wins by over 8.5 Points","yes Cooper Kupp,yes Kenneth Walker III,yes Drake Maye: 225+,yes Sam Darnold: 200+,yes Rhamondre Stevenson: 10+,yes Seattle","yes Kenneth Walker III,yes Stefon Diggs: 3+,yes Drake Maye: 20+,yes Seattle wins by over 4.5 points","yes BUF Sabres,yes MIN Wild,yes DAL Stars,yes BOS Bruins,yes NJ Devils","yes Rhamondre Stevenson,yes Stefon Diggs,yes Cooper Kupp,no Seattle wins by over 4.5 points,yes Over 45.5 points scored,yes Seattle","yes Rhamondre Stevenson,yes Stefon Diggs,yes Cooper Kupp,no Seattle wins by over 4.5 points,yes Seattle","yes Michael Porter Jr.: 2+,yes Michael Porter Jr.: 2+,yes Nic Claxton: 2+,yes Michael Porter Jr.: 20+,yes Nic Claxton: 10+,yes Michael Porter Jr.: 7+,yesDrake Maye: 200+,yes Sam Darnold: 275+,yes Kenneth Walker III: 2+,yes Drake Maye: 20+,yes Seattle wins by over 5.5 points","yes Jaxon Smith-Njigba,yes Sam Darnold: 2+,yes Sam Darnold: 225+,yes Sam Darnold: 10+"]},"request_id":"813b443d","ts":1769520122940}
+
+[HealthCheck] / -> 200
+[HealthCheck] /pairs -> 200
+<<<INDEX>>>
+[
+  {
+    "path": "src/app/api/pairs/auto-match/stream/route.ts",
+    "size": 35913,
+    "sha256_short": "67790eb3"
+  },
+  {
+    "path": "scripts/manual_test_kalshi_search_matrix.ts",
+    "size": 5012,
+    "sha256_short": "be004ef4"
+  },
+  {
+    "path": "healthcheck_53121.txt",
+    "size": 372,
+    "sha256_short": "d1b5f485"
+  },
+  {
+    "path": "sse_capture_limit50.out",
+    "size": 57503,
+    "sha256_short": "87135434"
+  },
+  {
+    "path": "kalshi_search_matrix.out",
+    "size": 3546,
+    "sha256_short": "ab8181da"
+  },
+  {
+    "path": "result_M1_5_AutoMatch_KalshiUniverse_SearchMatrix_And_ConfigurableUniverseMode_260127_058.json",
+    "size": 603,
+    "sha256_short": "d2dcfc60"
+  },
+  {
+    "path": "run_M1_5_AutoMatch_KalshiUniverse_SearchMatrix_And_ConfigurableUniverseMode_260127_058.log",
+    "size": 89298,
+    "sha256_short": "8f53e45e"
+  }
+]

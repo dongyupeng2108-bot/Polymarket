@@ -1,0 +1,30 @@
+{
+  "task_id": "TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068",
+  "timestamp": "2026-01-28T19:00:07.224Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.json",
+      "notify": "notify_TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.txt",
+      "log": "run_TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.log",
+      "index": "deliverables_index_TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 606,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 10,
+      "failures": []
+    }
+  }
+}

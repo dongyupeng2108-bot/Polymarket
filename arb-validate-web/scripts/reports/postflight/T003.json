@@ -1,0 +1,35 @@
+{
+  "task_id": "T003",
+  "timestamp": "2026-01-26T20:39:57.778Z",
+  "valid": false,
+  "errors": [
+    {
+      "code": "POSTFLIGHT_LOG_PLACEHOLDER_OR_EMPTY",
+      "message": "Log too small (9 bytes < 100)"
+    }
+  ],
+  "checks": {
+    "artifacts": {
+      "result": "result_T003.json",
+      "notify": "notify_T003.txt",
+      "log": "run_T003.log",
+      "index": "deliverables_index_T003.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 9,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 0,
+      "failures": []
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "public_all": {
+    "universe_mode_effective": "public_all",
+    "kalshi_endpoint": "/markets",
+    "kalshi_params_summary": {
+      "limit": 1000,
+      "status": "open",
+      "mode": "pagination",
+      "pages": 5,
+      "mve_filter": "exclude"
+    },
+    "kalshi_http_status": 200,
+    "kalshi_pages_fetched": 5,
+    "kalshi_markets_count": 5000,
+    "kalshi_prefix_counts_top10": {
+      "KXUSDJPYH": 500,
+      "KXEURUSDH": 500,
+      "KXNCAAMBTOTAL": 394,
+      "KXNCAAMBSPREAD": 381,
+      "KXNCAAWBGAME": 184,
+      "KXPGAMAKECUT": 141,
+      "KXPGATOP5": 141,
+      "KXPGATOP10": 141,
+      "KXPGATOP20": 141,
+      "KXPGATOUR": 141
+    },
+    "kalshi_title_samples_topN": [
+      "Will Pipsqueak+4 win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+      "Will Aurora win the Aurora vs. Pipsqueak+4 Dota 2 match?",
+      "Will Passion UA win map 2 in the G2 vs. Passion UA match?",
+      "Will G2 win map 2 in the G2 vs. Passion UA match?",
+      "Will Liquid win map 2 in the NIP vs. Liquid match?",
+      "Will NIP win map 2 in the NIP vs. Liquid match?",
+      "Will over 2.5 maps be played in the NIP vs. Liquid CS2 match?",
+      "Will over 2.5 maps be played in the G2 vs. Passion UA CS2 match?",
+      "Will Passion UA win map 1 in the G2 vs. Passion UA match?",
+      "Will G2 win map 1 in the G2 vs. Passion UA match?"
+    ],
+    "trace_note": "endpoint uses standard pagination for public_all",
+    "captured_at": "2026-01-27T18:33:50.773Z"
+  },
+  "search_keywords": {
+    "universe_mode_effective": "search_keywords",
+    "kalshi_endpoint": "/markets",
+    "kalshi_params_summary": {
+      "limit": 200,
+      "status": "open",
+      "mode": "search_query",
+      "keywords_count": 3
+    },
+    "kalshi_http_status": 200,
+    "kalshi_pages_fetched": 0,
+    "kalshi_markets_count": 242,
+    "kalshi_prefix_counts_top10": {
+      "KXMVESPORTSMULTIGAMEEXTENDED": 242
+    },
+    "kalshi_title_samples_topN": [
+      "yes Phoenix,yes Los Angeles C,yes Oklahoma City,yes New York,yes Michigan St.,yes VCU,yes SJ Sharks",
+      "yes Kansas St.,yes Michigan,yes North Carolina St.",
+      "yes Jalen Brunson: 3+,yes Jalen Brunson: 25+,yes Karl-Anthony Towns: 15+,yes DeMar DeRozan: 15+,yes Josh Hart: 8+,yes OG Anunoby: 4+,yes New York wins by over 13.5 Points,yes Over 230.5 points scored",
+      "yes Rhamondre Stevenson: 10+,yes TreVeyon Henderson: 10+,yes Over 28.5 points scored,yes Seattle",
+      "yes Brooklyn,yes Denver,yes Utah,yes Philadelphia,yes New Orleans,yes New York",
+      "yes James Harden: 1+,yes Tyrese Maxey: 2+,yes Shai Gilgeous-Alexander: 1+,yes Jalen Brunson: 1+,yes Phoenix,yes Detroit,yes Los Angeles C,yes Philadelphia,yes Oklahoma City,yes Portland,yes New York,yes Michael Porter Jr.: 20+,yes Cade Cunningham: 15+,yes Ivica Zubac: 10+,yes James Harden: 15+,yes VJ Edgecombe: 10+,yes Trey Murphy III: 15+,yes Chet Holmgren: 10+,yes Karl-Anthony Towns: 15+,yes OG Anunoby: 10+,yes Domantas Sabonis: 10+,yes Russell Westbrook: 10+,yes Cade Cunningham: 2+,yes Trey Murphy III: 2+,yes Chet Holmgren: 6+,yes Karl-Anthony Towns: 8+,yes OG Anunoby: 2+",
+      "yes Brooklyn,yes Denver,yes Utah,yes Philadelphia,yes New York",
+      "yes Virginia Tech,yes Saint Louis,yes UIC,yes McNeese,yes Alabama,yes UConn,yes VCU,yes North Carolina St.,yes Akron,yes Virginia",
+      "yes Rhamondre Stevenson: 10+,yes Jaxon Smith-Njigba: 80+,yes TreVeyon Henderson: 10+,yes Over 28.5 points scored,yes Seattle",
+      "yes Phoenix wins by over 8.5 Points,yes Los Angeles C wins by over 7.5 Points,yes Philadelphia wins by over 9.5 Points,no Oklahoma City wins by over 14.5 Points,yes New York wins by over 7.5 Points"
+    ],
+    "trace_note": "endpoint uses query param for search_keywords mode",
+    "captured_at": "2026-01-27T15:41:48.520Z"
+  },
+  "auto": {
+    "universe_mode_effective": "auto",
+    "kalshi_endpoint": "/markets",
+    "kalshi_params_summary": {
+      "limit": 1000,
+      "status": "open",
+      "mode": "pagination",
+      "pages": 0,
+      "mve_filter": "exclude"
+    },
+    "kalshi_http_status": 200,
+    "kalshi_pages_fetched": 0,
+    "kalshi_markets_count": 0,
+    "kalshi_prefix_counts_top10": {},
+    "kalshi_title_samples_topN": [],
+    "trace_note": "endpoint uses standard pagination for public_all",
+    "captured_at": "2026-01-27T16:10:41.373Z"
+  },
+  "topic_aligned": {
+    "universe_mode_effective": "topic_aligned",
+    "kalshi_endpoint": "/markets",
+    "kalshi_params_summary": {
+      "limit": 1000,
+      "status": "open",
+      "mode": "pagination",
+      "pages": 0,
+      "mve_filter": "exclude"
+    },
+    "kalshi_http_status": 200,
+    "kalshi_pages_fetched": 0,
+    "kalshi_markets_count": 0,
+    "kalshi_prefix_counts_top10": {},
+    "kalshi_title_samples_topN": [],
+    "trace_note": "endpoint uses standard pagination for public_all",
+    "captured_at": "2026-01-28T00:07:48.055Z"
+  },
+  "undefined": {
+    "base_url": "",
+    "endpoint": "",
+    "params_summary": {
+      "mve_filter": "exclude"
+    },
+    "auth_mode": "unknown",
+    "auth_present": false,
+    "universe_mode": "topic_aligned",
+    "search_matrix_summary": {
+      "Politics": "100 events (filtered)",
+      "Economics": "100 events (filtered)",
+      "Financials": "100 events (filtered)",
+      "Crypto": "100 events (filtered)",
+      "Science and Technology": "100 events (filtered)",
+      "Entertainment": "100 events (filtered)"
+    },
+    "keywords": [
+      "trump",
+      "down",
+      "election",
+      "friday",
+      "military",
+      "israel",
+      "iran",
+      "ukraine",
+      "bitcoin",
+      "russia",
+      "biden",
+      "from",
+      "president",
+      "roaring",
+      "kitty",
+      "acquire",
+      "series",
+      "first",
+      "inflation",
+      "state"
+    ],
+    "captured_at": "2026-01-28T06:06:51.772Z"
+  }
+}

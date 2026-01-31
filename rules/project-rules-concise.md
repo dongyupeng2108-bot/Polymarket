@@ -14,7 +14,7 @@
 - 扫描过滤 (Opp): EDGE_LOW, NO_BOOK, STALE_SNAPSHOT, SIZE_LOW, RISK_REJECTED.
 
 ## 3. 技术栈
-- Core: Node.js (tsx), Next.js 16 (App), React 19, Tailwind v4, PostgreSQL (Prisma).
+- Core: Node.js v24 (LTS), Next.js 16 (App), React 19, Tailwind v3 (STRICT v3; v4 PROHIBITED), PostgreSQL (Prisma).
 - Automation: Playwright, Bridge (task_manager + sender).
 - Script: 全异步 I/O，必须有顶层 try/catch，错误退出码 1。
 
@@ -24,6 +24,7 @@
 - AI 协议: 复杂任务必须遵循：意图确认 -> 分析策略 -> 执行计划。
 - 模式锁定: "老板"开头(无任务) XOR `task_id:`开头(纯任务)。
   - **Task 模式硬规则**: 仅允许 `task_id:` 前缀。**严禁**使用 `TraeTask`/`TraeTask_` (出现即判失败)。
+- **交互安全**: 遇到 `(y/N)` 必须 Fail-Fast；DB 迁移禁止自动化弹窗 (需 Pre-flight Check + Non-interactive Exec)。
 
 ## 5. 开发哲学 (5S & 6A)
 ### 5S (代码卫生)
@@ -49,3 +50,12 @@
   - **Contract (v3.9)**: Status=DONE/FAILED; Index=size+hash; Notify=Healthcheck Summary(/ & /pairs 200).
 - **Port Standard**: arb-validate-web 必须使用端口 `53121`。
 - **Report Binding (v3.9)**: report_file in JSON must match INDEX & actual file SHA (8-char hex).
+
+## 7. Trae/Windows Environment Tips
+- **Curl Alias Trap**: In Trae PowerShell, `curl` is aliased to `Invoke-WebRequest`.
+  - **Problem**: Running `curl -I ...` without `-Uri` causes it to hang waiting for input.
+  - **Fix**: ALWAYS use `curl.exe` explicitly, or use the provided script: `scripts/healthcheck_53121.ps1`.
+  - **Do not chain**: Avoid `;` chaining for curl commands in the terminal; run them on separate lines.
+
+- **Tailwind v4 Crash**: On Windows + Next.js 16, Tailwind v4 (CSS-first) fails to scan paths correctly (3.6KB CSS) and throws PostCSS errors.
+  - **Rule**: MUST use Tailwind v3.4+ with `tailwind.config.js` and `postcss.config.js`. DO NOT UPGRADE to v4.

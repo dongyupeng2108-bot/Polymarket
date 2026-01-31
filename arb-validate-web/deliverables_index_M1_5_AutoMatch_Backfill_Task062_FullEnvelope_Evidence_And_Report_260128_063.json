@@ -1,0 +1,37 @@
+[
+  {
+    "path": "healthcheck_53121.txt",
+    "size": 46,
+    "sha256_short": "b889f7f0"
+  },
+  {
+    "path": "sse_capture_public_exclude_limit50_063.out",
+    "size": 38814,
+    "sha256_short": "9569c9a7"
+  },
+  {
+    "path": "sse_capture_public_only_limit50_063.out",
+    "size": 96335,
+    "sha256_short": "5298e5c4"
+  },
+  {
+    "path": "evidence_excerpt_exclude_063.txt",
+    "size": 8724,
+    "sha256_short": "98f00a2f"
+  },
+  {
+    "path": "evidence_excerpt_only_063.txt",
+    "size": 22884,
+    "sha256_short": "0535c85f"
+  },
+  {
+    "path": "report_for_chatgpt.txt",
+    "size": 2012,
+    "sha256_short": "15ff5b56"
+  },
+  {
+    "path": "deliverables_index_M1_5_AutoMatch_Backfill_Task062_FullEnvelope_Evidence_And_Report_260128_063.json",
+    "size": 536,
+    "sha256_short": "62653311"
+  }
+]

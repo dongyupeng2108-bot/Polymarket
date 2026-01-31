@@ -1,0 +1,30 @@
+{
+  "task_id": "064",
+  "timestamp": "2026-01-27T18:46:59.590Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_064.json",
+      "notify": "notify_064.txt",
+      "log": "run_064.log",
+      "index": "deliverables_index_064.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 2071,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 0,
+      "failures": []
+    }
+  }
+}

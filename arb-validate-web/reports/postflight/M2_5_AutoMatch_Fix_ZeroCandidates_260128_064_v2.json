@@ -1,0 +1,34 @@
+{
+  "task_id": "M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2",
+  "timestamp": "2026-01-27T19:44:36.518Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.json",
+      "notify": "notify_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.txt",
+      "log": "run_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.log",
+      "index": "deliverables_index_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 635,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 9,
+      "failures": []
+    },
+    "domain": {
+      "isArbWeb": true,
+      "healthcheckFound": true
+    }
+  }
+}

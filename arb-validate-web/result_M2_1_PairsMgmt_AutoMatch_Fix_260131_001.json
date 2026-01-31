@@ -1,0 +1,5 @@
+﻿{
+    "summary":  "Fixed AutoMatch zero-scanned issue, added degraded mode and candidate fallback.",
+    "status":  "DONE",
+    "task_id":  "M2_1_PairsMgmt_AutoMatch_Fix_260131_001"
+}

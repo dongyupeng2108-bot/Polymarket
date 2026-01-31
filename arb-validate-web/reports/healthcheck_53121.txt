@@ -1,0 +1,6 @@
+Healthcheck Report - 2026-01-31T02:53:46.304Z
+Target: http://localhost:53121
+
+GET / -> 200 OK
+GET /pairs -> 200 OK
+GET /api/pairs -> 405 Method Not Allowed (API)

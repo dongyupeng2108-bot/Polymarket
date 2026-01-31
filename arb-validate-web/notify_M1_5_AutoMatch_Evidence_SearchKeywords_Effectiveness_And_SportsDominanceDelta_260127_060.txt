@@ -1,0 +1,95 @@
+Task M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060 Completed.
+
+[RESULT_JSON]
+{
+  "task_id": "M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060",
+  "status": "DONE",
+  "summary": "Baseline Share: 100.0%. Search Share: 100.0%. Delta: 0.0%. Conclusion: INEFFECTIVE. Reason: Search keywords (incl. '2025', 'election') match Sports markets effectively.",
+  "artifacts": [
+    "healthcheck_53121.txt",
+    "sse_capture_public_limit50.out",
+    "sse_capture_search_limit50.out",
+    "sse_capture_auto_limit50.out",
+    "manual_verification.json",
+    "run_M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060.log"
+  ]
+}
+
+[LOG_HEAD]
+=== TASK EXECUTION LOG ===
+Task ID: M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060
+Timestamp: 2026-01-27T15:29:21.881Z
+
+--- Step 1: Healthcheck ---
+{
+  "timestamp": "2026-01-27T15:27:06.703Z",
+  "port": 53121,
+  "results": [
+    {
+      "path": "/",
+      "status": "PASS"
+    },
+    {
+      "path": "/pairs",
+      "status": "PASS"
+    }
+  ],
+  "overall_status": "PASSED"
+}
+...
+
+[LOG_TAIL]
+
+--- Step 3: Capture Search Keywords ---
+Request ID: 8d881aae
+Top 10 Prefixes: {
+  "KXMVESPORTSMULTIGAMEEXTENDED": 314
+}
+Share: 100.0%
+
+--- Step 4: Capture Auto ---
+Request ID: a4edc957
+Top 10 Prefixes: {
+  "KXMVESPORTSMULTIGAMEEXTENDED": 5051
+}
+
+--- Conclusion ---
+Baseline Share: 100.0%
+Search Share: 100.0%
+Delta: 0.0%
+Result: INEFFECTIVE
+
+
+[INDEX]
+{
+  "healthcheck_53121.txt": {
+    "size": 226,
+    "sha256_short": "95d8a13e"
+  },
+  "sse_capture_public_limit50.out": {
+    "size": 67095,
+    "sha256_short": "2c14d481"
+  },
+  "sse_capture_search_limit50.out": {
+    "size": 83889,
+    "sha256_short": "ca203e75"
+  },
+  "sse_capture_auto_limit50.out": {
+    "size": 104659,
+    "sha256_short": "c0b870f5"
+  },
+  "manual_verification.json": {
+    "size": 820,
+    "sha256_short": "7f3355b1"
+  },
+  "run_M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060.log": {
+    "size": 896,
+    "sha256_short": "17093400"
+  },
+  "deliverables_index_M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060.json": {
+    "size": 774,
+    "sha256_short": "b19d4751"
+  }
+}
+
+Healthcheck Summary:

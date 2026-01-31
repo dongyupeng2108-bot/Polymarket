@@ -1,0 +1,344 @@
+{
+  "files": [
+    {
+      "name": ".env",
+      "size": 441,
+      "sha256_short": "15e713e1"
+    },
+    {
+      "name": ".env.example",
+      "size": 595,
+      "sha256_short": "cb173b9f"
+    },
+    {
+      "name": ".gitignore",
+      "size": 503,
+      "sha256_short": "657f0106"
+    },
+    {
+      "name": "CHECKLIST.md",
+      "size": 1081,
+      "sha256_short": "b2f37dd2"
+    },
+    {
+      "name": "components.json",
+      "size": 451,
+      "sha256_short": "2cc1a820"
+    },
+    {
+      "name": "config_output.txt",
+      "size": 378,
+      "sha256_short": "381a4724"
+    },
+    {
+      "name": "config_verify_result.txt",
+      "size": 8,
+      "sha256_short": "911c15c2"
+    },
+    {
+      "name": "debug_check.ts",
+      "size": 1239,
+      "sha256_short": "35be334a"
+    },
+    {
+      "name": "debug_import.ts",
+      "size": 994,
+      "sha256_short": "03c23b7f"
+    },
+    {
+      "name": "debug_import_out.txt",
+      "size": 44,
+      "sha256_short": "3fee4f69"
+    },
+    {
+      "name": "debug_log.txt",
+      "size": 144,
+      "sha256_short": "f91d2986"
+    },
+    {
+      "name": "debug_output.txt",
+      "size": 34,
+      "sha256_short": "f1291256"
+    },
+    {
+      "name": "debug_output_seed.txt",
+      "size": 38,
+      "sha256_short": "252afa65"
+    },
+    {
+      "name": "deploy_scripts.js",
+      "size": 1201,
+      "sha256_short": "40f88452"
+    },
+    {
+      "name": "docker-compose.yml",
+      "size": 349,
+      "sha256_short": "4d0a5831"
+    },
+    {
+      "name": "eslint.config.mjs",
+      "size": 465,
+      "sha256_short": "870f1adc"
+    },
+    {
+      "name": "healthcheck_result.json",
+      "size": 294,
+      "sha256_short": "f5f79a25"
+    },
+    {
+      "name": "LATEST.json",
+      "size": 172,
+      "sha256_short": "5ba88ccc"
+    },
+    {
+      "name": "manual_result_011.json",
+      "size": 746,
+      "sha256_short": "f0ce8044"
+    },
+    {
+      "name": "manual_verification.json",
+      "size": 706,
+      "sha256_short": "7cf3abdf"
+    },
+    {
+      "name": "move_task.js",
+      "size": 592,
+      "sha256_short": "dc9e0e9d"
+    },
+    {
+      "name": "next-env.d.ts",
+      "size": 251,
+      "sha256_short": "7ad303e4"
+    },
+    {
+      "name": "next.config.ts",
+      "size": 133,
+      "sha256_short": "614bce25"
+    },
+    {
+      "name": "notify_M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011.txt",
+      "size": 152,
+      "sha256_short": "30485184"
+    },
+    {
+      "name": "package-lock.json",
+      "size": 131282,
+      "sha256_short": "3fd27633"
+    },
+    {
+      "name": "package.json",
+      "size": 2143,
+      "sha256_short": "940cd1dd"
+    },
+    {
+      "name": "playwright.config.ts",
+      "size": 575,
+      "sha256_short": "3f3b1e4a"
+    },
+    {
+      "name": "postcss.config.mjs",
+      "size": 93,
+      "sha256_short": "e9bba5be"
+    },
+    {
+      "name": "PROVE_KALSHI_REPORT.json",
+      "size": 1059,
+      "sha256_short": "e166637e"
+    },
+    {
+      "name": "README.md",
+      "size": 3760,
+      "sha256_short": "6c05efd4"
+    },
+    {
+      "name": "result.json",
+      "size": 487,
+      "sha256_short": "c0f233fa"
+    },
+    {
+      "name": "result_M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011.json",
+      "size": 1047,
+      "sha256_short": "e6204186"
+    },
+    {
+      "name": "result_M1_5_Pairs_Status_Binary_And_VerificationSettings_UI_260125_022.json",
+      "size": 1253,
+      "sha256_short": "6cb11083"
+    },
+    {
+      "name": "run_M0_Flow_v3_7_1_Guard_ZeroRunFalsePositive_And_RequireManualEvidence_260125_019.log",
+      "size": 211,
+      "sha256_short": "c49554f7"
+    },
+    {
+      "name": "run_M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011.log",
+      "size": 296,
+      "sha256_short": "af356532"
+    },
+    {
+      "name": "run_M1_5_Pairs_Status_Binary_And_VerificationSettings_UI_260125_022.log",
+      "size": 211,
+      "sha256_short": "c49554f7"
+    },
+    {
+      "name": "run_step1.log",
+      "size": 292,
+      "sha256_short": "3f331f2c"
+    },
+    {
+      "name": "run_step1_fast.log",
+      "size": 80,
+      "sha256_short": "6e340f90"
+    },
+    {
+      "name": "run_step2.log",
+      "size": 66,
+      "sha256_short": "72c9fd5b"
+    },
+    {
+      "name": "seed_output.txt",
+      "size": 38,
+      "sha256_short": "252afa65"
+    },
+    {
+      "name": "seed_output_2.txt",
+      "size": 8,
+      "sha256_short": "911c15c2"
+    },
+    {
+      "name": "seed_output_3.txt",
+      "size": 296,
+      "sha256_short": "cf508d4b"
+    },
+    {
+      "name": "seed_run.log",
+      "size": 298,
+      "sha256_short": "9a2c2085"
+    },
+    {
+      "name": "seed_run_v2.log",
+      "size": 220,
+      "sha256_short": "d4d5ee8f"
+    },
+    {
+      "name": "seed_run_v3.log",
+      "size": 292,
+      "sha256_short": "68d0a66e"
+    },
+    {
+      "name": "server.log",
+      "size": 1308,
+      "sha256_short": "878b2402"
+    },
+    {
+      "name": "start_service.bat",
+      "size": 1279,
+      "sha256_short": "aae04cc4"
+    },
+    {
+      "name": "start_service.ps1",
+      "size": 1646,
+      "sha256_short": "aefc517c"
+    },
+    {
+      "name": "start_shadow.bat",
+      "size": 817,
+      "sha256_short": "c3b4cf86"
+    },
+    {
+      "name": "Task_Automation_Flow_v3.1.md",
+      "size": 4556,
+      "sha256_short": "43dd93f7"
+    },
+    {
+      "name": "Task_Automation_Flow_v3.2.md",
+      "size": 6007,
+      "sha256_short": "3421a28e"
+    },
+    {
+      "name": "temp_finalize_task_v3.4.mjs",
+      "size": 8229,
+      "sha256_short": "c6be2c55"
+    },
+    {
+      "name": "temp_selftest_finalizer.mjs",
+      "size": 3113,
+      "sha256_short": "82bcff27"
+    },
+    {
+      "name": "temp_selftest_nozip.mjs",
+      "size": 7337,
+      "sha256_short": "a7a6580e"
+    },
+    {
+      "name": "temp_task.md",
+      "size": 4191,
+      "sha256_short": "49f64965"
+    },
+    {
+      "name": "temp_task_005.md",
+      "size": 319,
+      "sha256_short": "b2acd31c"
+    },
+    {
+      "name": "Trae_ChatGPT_Protocol_v3.md",
+      "size": 4246,
+      "sha256_short": "6dc21c12"
+    },
+    {
+      "name": "tsconfig.json",
+      "size": 670,
+      "sha256_short": "5c51df4c"
+    },
+    {
+      "name": "tsconfig.tsbuildinfo",
+      "size": 172220,
+      "sha256_short": "ca71413b"
+    },
+    {
+      "name": "verify-proxy-final.js",
+      "size": 1235,
+      "sha256_short": "6a2bb07f"
+    },
+    {
+      "name": "verify_fix_011.mjs",
+      "size": 2145,
+      "sha256_short": "9724c510"
+    },
+    {
+      "name": "verify_m1_output.txt",
+      "size": 70,
+      "sha256_short": "48b08e3d"
+    },
+    {
+      "name": "VERIFY_PROXY_FINAL_REPORT.json",
+      "size": 2372,
+      "sha256_short": "c9d5c8b8"
+    },
+    {
+      "name": "VERIFY_PROXY_POOL_REPORT.json",
+      "size": 768,
+      "sha256_short": "85aaa678"
+    },
+    {
+      "name": "workflow_v2.0.txt",
+      "size": 1770,
+      "sha256_short": "a5e3d463"
+    },
+    {
+      "name": "WORKFLOW_v3_7_STANDARD_CONCISE.md",
+      "size": 1391,
+      "sha256_short": "5f15f610"
+    },
+    {
+      "name": "write_test.js",
+      "size": 238,
+      "sha256_short": "9fc93827"
+    },
+    {
+      "name": "deliverables_index_M1_5_Pairs_Status_Binary_And_VerificationSettings_UI_260125_022.json",
+      "size": 0,
+      "sha256_short": "SELF_REF"
+    }
+  ]
+}

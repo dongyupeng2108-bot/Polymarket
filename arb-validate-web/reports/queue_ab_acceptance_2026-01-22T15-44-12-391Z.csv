@@ -1,0 +1,3 @@
+ts,pair_id,side,edge_raw,queueAhead,A_filled,A_ttf,A_reason,B_filled,B_ttf,B_reason,diff_filled,latency_ms
+2026-01-22T15:40:00.959Z,216,BUY_PM,-0.3939,129,false,2290,EDGE_LOW,false,1000,EDGE_LOW,0,835
+2026-01-22T15:40:00.961Z,217,BUY_PM,-0.6061,142,false,2420,EDGE_LOW,false,1000,EDGE_LOW,0,835

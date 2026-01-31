@@ -1,0 +1,11 @@
+{
+  "task_id": "M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071",
+  "status": "DONE",
+  "summary": "Implemented Light Gate with Envelope JSON, Rego Policies, and CI Workflow. Generated sample envelope.",
+  "report_file": "reports/postflight/M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json",
+  "artifacts": {
+    "run_log": "run_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.log",
+    "notify": "notify_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.txt",
+    "result_json": "result_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json"
+  }
+}

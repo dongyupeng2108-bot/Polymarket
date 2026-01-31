@@ -1,0 +1,2 @@
+pair_id,eventTicker,direction,price,qty,p_fill_est,ttf_p50,ttf_p90,queueAhead,timestamp,raw_edge,filled,ttf,slippage,reason
+213,KXJAPANCRA172SEATS,BUY_PM,0.999,10,0.1,5000,15000,321,2026-01-22T18:35:16.197Z,-0.7497,0,0,0,TIMEOUT

@@ -1,0 +1,30 @@
+{
+  "task_id": "M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054",
+  "timestamp": "2026-01-27T12:35:42.140Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054.json",
+      "notify": "notify_M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054.txt",
+      "log": "run_M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054.log",
+      "index": "deliverables_index_M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 7361,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 0,
+      "failures": []
+    }
+  }
+}

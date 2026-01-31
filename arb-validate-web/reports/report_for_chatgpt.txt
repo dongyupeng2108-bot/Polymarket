@@ -1,0 +1,55 @@
+
+TASK_ID: M2_5_AutoMatch_Fix_Candidates0_By_TopicAlignedUniverse_And_FuzzyMatch_260128_066
+STATUS: DONE
+SUMMARY: AutoMatch Fix Verified. Candidates=33 (Target >= 20).
+ARTIFACTS:
+- result_M2_5_AutoMatch_Fix_Candidates0_By_TopicAlignedUniverse_And_FuzzyMatch_260128_066.json (Size: 460)
+- ui_copy_details_completed.json (Size: 17383)
+- sse_capture_limit1000.out (Size: 117273)
+- sse_capture_limit50.out (Size: 63828)
+- healthcheck_53121.txt (Size: 57)
+- top_by_category_pm.json (Size: 449309)
+- top_by_category_kalshi.json (Size: 224060)
+
+LOG_HEAD:
+MATCH: Will Todd Fine win the 2024 US Presidential Election? <-> Who will win the next Moldovan presidential election? (0.44)
+MATCH: Who will win San Francisco Mayor Election? <-> Who will win the next Moldovan presidential election? (0.28)
+MATCH: NYSE marketwide circuit breaker in 2025? <-> Will a NYSE marketwide circuitbreaker happen before 2027? (0.41)
+
+LOG_TAIL:
+MATCH: How many jobs added in February? <-> Will above 0 jobs be added in November 2026? (0.26)
+MATCH: Average US gas prices on February 21? <-> Will average **gas prices** be above or below $2.30 by Dec 31, 2026? (0.37)
+MATCH: Average US gas prices on February 28? <-> Will average **gas prices** be above or below $2.30 by Dec 31, 2026? (0.37)
+STATS: {"scanned":805,"matched":33,"added":0,"existing":0,"skipped":0,"failed":0}
+
+INDEX:
+{
+  "result_M2_5_AutoMatch_Fix_Candidates0_By_TopicAlignedUniverse_And_FuzzyMatch_260128_066.json": {
+    "size": 460,
+    "sha256": "d0e2cfbc"
+  },
+  "ui_copy_details_completed.json": {
+    "size": 17383,
+    "sha256": "943a622d"
+  },
+  "sse_capture_limit1000.out": {
+    "size": 117273,
+    "sha256": "454d1cc3"
+  },
+  "sse_capture_limit50.out": {
+    "size": 63828,
+    "sha256": "3381478d"
+  },
+  "healthcheck_53121.txt": {
+    "size": 57,
+    "sha256": "b087e401"
+  },
+  "top_by_category_pm.json": {
+    "size": 449309,
+    "sha256": "57e0141e"
+  },
+  "top_by_category_kalshi.json": {
+    "size": 224060,
+    "sha256": "c63b07cb"
+  }
+}

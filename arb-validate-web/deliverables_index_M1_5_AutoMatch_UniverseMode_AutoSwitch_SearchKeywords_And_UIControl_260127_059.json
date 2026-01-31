@@ -1,0 +1,42 @@
+{
+  "src/app/api/pairs/auto-match/stream/route.ts": {
+    "size": 43254,
+    "sha256_short": "bc89ec22"
+  },
+  "src/app/pairs/pairs-client.tsx": {
+    "size": 32728,
+    "sha256_short": "9143b531"
+  },
+  "scripts/manual_capture_sse_autmatch.ts": {
+    "size": 6476,
+    "sha256_short": "15614c0f"
+  },
+  "scripts/manual_test_kalshi_search_matrix.ts": {
+    "size": 4917,
+    "sha256_short": "d091f7e9"
+  },
+  "scripts/simulate_copy_details.ts": {
+    "size": 3176,
+    "sha256_short": "b2c32042"
+  },
+  "kalshi_search_matrix.out": {
+    "size": 3546,
+    "sha256_short": "ab8181da"
+  },
+  "sse_capture_auto_limit50.out": {
+    "size": 100893,
+    "sha256_short": "8d83e419"
+  },
+  "ui_copy_details_completed.json": {
+    "size": 1255,
+    "sha256_short": "e85c76de"
+  },
+  "healthcheck_53121.txt": {
+    "size": 372,
+    "sha256_short": "d1b5f485"
+  },
+  "deliverables_index_M1_5_AutoMatch_UniverseMode_AutoSwitch_SearchKeywords_And_UIControl_260127_059.json": {
+    "size": 1013,
+    "sha256_short": "fd15565a"
+  }
+}
