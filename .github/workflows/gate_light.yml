@@ -91,3 +91,4 @@ jobs:
             echo "::notice::Bad fixtures were DENIED as expected."
             exit 0
           fi
+# Baseline check trigger
