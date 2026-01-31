@@ -83,8 +83,8 @@ jobs:
       - name: Resolve Policy Set Path
         run: |
           VERSION=$(cat rules/gates/policy_sets/gate_light/CURRENT)
-          echo "POLICY_DIR=rules/gates/policy_sets/gate_light/$VERSION/policy" >> $GITHUB_ENV
-          echo "FIXTURES_DIR=rules/gates/policy_sets/gate_light/$VERSION/fixtures" >> $GITHUB_ENV
+          echo "POLICY_DIR=rules/gates/policy_sets/gate_light/$VERSION/policy" >> "$GITHUB_ENV"
+          echo "FIXTURES_DIR=rules/gates/policy_sets/gate_light/$VERSION/fixtures" >> "$GITHUB_ENV"
 
       - name: Run Fixture Sanity Check
         run: |
