@@ -1,0 +1,13 @@
+{
+  "task_id": "M1_5_Test_BadHC_260129_002",
+  "milestone": "M1.5",
+  "status": "DONE",
+  "healthcheck": { "root": 500, "pairs": 200 },
+  "report_file": "reports/postflight/M1_5_Test_BadHC_260129_002.json",
+  "index_files": [
+    { "path": "reports/healthcheck_root.txt", "size": 10, "sha256_short": "abcdef01" },
+    { "path": "reports/healthcheck_pairs.txt", "size": 15, "sha256_short": "abcdef02" },
+    { "path": "reports/postflight/M1_5_Test_BadHC_260129_002.json", "size": 500, "sha256_short": "abcdef03" }
+  ],
+  "forbidden_phrases_hit": []
+}
