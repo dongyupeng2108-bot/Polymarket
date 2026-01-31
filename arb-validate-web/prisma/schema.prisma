@@ -60,6 +60,7 @@ model Pair {
   evaluations   Evaluation[]
   opportunities Opportunity[]
 
+  @@unique([pm_market_id, kh_ticker])
   @@map("pairs")
 }
 

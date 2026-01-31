@@ -637,27 +637,83 @@ export async function GET(request: Request) {
                     }
 
                     const best = topMatches[0];
-                    // Threshold: 0.25 (Lowered from 0.3 for fuzzy + trigram)
-                    if (best && best.score > 0.25) {
-                        stats.candidates++;
-                        
-                        const pair = {
-                            pm_id: pm.id,
-                            pm_title: pm.title,
-                            kh_ticker: best.market.ticker,
-                            kh_title: best.market.title,
-                            score: best.score.toFixed(2),
-                            reason: best.reason,
-                            category: best.market.category
-                        };
-                        
-                        send('candidate', pair);
-                        
-                        // Debug log first few matches
-                        if (stats.candidates <= 10) {
-                            debug.match_entry_check[`match_${stats.candidates}`] = pair;
-                        }
-                    } else if (best && (isDegraded || stats.candidates < 10) && best.score > 0.05) {
+                        // Threshold: 0.25 (Lowered from 0.3 for fuzzy + trigram)
+                        if (best && best.score > 0.25) {
+                            stats.candidates++;
+                            
+                            const HIGH_CONFIDENCE_THRESHOLD = 0.85;
+                            const isHighConfidence = best.score >= HIGH_CONFIDENCE_THRESHOLD;
+                            let isAdded = false;
+                            let isExisting = false;
+
+                            // Auto-Add Logic for High Confidence
+                            if (isHighConfidence) {
+                                try {
+                                    // Check existing
+                                    const existing = await prisma.pair.findFirst({
+                                        where: {
+                                            OR: [
+                                                { pm_market_id: pm.id },
+                                                { kh_ticker: best.market.ticker }
+                                            ]
+                                        }
+                                    });
+
+                                    if (existing) {
+                                        stats.skipped_existing++;
+                                        isExisting = true;
+                                    } else {
+                                        // Create new pair
+                                        await prisma.pair.create({
+                                            data: {
+                                                pm_market_id: pm.id,
+                                                title_pm: pm.title,
+                                                pm_market_slug: pm.slug || null, // Best effort
+                                                kh_ticker: best.market.ticker,
+                                                title_kh: best.market.title,
+                                                status: 'unverified',
+                                                confidence: parseFloat(best.score.toFixed(2)),
+                                                // Minimal fields required
+                                                pm_yes_token_id: null,
+                                                pm_no_token_id: null,
+                                                kh_yes_contract_id: best.market.ticker, // Often same as ticker
+                                                kh_no_contract_id: null,
+                                                // Required fields defaults
+                                                resolve_time_pm: new Date(),
+                                                resolve_time_kh: new Date(),
+                                                rules_pm: "",
+                                                rules_kh: ""
+                                            }
+                                        });
+                                        stats.added++;
+                                        isAdded = true;
+                                    }
+                                } catch (err) {
+                                    console.error("Auto-add failed", err);
+                                    stats.errors++;
+                                }
+                            }
+
+                            const pair = {
+                                pm_id: pm.id,
+                                pm_title: pm.title,
+                                kh_ticker: best.market.ticker,
+                                kh_title: best.market.title,
+                                score: best.score.toFixed(2),
+                                reason: best.reason,
+                                category: best.market.category,
+                                is_high_confidence: isHighConfidence,
+                                is_added: isAdded,
+                                is_existing: isExisting
+                            };
+                            
+                            send('candidate', pair);
+                            
+                            // Debug log first few matches
+                            if (stats.candidates <= 10) {
+                                debug.match_entry_check[`match_${stats.candidates}`] = pair;
+                            }
+                        } else if (best && (isDegraded || stats.candidates < 10) && best.score > 0.05) {
                          // FIX C: Fallback for low confidence or degraded mode
                          // Only if score is at least minimal (0.05) to avoid total garbage
                          stats.candidates++;
@@ -678,6 +734,7 @@ export async function GET(request: Request) {
                 // Explicitly set trace alias for v3.9 compliance
                 debug.kalshi_fetch_trace = debug.kalshi_fetch;
                 debug.kalshi_fetch.auth_present = !isDegraded; // approximate
+                debug.candidate_count = stats.candidates; // Sync candidate count
 
                 const finalReason = isDegraded 
                     ? (khMarkets.length > 0 ? 'kalshi_auth_missing_degraded' : 'no_kalshi_markets_available')

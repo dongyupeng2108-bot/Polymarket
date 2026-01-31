@@ -115,7 +115,7 @@ async function main() {
         resolve_time_kh: new Date('2026-02-01'),
         rules_pm: `Outcome: ${p.pm_outcome}`,
         rules_kh: `Contract: ${p.kh_sub}`,
-        status: 'draft', // User must verify or we must resolve IDs
+        status: 'unverified', // User must verify or we must resolve IDs
         tags: [...p.tags, 'manual-import'],
         confidence: 0.9
       }

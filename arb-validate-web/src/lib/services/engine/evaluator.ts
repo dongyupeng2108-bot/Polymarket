@@ -224,7 +224,7 @@ export async function evaluateOpportunity(snapshot: any, debugStats?: { pm: Fetc
   )) {
       await prisma.pair.update({
           where: { id: pair.id },
-          data: { status: 'ready', notes: `Downgraded by Evaluator: ${reason}` }
+          data: { status: 'unverified', notes: `Downgraded by Evaluator: ${reason}` }
       });
       console.log(`[Evaluator] Downgraded Pair #${pair.id} to READY due to ${reasonCode}`);
   }

@@ -20,7 +20,7 @@ async function main() {
   for (const p of pairs) {
     await prisma.pair.update({
       where: { id: p.id },
-      data: { status: 'rejected', notes: 'Disabled by user request (Not Binary / Multi-Outcome)' }
+      data: { status: 'unverified', notes: 'Disabled by user request (Not Binary / Multi-Outcome)' }
     });
     console.log(`Disabled Pair #${p.id}: ${p.title_pm}`);
   }

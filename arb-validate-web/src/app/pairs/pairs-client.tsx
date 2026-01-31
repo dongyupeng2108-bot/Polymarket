@@ -72,6 +72,9 @@ export default function PairsClient({ pairs }: { pairs: PairWithReason[] }) {
   const scanStatusRef = useRef(scanStatus);
   const expectedCloseRef = useRef(false);
   const [retryCount, setRetryCount] = useState(0);
+  
+    // Candidate List State
+    const [candidatesList, setCandidatesList] = useState<any[]>([]);
 
   // Keep ref in sync with state
   useEffect(() => {
@@ -121,8 +124,9 @@ export default function PairsClient({ pairs }: { pairs: PairWithReason[] }) {
         expectedCloseRef.current = false;
         setConnectionStatus('connecting');
         setRetryCount(0);
+        setCandidatesList([]); // Reset candidates
         setProgress({  
-            step: t('Initializing...'), 
+            step: t('Initializing...'),  
             scanned: 0, 
             candidates: 0, 
             matched: 0,
@@ -166,6 +170,17 @@ export default function PairsClient({ pairs }: { pairs: PairWithReason[] }) {
     es.addEventListener('progress', (e: any) => {
         const data = JSON.parse(e.data);
         setProgress(prev => ({ ...prev, ...data }));
+    });
+
+    es.addEventListener('candidate', (e: any) => {
+        const candidate = JSON.parse(e.data);
+        setCandidatesList(prev => {
+            // Limit to Top 20 to avoid UI heaviness
+            if (prev.length >= 20) return prev;
+            // Avoid duplicates in list if any
+            if (prev.some(c => c.pm_id === candidate.pm_id && c.kh_ticker === candidate.kh_ticker)) return prev;
+            return [...prev, candidate];
+        });
     });
     
     es.addEventListener('done', (e: any) => {
@@ -304,6 +319,78 @@ export default function PairsClient({ pairs }: { pairs: PairWithReason[] }) {
             }
         });
     };
+  };
+
+  const handleAddPair = async (candidate: any, index: number) => {
+    try {
+        // Optimistic update
+        setCandidatesList(prev => {
+            const newList = [...prev];
+            newList[index] = { ...newList[index], is_adding: true };
+            return newList;
+        });
+
+        const payload = {
+            pm_market_id: candidate.pm_id,
+            title_pm: candidate.pm_title,
+            pm_market_slug: null, // Not available in candidate event usually, unless added
+            kh_ticker: candidate.kh_ticker,
+            title_kh: candidate.kh_title,
+            status: 'unverified',
+            confidence: parseFloat(candidate.score),
+            pm_yes_token_id: null,
+            pm_no_token_id: null,
+            kh_yes_contract_id: candidate.kh_ticker,
+            kh_no_contract_id: null
+        };
+
+        const res = await fetch('/api/pairs', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+            const newPair = await res.json();
+            setCandidatesList(prev => {
+                const newList = [...prev];
+                newList[index] = { ...newList[index], is_adding: false, is_added: true };
+                return newList;
+            });
+            // Update progress stats
+            setProgress(prev => ({
+                ...prev,
+                added: prev.added + 1
+            }));
+        } else {
+            const err = await res.json();
+            // Check if it's existing
+            if (err.error && err.error.includes('Unique constraint')) {
+                 setCandidatesList(prev => {
+                    const newList = [...prev];
+                    newList[index] = { ...newList[index], is_adding: false, is_existing: true };
+                    return newList;
+                });
+                setProgress(prev => ({
+                    ...prev,
+                    existing: prev.existing + 1
+                }));
+            } else {
+                alert('Failed to add pair: ' + err.error);
+                setCandidatesList(prev => {
+                    const newList = [...prev];
+                    newList[index] = { ...newList[index], is_adding: false };
+                    return newList;
+                });
+            }
+        }
+    } catch (e) {
+        console.error(e);
+        setCandidatesList(prev => {
+            const newList = [...prev];
+            newList[index] = { ...newList[index], is_adding: false };
+            return newList;
+        });
+    }
   };
 
   const resetAutoMatch = () => {
@@ -478,7 +565,7 @@ export default function PairsClient({ pairs }: { pairs: PairWithReason[] }) {
 
                         {/* Filtered (Skipped) */}
                         <div className="bg-gray-50 p-3 rounded-lg text-center border border-gray-100" title={t('Skipped due to filtering (no binary market, no tokens, etc.)')}>
-                            <div className="text-2xl font-bold text-gray-600">{progress.skipped || progress.skipped_filtered}</div>
+                            <div className="text-2xl font-bold text-gray-600">{progress.skipped_filtered}</div>
                             <div className="text-xs text-gray-600 font-medium flex items-center justify-center gap-1">
                                 {t('Filtered')} <Info className="h-3 w-3" />
                             </div>
@@ -490,6 +577,53 @@ export default function PairsClient({ pairs }: { pairs: PairWithReason[] }) {
                             <div className="text-xs text-red-700 font-medium">{t('Errors')}</div>
                         </div>
                     </div>
+
+                    {/* Candidate List (Top 20) */}
+                    {candidatesList.length > 0 && (
+                      <div className="mt-4 border-t pt-4">
+                        <h4 className="text-sm font-medium mb-2">Candidates (Top {candidatesList.length})</h4>
+                        <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
+                          {candidatesList.map((c, i) => (
+                            <div key={`${c.pm_id}-${c.kh_ticker}`} className="text-xs border rounded p-2 bg-gray-50">
+                              <div className="flex justify-between items-start mb-1">
+                                <div className="font-medium text-blue-700 truncate w-2/3" title={c.pm_title}>
+                                  PM: {c.pm_title}
+                                </div>
+                                <div className="font-mono text-gray-500">{c.score}</div>
+                              </div>
+                              <div className="flex justify-between items-start mb-2">
+                                <div className="text-gray-600 truncate w-2/3" title={c.kh_title}>
+                                  KH: {c.kh_title} ({c.kh_ticker})
+                                </div>
+                                {c.is_low_confidence && (
+                                  <span className="bg-amber-100 text-amber-800 px-1 rounded text-[10px]">Low Conf</span>
+                                )}
+                              </div>
+                              
+                              <div className="flex justify-end">
+                                {c.is_added ? (
+                                  <span className="text-green-600 font-medium px-2 py-1 bg-green-50 rounded border border-green-100">
+                                    ✓ Added
+                                  </span>
+                                ) : c.is_existing ? (
+                                  <span className="text-amber-600 font-medium px-2 py-1 bg-amber-50 rounded border border-amber-100">
+                                    • Existing
+                                  </span>
+                                ) : (
+                                  <button
+                                    onClick={() => handleAddPair(c, i)}
+                                    disabled={c.is_adding}
+                                    className="px-2 py-1 bg-blue-50 text-blue-600 border border-blue-200 rounded hover:bg-blue-100 disabled:opacity-50"
+                                  >
+                                    {c.is_adding ? 'Adding...' : 'Add as Pair'}
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {progress.errors > 0 && (
                         <Alert variant="destructive">
@@ -567,6 +701,7 @@ export default function PairsClient({ pairs }: { pairs: PairWithReason[] }) {
                                             kalshi_pages_fetched: progress.debug?.kalshi_pages_fetched,
                                             pm_events_count: progress.debug?.pm_events_count,
                                             kalshi_markets_count: progress.debug?.kalshi_markets_count,
+                                            candidate_count: progress.debug?.candidate_count ?? progress.candidates,
                                             universe_mode: progress.debug?.universe_mode || universeMode,
                                             is_degraded: progress.debug?.is_degraded,
                                             ...progress.debug, // Include other debug fields

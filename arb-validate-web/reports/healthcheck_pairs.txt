@@ -1,8 +1,1 @@
-HTTP/1.1 200 OK
-Content-Type: application/json
-Date: Fri, 31 Jan 2026 00:00:00 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
-Content-Length: 1024
-
-{"status":"ok","pairs_count":50}
+/pairs -> 200 OK

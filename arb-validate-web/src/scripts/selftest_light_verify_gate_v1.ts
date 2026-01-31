@@ -20,7 +20,7 @@ async function main() {
             resolve_time_kh: new Date(),
             rules_pm: '',
             rules_kh: '',
-            status: 'ready'
+            status: 'unverified'
         }
     });
     const res1 = await lightVerifyGate(p1.id);

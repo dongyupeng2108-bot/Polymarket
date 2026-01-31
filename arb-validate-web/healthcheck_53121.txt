@@ -1,9 +1,2 @@
-HTTP/1.1 200 OK
-Date: Sat, 31 Jan 2026 01:06:31 GMT
-Connection: keep-alive
-X-Powered-By: Next.js
-
-HTTP/1.1 200 OK
-Date: Sat, 31 Jan 2026 01:06:32 GMT
-Connection: keep-alive
-X-Powered-By: Next.js
+/ -> 200 OK
+/pairs -> 200 OK

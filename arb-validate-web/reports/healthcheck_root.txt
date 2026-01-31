@@ -1,8 +1,1 @@
-HTTP/1.1 200 OK
-Content-Type: text/html; charset=utf-8
-Date: Fri, 31 Jan 2026 00:00:00 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
-Content-Length: 2048
-
-<!DOCTYPE html><html><head><title>Arb Validate Web</title></head><body>...</body></html>
+/ -> 200 OK

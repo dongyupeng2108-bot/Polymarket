@@ -1,96 +1,74 @@
-
-=== RESULT_JSON ===
-﻿{
-    "summary":  "Fixed AutoMatch zero-scanned issue, added degraded mode and candidate fallback.",
-    "status":  "DONE",
-    "task_id":  "M2_1_PairsMgmt_AutoMatch_Fix_260131_001"
+RESULT_JSON
+{
+  "status": "DONE",
+  "task_id": "M2_1_PairsMgmt_AddPair_FromAutoMatchCandidates_260131_076",
+  "summary": "Implemented auto-add for high-confidence pairs and manual add for candidates. Aligned stats and verified with scripts.",
+  "artifacts": [
+    "manual_verification.json",
+    "ui_copy_details_automatch_M2_1_076.json",
+    "healthcheck_53121.txt"
+  ]
 }
 
+LOG_HEAD
+[INFO] Starting verification...
+[INFO] Running: npx prisma db push
+[INFO] Database sync successful.
+[INFO] Running: npx tsx src/scripts/verify_automatch_add_pair.ts
+[INFO] Pair created successfully: 370
+[INFO] Verifying duplicate constraint...
 
-=== LOG_HEAD ===
-[INFO] Starting AutoMatch Fix Verification Task M2.1
-[INFO] Verifying git repository status... OK
-[INFO] Verifying files...
-[INFO] Found route.ts with fix
-[INFO] Found pairs-client.tsx with fix
-[INFO] Running health check on port 53121...
-[INFO] Health check passed: 200 OK
-[INFO] Verifying scanned count logic...
-[INFO] Stats.scanned is now aligned with pmEvents.length
-[INFO] Verifying degraded mode logic...
-[INFO] Degraded mode active: Kalshi auth missing
-[INFO] Candidate fallback logic verified: generated candidates using fuzzy match
-[INFO] Reason code verified: no_kalshi_markets_available or kalshi_auth_missing_degraded
-[INFO] Gate-Light check passed on remote
-[INFO] Task completed successfully.
+LOG_TAIL
+[INFO] Test passed and cleaned up.
+[INFO] Running: npx next lint
+[INFO] Lint passed.
+[INFO] Running: npx tsc --noEmit
+[INFO] Typecheck passed.
+[INFO] Generating healthchecks...
+[INFO] / -> 200 OK
+[INFO] /pairs -> 200 OK
+[INFO] Verification complete.
 
-
-=== LOG_TAIL ===
-[INFO] Starting AutoMatch Fix Verification Task M2.1
-[INFO] Verifying git repository status... OK
-[INFO] Verifying files...
-[INFO] Found route.ts with fix
-[INFO] Found pairs-client.tsx with fix
-[INFO] Running health check on port 53121...
-[INFO] Health check passed: 200 OK
-[INFO] Verifying scanned count logic...
-[INFO] Stats.scanned is now aligned with pmEvents.length
-[INFO] Verifying degraded mode logic...
-[INFO] Degraded mode active: Kalshi auth missing
-[INFO] Candidate fallback logic verified: generated candidates using fuzzy match
-[INFO] Reason code verified: no_kalshi_markets_available or kalshi_auth_missing_degraded
-[INFO] Gate-Light check passed on remote
-[INFO] Task completed successfully.
-
-
-=== INDEX ===
+INDEX
 {
-  "src/app/api/pairs/auto-match/stream/route.ts": {
-    "size": 35065,
-    "sha256_short": "5c91bd85"
-  },
-  "src/app/pairs/pairs-client.tsx": {
-    "size": 35333,
-    "sha256_short": "7370e36e"
-  },
   "manual_verification.json": {
-    "size": 1017,
-    "sha256_short": "fe3fac1f"
-  },
-  "ui_copy_details_automatch_req_sim_001.json": {
-    "size": 630,
-    "sha256_short": "347c8907"
-  },
-  "reports/healthcheck_root.txt": {
-    "size": 247,
-    "sha256_short": "d1d84fe6"
-  },
-  "reports/healthcheck_pairs.txt": {
-    "size": 183,
-    "sha256_short": "2dd0fb76"
-  },
-  "run_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.log": {
-    "size": 722,
-    "sha256_short": "9f2005ec"
-  },
-  "result_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.json": {
-    "size": 192,
-    "sha256_short": "05c3689d"
-  },
-  "scripts/postflight_validate_envelope.mjs": {
-    "size": 45481,
-    "sha256_short": "e3461799"
-  },
-  "src/scripts/verify_automatch_fix.ts": {
-    "size": 1737,
-    "sha256_short": "2fa05ef4"
+    "size": 997,
+    "sha256_short": "85125e6c"
   },
   "healthcheck_53121.txt": {
-    "size": 195,
-    "sha256_short": "2c5c4dce"
+    "size": 28,
+    "sha256_short": "24df1087"
+  },
+  "reports/healthcheck_root.txt": {
+    "size": 11,
+    "sha256_short": "3a945ab6"
+  },
+  "reports/healthcheck_pairs.txt": {
+    "size": 16,
+    "sha256_short": "b53aaef1"
+  },
+  "src/app/pairs/pairs-client.tsx": {
+    "size": 41442,
+    "sha256_short": "a3a821a8"
+  },
+  "src/app/api/pairs/auto-match/stream/route.ts": {
+    "size": 38536,
+    "sha256_short": "ac5bcef7"
+  },
+  "src/scripts/verify_automatch_add_pair.ts": {
+    "size": 3187,
+    "sha256_short": "ba13633e"
+  },
+  "src/scripts/generate_healthcheck_real.ts": {
+    "size": 1844,
+    "sha256_short": "7bf98daf"
+  },
+  "src/scripts/cleanup_duplicates.ts": {
+    "size": 2008,
+    "sha256_short": "09f2f826"
+  },
+  "ui_copy_details_automatch_M2_1_076.json": {
+    "size": 669,
+    "sha256_short": "793dcb6e"
   }
 }
-
-=== HEALTH_CHECK_SUMMARY ===
-HTTP/1.1 200 OK
-HTTP/1.1 200 OK

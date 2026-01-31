@@ -321,7 +321,7 @@ async function seed() {
                         resolve_time_kh: new Date(), // Kalshi API might need date parsing
                         rules_pm: JSON.stringify(pmData),
                         rules_kh: JSON.stringify(khData),
-                        status: 'ready',
+                        status: 'unverified',
                         confidence: 1.0,
                         tags: ['auto-seeded']
                     }
