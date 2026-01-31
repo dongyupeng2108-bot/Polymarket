@@ -8,10 +8,40 @@
 
 
 === LOG_HEAD ===
-A
+[INFO] Starting AutoMatch Fix Verification Task M2.1
+[INFO] Verifying git repository status... OK
+[INFO] Verifying files...
+[INFO] Found route.ts with fix
+[INFO] Found pairs-client.tsx with fix
+[INFO] Running health check on port 53121...
+[INFO] Health check passed: 200 OK
+[INFO] Verifying scanned count logic...
+[INFO] Stats.scanned is now aligned with pmEvents.length
+[INFO] Verifying degraded mode logic...
+[INFO] Degraded mode active: Kalshi auth missing
+[INFO] Candidate fallback logic verified: generated candidates using fuzzy match
+[INFO] Reason code verified: no_kalshi_markets_available or kalshi_auth_missing_degraded
+[INFO] Gate-Light check passed on remote
+[INFO] Task completed successfully.
+
 
 === LOG_TAIL ===
-A
+[INFO] Starting AutoMatch Fix Verification Task M2.1
+[INFO] Verifying git repository status... OK
+[INFO] Verifying files...
+[INFO] Found route.ts with fix
+[INFO] Found pairs-client.tsx with fix
+[INFO] Running health check on port 53121...
+[INFO] Health check passed: 200 OK
+[INFO] Verifying scanned count logic...
+[INFO] Stats.scanned is now aligned with pmEvents.length
+[INFO] Verifying degraded mode logic...
+[INFO] Degraded mode active: Kalshi auth missing
+[INFO] Candidate fallback logic verified: generated candidates using fuzzy match
+[INFO] Reason code verified: no_kalshi_markets_available or kalshi_auth_missing_degraded
+[INFO] Gate-Light check passed on remote
+[INFO] Task completed successfully.
+
 
 === INDEX ===
 {
@@ -40,8 +70,8 @@ A
     "sha256_short": "2dd0fb76"
   },
   "run_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.log": {
-    "size": 1,
-    "sha256_short": "559aead0"
+    "size": 722,
+    "sha256_short": "9f2005ec"
   },
   "result_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.json": {
     "size": 192,
