@@ -42,7 +42,7 @@
 ### 3.2 实体简述 (详细请见数据字典)
 - **Pair**: 必须 VERIFIED 才可扫描。verified_at > 7天 强制重置。
 - **Opportunity**: 仅对 VERIFIED Pair 产出。需满足 net_ev > threshold。
-- **Reason Code**: 分为验证失败 (MAPPING_INVALID...) 和 扫描过滤 (EDGE_LOW...)。
+- **Reason Code**: 分为验证失败 (MAPPING_INVALID...), 扫描过滤 (EDGE_LOW...), 和 自动匹配 (kalshi_auth_missing_degraded...)。
 
 ## 4. 工程规范 (Engineering Standards)
 > 详见 [WORKFLOW_v3_9.md](workflow-v39.md)
