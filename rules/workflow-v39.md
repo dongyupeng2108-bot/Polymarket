@@ -40,6 +40,13 @@
 6. 智能体交付协议 (Agent Delivery Protocol)
 - **主动回报 (Proactive Reporting)**: 任务结束时，必须主动生成并展示 `report_for_chatgpt.txt`。
 - **禁止隐式结束**: 不得仅回复 "Done" 或 "已完成"，必须附带完整验证报告。
+- **标准交付摘要 (Standard Delivery Summary)**: 任务结束必须输出以下 4 行标准格式（Markdown）：
+  ```text
+  PR: #<PR_NO> <PR_URL>
+  HEAD: <SHORT_SHA>
+  GateLight: <CHECK_NAME> = <STATUS>
+  Evidence: Run ID <RUN_ID> | Healthcheck: <N/A or PASS>
+  ```
 
 7. 开发规范：Observability First (硬规则)
 - **Evidence Envelope (证据包)**: 任何涉及 arb-validate-web 的任务，必须产出标准化证据包。
