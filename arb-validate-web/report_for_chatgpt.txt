@@ -1,74 +1,30 @@
-RESULT_JSON
+[RESULT_JSON]
 {
   "status": "DONE",
-  "task_id": "M2_1_PairsMgmt_AddPair_FromAutoMatchCandidates_260131_076",
-  "summary": "Implemented auto-add for high-confidence pairs and manual add for candidates. Aligned stats and verified with scripts.",
-  "artifacts": [
-    "manual_verification.json",
-    "ui_copy_details_automatch_M2_1_076.json",
-    "healthcheck_53121.txt"
-  ]
-}
-
-LOG_HEAD
-[INFO] Starting verification...
-[INFO] Running: npx prisma db push
-[INFO] Database sync successful.
-[INFO] Running: npx tsx src/scripts/verify_automatch_add_pair.ts
-[INFO] Pair created successfully: 370
-[INFO] Verifying duplicate constraint...
-
-LOG_TAIL
-[INFO] Test passed and cleaned up.
-[INFO] Running: npx next lint
-[INFO] Lint passed.
-[INFO] Running: npx tsc --noEmit
-[INFO] Typecheck passed.
-[INFO] Generating healthchecks...
-[INFO] / -> 200 OK
-[INFO] /pairs -> 200 OK
-[INFO] Verification complete.
-
-INDEX
-{
-  "manual_verification.json": {
-    "size": 997,
-    "sha256_short": "85125e6c"
-  },
-  "healthcheck_53121.txt": {
-    "size": 28,
-    "sha256_short": "24df1087"
-  },
-  "reports/healthcheck_root.txt": {
-    "size": 11,
-    "sha256_short": "3a945ab6"
-  },
-  "reports/healthcheck_pairs.txt": {
-    "size": 16,
-    "sha256_short": "b53aaef1"
-  },
-  "src/app/pairs/pairs-client.tsx": {
-    "size": 41442,
-    "sha256_short": "a3a821a8"
-  },
-  "src/app/api/pairs/auto-match/stream/route.ts": {
-    "size": 38536,
-    "sha256_short": "ac5bcef7"
-  },
-  "src/scripts/verify_automatch_add_pair.ts": {
-    "size": 3187,
-    "sha256_short": "ba13633e"
-  },
-  "src/scripts/generate_healthcheck_real.ts": {
-    "size": 1844,
-    "sha256_short": "7bf98daf"
-  },
-  "src/scripts/cleanup_duplicates.ts": {
-    "size": 2008,
-    "sha256_short": "09f2f826"
-  },
-  "ui_copy_details_automatch_M2_1_076.json": {
-    "size": 669,
-    "sha256_short": "793dcb6e"
+  "task_id": "TraeTask_M2_1_260131_001",
+  "milestone": "M2.1",
+  "head_sha": "7c73310",
+  "summary": "Fix Tailwind v4 crash by downgrading to v3 (Plan B). Verified healthcheck and CSS generation.",
+  "healthcheck": {
+    "/": 200,
+    "/pairs": 200
   }
 }
+
+[LOG_HEAD]
+- Downgraded to Tailwind v3 (Plan B) to resolve v4 crash on Windows/Next.js 16
+- Swapped `@tailwindcss/postcss` for standard `tailwindcss`, `postcss`, `autoprefixer`
+- Updated `tailwind.config.js` to map shadcn/ui CSS variables
+- Fixed `globals.css` to use `@tailwind` directives and standard CSS for base layer
+- Cleaned cache and verified startup
+
+[LOG_TAIL]
+(TraeAI-6) E:\polymaket\program\githubrun\arb-validate-web 
+[feat/pair-automatch-m2_1 7c73310] M2.1: Downgrade to Tailwind v3 (Plan B) to resolve v4 crash on Windows/Next16
+ 4 files changed, 107 insertions(+), 4 deletions(-)
+
+[INDEX]
+src/app/globals.css size=2548 sha256_short=198c8758
+postcss.config.js size=82 sha256_short=251ecddd
+tailwind.config.js size=1824 sha256_short=cdb54ee6
+report_for_chatgpt.txt size=CHECK_ON_DISK sha256_short=SELF_REF
