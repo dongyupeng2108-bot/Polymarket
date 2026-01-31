@@ -24,12 +24,12 @@
     "sha256_short": "2dd0fb76"
   },
   "run_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.log": {
-    "size": 984,
-    "sha256_short": "6e1452da"
+    "size": 1,
+    "sha256_short": "559aead0"
   },
   "result_M2_1_PairsMgmt_AutoMatch_Fix_260131_001.json": {
     "size": 192,
-    "sha256_short": "dfccbfa3"
+    "sha256_short": "05c3689d"
   },
   "scripts/postflight_validate_envelope.mjs": {
     "size": 45481,

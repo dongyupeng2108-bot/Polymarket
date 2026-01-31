@@ -69,6 +69,7 @@
 | `kalshi_auth_missing_degraded` | AutoMatch | Kalshi 认证缺失，进入降级模式 (DB Fallback)。 |
 | `kalshi_fetch_disabled_degraded` | AutoMatch | Kalshi 抓取被禁用，进入降级模式。 |
 | `no_kalshi_markets_available` | AutoMatch | 降级模式下本地无可用 Kalshi 市场数据。 |
+| `no_matches_found` | AutoMatch | 扫描完成但未找到匹配项。 |
 | `completed_normally` | AutoMatch | 自动匹配正常完成。 |
 
 ### StreamStatus (流状态)
