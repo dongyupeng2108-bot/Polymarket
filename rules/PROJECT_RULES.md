@@ -51,6 +51,16 @@
 - **AI 协议**: 复杂任务必须遵循 Intent -> Analysis -> Plan -> Action 流程。
 - **回报锚点**: 禁止回贴改写版，必须贴 notify 原文；以 report_sha 作为验收锚点。
 
+### 4.5 交互安全与自动化 (Interaction Safety & Automation)
+- **Fail-Fast (交互式提示)**:
+  - **规则**: 遇到任何 `(y/N)` 或 `Do you want...` 等交互式提示，一律 **Fail-Fast**（立即终止命令，不要等待）。
+  - **回报**: 在回报中只输出：`触发的提示行` + `当前命令` + `“需要人工决策：y/N”`。
+- **Prisma/DB Migration (数据库迁移)**:
+  - **自动化禁令**: 自动化流程里**不要直接跑**会弹确认的命令。
+  - **两步走协议 (Two-Step Protocol)**:
+    1. **Pre-flight (查重)**: 先做“唯一约束查重”（无重复才允许继续）。如果查到重复，先自动输出重复清单或触发去重脚本，再重跑。
+    2. **Execution (执行)**: 确认安全后，再用**非交互方式**执行（例如使用 Prisma 的非交互参数 `--accept-data-loss`，或显式喂入输入），避免卡死。
+
 ## 5. 变更原则
 - **口径同步**: 任何新增/修改状态词，必须先更新 [DATA_DICTIONARY.md](../docs/DATA_DICTIONARY.md) 和本 Rules 的 Glossary，再进入开发。
 - **Gate Enforcement**: gate-light 会检查代码中的枚举/状态变更是否同步更新了字典文档。

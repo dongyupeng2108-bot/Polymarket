@@ -24,6 +24,7 @@
 - AI 协议: 复杂任务必须遵循：意图确认 -> 分析策略 -> 执行计划。
 - 模式锁定: "老板"开头(无任务) XOR `task_id:`开头(纯任务)。
   - **Task 模式硬规则**: 仅允许 `task_id:` 前缀。**严禁**使用 `TraeTask`/`TraeTask_` (出现即判失败)。
+- **交互安全**: 遇到 `(y/N)` 必须 Fail-Fast；DB 迁移禁止自动化弹窗 (需 Pre-flight Check + Non-interactive Exec)。
 
 ## 5. 开发哲学 (5S & 6A)
 ### 5S (代码卫生)
