@@ -80,11 +80,25 @@ jobs:
         run: |
           conftest test --namespace gates -p rules/gates/rego rules/gates/fixtures/good_*.json
 
-      - name: Run Conftest Policies (Bad Fixtures - Expected Deny)
+      - name: Resolve Policy Set Path
+        run: |
+          VERSION=$(cat rules/gates/policy_sets/gate_light/CURRENT)
+          echo "POLICY_DIR=rules/gates/policy_sets/gate_light/$VERSION/policy" >> $GITHUB_ENV
+          echo "FIXTURES_DIR=rules/gates/policy_sets/gate_light/$VERSION/fixtures" >> $GITHUB_ENV
+
+      - name: Run Fixture Sanity Check
+        run: |
+          node scripts/gate_light_fixture_sanity.mjs
+
+      - name: Run Conftest Policies (Good Fixtures - New Path)
+        run: |
+          conftest test --namespace gates -p $POLICY_DIR $FIXTURES_DIR/good_*.json
+
+      - name: Run Conftest Policies (Bad Fixtures - Expected Deny - New Path)
         run: |
           # We expect this command to fail (exit code 1) because of policy violations.
           # If it succeeds (exit code 0), then our negative tests failed to catch the issue.
-          if conftest test --namespace gates -p rules/gates/rego rules/gates/fixtures/bad_*.json; then
+          if conftest test --namespace gates -p $POLICY_DIR $FIXTURES_DIR/bad_*.json; then
             echo "::error::Bad fixtures unexpectedly PASSED the policy check!"
             exit 1
           else
