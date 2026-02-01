@@ -1,3 +1,8 @@
+PR: N/A
+HEAD: c2cdc36
+gate-light: PASS (check=acceptance_smoke.ps1)
+healthcheck: / 200, /pairs 200
+
 # Task Report: TraeTask_M2_4_GatePack_260201_001
 
 ## 1. 执行环境
@@ -60,5 +65,3 @@ Count check passed: 369 -> 368
 - [x] Fail-fast 与循环上限 (Smoke test limit 60s, loop limit 50/5 implied by logic)
 - [x] 回滚说明
 - [x] 端口 53121 固定
-
-**Status**: DONE
