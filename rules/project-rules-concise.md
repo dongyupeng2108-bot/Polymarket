@@ -59,3 +59,39 @@
 
 - **Tailwind v4 Crash**: On Windows + Next.js 16, Tailwind v4 (CSS-first) fails to scan paths correctly (3.6KB CSS) and throws PostCSS errors.
   - **Rule**: MUST use Tailwind v3.4+ with `tailwind.config.js` and `postcss.config.js`. DO NOT UPGRADE to v4.
+
+## 8. UI & Reporting Protocol
+- **UI Localization**: 所有用户可见文案必须使用 **中文 (zh-CN)**。
+  - 实现: 必须通过 `src/lib/i18n/zh.ts` 集中管理，禁止硬编码英文。
+  - 术语: 可保留英文术语但需括号标注，例: "模拟交易 (Paper Trading)"。
+- **Task Reporting (任务回报)**:
+  - **必做**: 每次任务结束必须生成回报文件并更新索引。
+  - **Path**: `rules/task-reports/YYYY-MM/TraeTask_*.md`
+  - **Index**: `rules/TASK_REPORTS_INDEX.md`
+  - **Report Header (Strict Format)**: 必须且仅输出以下 4 行作为回报头部 (5行起放其他详情)：
+    ```text
+    PR: <url 或 N/A>
+    HEAD: <short sha>
+    gate-light: PASS|FAIL (check=<真实check名>)
+    healthcheck: / <code>, /pairs <code> (或 N/A)
+    ```
+  - **Fail-Fast**: 若 `gate-light=FAIL` 或 `healthcheck` 非 200，**严禁标记 DONE**。必须自动修复直到通过后，才输出最终回报。
+
+## 9. GatePack (M2.4) - 门禁体系
+> **任何 Blocker 出现 => 任务 FAILED，禁止交付。**
+
+### 9.1 拦截级错误清单 (Blocker List)
+1. **站点健康**: `/` 或 `/pairs` 返回非 200。
+2. **环境**: 端口非 53121，或 Dev Server 启动失败。
+3. **运行时**: 控制台出现红屏 (Next.js Overlay)、UnhandledRejection、Error Boundary。
+4. **关键 API**: 扫描触发、添加交易对 (POST)、删除交易对 (DELETE) 返回非 2xx。
+5. **冒烟测试**: `scripts/acceptance_smoke.ps1` 任意断言失败 (Exit Code != 0)。
+6. **数据一致性**: 数据库迁移失败，或 "模拟 vs 实盘" 出现未批准的口径变更。
+
+### 9.2 门禁执行顺序 (Pipeline)
+所有交付前必须按序执行：
+1. **Git Check**: `git status` 必须干净 (或明确记录未提交原因)。
+2. **Env Reset**: 运行 `scripts/dev_start.ps1` (清端口/缓存/启动)。
+3. **Healthcheck**: 运行 `scripts/healthcheck_53121.ps1` (必须 PASS)。
+4. **Smoke Test**: 运行 `scripts/acceptance_smoke.ps1` (必须 ALL PASS)。
+5. **Report**: 生成任务回报并落盘。
