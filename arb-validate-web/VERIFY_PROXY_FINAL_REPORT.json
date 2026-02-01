@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-01-19T15:52:36.491Z",
+  "proxy_ping": {
+    "checked_at": "2026-01-19T15:52:41.623Z",
+    "target_host": "api.elections.kalshi.com",
+    "target_url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status",
+    "selected_best": {
+      "name": "Direct",
+      "reason": "timeout",
+      "ok": false
+    },
+    "profiles": [
+      {
+        "name": "Direct",
+        "type": "direct",
+        "enabled": true,
+        "weight": 1,
+        "proxy_used": false,
+        "proxy_value_masked": null,
+        "ok": false,
+        "http_status": null,
+        "latency_ms": 5040,
+        "error_class": "timeout",
+        "error_code": "ECONNABORTED",
+        "error_message": "timeout of 5000ms exceeded",
+        "fail_reason": "timeout",
+        "cooldown_until": null
+      },
+      {
+        "name": "Bad Proxy (Test)",
+        "type": "http",
+        "enabled": true,
+        "weight": 10,
+        "proxy_used": true,
+        "proxy_value_masked": "http://127.0.0.1:9999",
+        "ok": false,
+        "http_status": null,
+        "latency_ms": 8,
+        "error_class": "proxy_refused",
+        "error_code": "ECONNREFUSED",
+        "error_message": "connect ECONNREFUSED 127.0.0.1:9999",
+        "fail_reason": "proxy_refused",
+        "cooldown_until": "2026-01-19T15:53:11.615Z"
+      }
+    ]
+  },
+  "kh_orderbook": {
+    "ticker": "kxgdp-26jan30",
+    "url_used": "https://api.elections.kalshi.com/trade-api/v2/markets/kxgdp-26jan30/orderbook",
+    "attempts": [
+      {
+        "attempt": 1,
+        "profile_name": "Direct",
+        "proxy_used": false,
+        "proxy_value_masked": null,
+        "latency_ms": 8011,
+        "http_status": null,
+        "error_class": "timeout",
+        "error_code": "ECONNABORTED",
+        "error_message": "timeout of 8000ms exceeded"
+      },
+      {
+        "attempt": 2,
+        "profile_name": "Bad Proxy (Test)",
+        "proxy_used": true,
+        "proxy_value_masked": "http://127.0.0.1:9999",
+        "latency_ms": 2,
+        "http_status": null,
+        "error_class": "tcp",
+        "error_code": "ECONNREFUSED",
+        "error_message": "connect ECONNREFUSED 127.0.0.1:9999"
+      }
+    ],
+    "final": {
+      "ok": false,
+      "http_status": 0,
+      "error_class": "tcp",
+      "error_code": "ECONNREFUSED",
+      "error_message": "connect ECONNREFUSED 127.0.0.1:9999"
+    }
+  }
+}

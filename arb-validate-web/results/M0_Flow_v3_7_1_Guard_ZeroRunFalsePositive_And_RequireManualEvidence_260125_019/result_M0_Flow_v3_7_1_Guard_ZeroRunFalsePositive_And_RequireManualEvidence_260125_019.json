@@ -1,0 +1,47 @@
+{
+  "task_id": "M0_Flow_v3_7_1_Guard_ZeroRunFalsePositive_And_RequireManualEvidence_260125_019",
+  "version": "2.0",
+  "status": "DONE",
+  "started_at": "2026-01-25T14:45:00.000Z",
+  "ended_at": "2026-01-25T14:49:06.584Z",
+  "parser_mode": "strict",
+  "commands_total": 1,
+  "commands_executed": 1,
+  "retries": 0,
+  "acceptance_check": [
+    {
+      "item": "Log Found",
+      "pass": true,
+      "note": "existing_run_log"
+    },
+    {
+      "item": "Markers Detected",
+      "pass": true,
+      "note": "SMART_AGENT_HANDOVER_START, SMART_AGENT_RESULT_FOUND"
+    },
+    {
+      "item": "R2: Non-Zero Commands",
+      "pass": true
+    },
+    {
+      "item": "Deliverables Index Present",
+      "pass": true
+    },
+    {
+      "item": "Deliverables Index References Exist",
+      "pass": true
+    }
+  ],
+  "markers_detected": [
+    "SMART_AGENT_HANDOVER_START",
+    "SMART_AGENT_RESULT_FOUND"
+  ],
+  "zip_disabled": true,
+  "zip_requested": "off",
+  "zip_generated": false,
+  "artifacts": {
+    "result_json": "result_M0_Flow_v3_7_1_Guard_ZeroRunFalsePositive_And_RequireManualEvidence_260125_019.json",
+    "notify_txt": "notify_M0_Flow_v3_7_1_Guard_ZeroRunFalsePositive_And_RequireManualEvidence_260125_019.txt",
+    "latest_json": "LATEST.json"
+  }
+}

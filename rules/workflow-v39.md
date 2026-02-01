@@ -17,6 +17,9 @@
 - **Gate Light (CI)**: 所有 PR 必须通过 `gate-light` 工作流检查 (含 actionlint, gitleaks, schema, conftest, dictionary-check)。
 - **NoCode 仍需 RUN**: 即使是“证据补遗”任务，必须含 `RUN:` 块。可用 `CMD: echo "EVIDENCE_ONLY_NOOP"` 占位。
 - **Fail-fast**: 任意命令非 0 退出 -> FAILED。
+- **Interaction Safety (交互安全)**:
+  - **Fail-Fast**: 遇到 `(y/N)` 等交互提示必须立即终止。
+  - **DB Migration**: 自动化流程禁止弹窗确认；必须遵循 **Check-First-Then-Exec** (先查重后执行) 两步走协议。
 
 3. 产物与回传 (Finalizer & Gatekeeper)
 - **Full Envelope**: `notify.txt` 必须包含 `RESULT_JSON`, `LOG_HEAD`, `LOG_TAIL`, `INDEX`。

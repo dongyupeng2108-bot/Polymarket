@@ -1,0 +1,8 @@
+bridge/task_manager.ts
+src/app/api/pairs/auto-match/stream/route.ts
+src/app/pairs/pairs-client.tsx
+manual_verification.json
+run.log
+healthcheck_result.json
+git_changes_023.txt
+task_023_kalshi_diagnostics.md

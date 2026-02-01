@@ -1,0 +1,11 @@
+{
+  "task_id": "M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070",
+  "status": "DONE",
+  "summary": "Fixed Postflight gates (HC_EXCERPT, INDEX_COMPLETENESS, NO_EXTERNAL_EVIDENCE_WORDING). Updated documentation. Verified 067/068/069.",
+  "report_file": "reports/postflight/M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.json",
+  "artifacts": {
+    "run_log": "run_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.log",
+    "notify": "notify_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.txt",
+    "result_json": "result_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.json"
+  }
+}

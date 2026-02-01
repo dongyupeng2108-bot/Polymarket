@@ -1,0 +1,34 @@
+{
+  "config": {
+    "samples": 2,
+    "loops": 5,
+    "intervalMs": 2000,
+    "limit": 20,
+    "minEdge": -0.5,
+    "eventTicker": "",
+    "modelA": "queue_trade_real",
+    "modelB": "queue_trade_baseline",
+    "outputDir": "E:\\polymaket\\program\\arb-validate-web\\reports"
+  },
+  "total_samples": 2,
+  "model_A": {
+    "filled_count": 0,
+    "fill_rate": "0.000",
+    "avg_ttf": 0,
+    "reasons": {
+      "EDGE_LOW": 2
+    }
+  },
+  "model_B": {
+    "filled_count": 0,
+    "fill_rate": "0.000",
+    "avg_ttf": 0,
+    "reasons": {
+      "EDGE_LOW": 2
+    }
+  },
+  "diff": {
+    "count": 0,
+    "details": "See CSV 'diff_filled' column"
+  }
+}

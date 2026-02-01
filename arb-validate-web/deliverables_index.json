@@ -1,0 +1,9 @@
+{
+  "task_id": "023",
+  "files": [
+    "healthcheck_result.json",
+    "run.log",
+    "manual_verification.json",
+    "deliverables_index.json"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "sse_capture_auto_limit50_064.out": {
+    "size": 84850,
+    "sha256_short": "e36eef7c"
+  },
+  "sse_capture_topic_aligned_limit50_064.out": {
+    "size": 78208,
+    "sha256_short": "00742a41"
+  },
+  "ui_copy_details_completed_064.json": {
+    "size": 6984,
+    "sha256_short": "e51b4128"
+  },
+  "healthcheck_53121.txt": {
+    "size": 40410,
+    "sha256_short": "c04f2516"
+  },
+  "run_064.log": {
+    "size": 2071,
+    "sha256_short": "fd5c36e1"
+  },
+  "result_064.json": {
+    "size": 425,
+    "sha256_short": "42a83005"
+  },
+  "deliverables_index_064.json": {
+    "size": 453,
+    "sha256_short": "25804617"
+  }
+}

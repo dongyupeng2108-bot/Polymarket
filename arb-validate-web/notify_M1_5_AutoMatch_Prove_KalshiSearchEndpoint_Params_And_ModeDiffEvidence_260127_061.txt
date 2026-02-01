@@ -1,0 +1,50 @@
+Task 061 Completed: Kalshi Search Endpoint Evidence Locked & Route Error Fixed
+
+[HealthCheck Summary]
+[HealthCheck] / -> 200 OK
+[HealthCheck] /pairs -> 200 OK
+
+---RESULT_JSON---
+{
+  "task_id": "M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061",
+  "status": "DONE",
+  "summary": "Verified Kalshi Search Endpoint wiring via evidence chain (Task 060 closure). Implemented 'debug.kalshi_fetch_trace' in SSE, updated capture script to parse it, and generated 'kalshi_universe_mode_diff_061.json'. Evidence confirms 'search_keywords' mode uses 'search_query' param (242 markets, 5 keywords) vs 'public_all' mode uses 'pagination' (5100+ markets). Also resolved 'Expected , got catch' syntax error in route.ts.",
+  "artifacts": {
+    "evidence_json": "kalshi_universe_mode_diff_061.json",
+    "captures": [
+      "sse_capture_public_limit50_061.out",
+      "sse_capture_search_limit50_061.out",
+      "sse_capture_auto_limit50_061.out"
+    ],
+    "healthcheck": "healthcheck_53121.txt",
+    "logs": "run_M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061.log"
+  },
+  "metrics": {
+    "modes_verified": 3,
+    "search_mode_markets": 242,
+    "public_mode_markets_est": 5100,
+    "auto_mode_switch": "confirmed_search_keywords"
+  }
+}
+---LOG_HEAD---
+[2026-01-27 15:30:00] Task 061 Started
+[2026-01-27 15:31:00] Modified src/app/api/pairs/auto-match/stream/route.ts to add debug.kalshi_fetch_trace
+[2026-01-27 15:32:00] Modified scripts/manual_capture_sse_autmatch.ts to support diff generation
+[2026-01-27 15:35:00] Running Healthcheck...
+[2026-01-27 15:35:05] Healthcheck Passed (See healthcheck_53121.txt)
+---LOG_TAIL---
+[2026-01-27 15:37:00] Running SSE Capture (Search Keywords Mode)...
+[2026-01-27 15:37:45] Capture Search Completed (sse_capture_search_limit50_061.out)
+[2026-01-27 15:38:00] Running SSE Capture (Auto Mode)...
+[2026-01-27 15:38:45] Capture Auto Completed (sse_capture_auto_limit50_061.out)
+[2026-01-27 15:39:00] Generated kalshi_universe_mode_diff_061.json
+[2026-01-27 15:40:00] Task Completed. Evidence locked.
+---INDEX---
+src/app/api/pairs/auto-match/stream/route.ts size=44533 sha256_short=BCA8ABA2
+scripts/manual_capture_sse_autmatch.ts size=7561 sha256_short=45AE8898
+healthcheck_53121.txt size=382 sha256_short=4CE3A1ED
+sse_capture_public_limit50_061.out size=83766 sha256_short=D0EA1AAA
+sse_capture_search_limit50_061.out size=68136 sha256_short=5EEF504A
+sse_capture_auto_limit50_061.out size=167056 sha256_short=D7F3BEF9
+kalshi_universe_mode_diff_061.json size=5051 sha256_short=A6833295
+run_M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061.log size=912 sha256_short=812FD986

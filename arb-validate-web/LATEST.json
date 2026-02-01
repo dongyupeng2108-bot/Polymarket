@@ -1,0 +1,15 @@
+{
+  "status": "DONE",
+  "task_id": "M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061",
+  "summary": "Evidence locked: Kalshi Search Endpoint is WIRED. Search Mode uses \"query\" param (242 results vs 5100 in Public). Auto Mode verified but remained Public due to missing prefix.",
+  "artifacts": [
+    "src/app/api/pairs/auto-match/stream/route.ts",
+    "scripts/manual_capture_sse_autmatch.ts",
+    "healthcheck_53121.txt",
+    "sse_capture_public_limit50_061.out",
+    "sse_capture_search_limit50_061.out",
+    "sse_capture_auto_limit50_061.out",
+    "kalshi_universe_mode_diff_061.json",
+    "run_M1_5_AutoMatch_Prove_KalshiSearchEndpoint_Params_And_ModeDiffEvidence_260127_061.log"
+  ]
+}

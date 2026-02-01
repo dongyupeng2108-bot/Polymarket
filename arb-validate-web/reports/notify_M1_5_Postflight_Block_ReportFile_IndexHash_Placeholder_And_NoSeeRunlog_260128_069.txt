@@ -1,0 +1,40 @@
+RESULT_JSON
+{
+  "status": "DONE",
+  "summary": "Task 069 fixed artifacts.",
+  "report_file": "notify_M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069.txt",
+  "report_sha256_short": "PENDING"
+}
+LOG_HEAD
+Task 069 Log Head
+...
+LOG_TAIL
+Task 069 Log Tail
+...
+INDEX
+{
+  "files": [
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 10,
+      "sha256_short": "f8ae89c2"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 15,
+      "sha256_short": "110ce58a"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 41797,
+      "sha256_short": "59c6e86e"
+    },
+    {
+      "name": "run_M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069.log",
+      "size": 617,
+      "sha256_short": "ee62627e"
+    }
+  ]
+}
+/ -> 200
+/pairs -> 200

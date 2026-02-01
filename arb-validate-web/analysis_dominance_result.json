@@ -1,0 +1,51 @@
+{
+  "baseline_top1_share": 0.9004,
+  "search_top1_share": 0.9819819819819819,
+  "delta": -0.08158198198198197,
+  "conclusion": "INEFFECTIVE",
+  "reason": "Reduction < 20% and Share >= 60%",
+  "details": {
+    "sse_capture_public_limit50.out": {
+      "file": "sse_capture_public_limit50.out",
+      "mode": "public_all",
+      "total_markets": 5000,
+      "top1_prefix": "KXMVESPORTSMULTIGAMEEXTENDED",
+      "top1_count": 4502,
+      "top1_share": 0.9004,
+      "request_id": "dbce3d14",
+      "debug_top10": {
+        "KXMVESPORTSMULTIGAMEEXTENDED": 4502,
+        "KXMVENBASINGLEGAME": 495,
+        "KXCS2TOTALMAPS": 2,
+        "KXNEXTMANAGERMANU": 1
+      }
+    },
+    "sse_capture_search_limit50.out": {
+      "file": "sse_capture_search_limit50.out",
+      "mode": "search_keywords",
+      "total_markets": 333,
+      "top1_prefix": "KXMVESPORTSMULTIGAMEEXTENDED",
+      "top1_count": 327,
+      "top1_share": 0.9819819819819819,
+      "request_id": "c9f50cc4",
+      "debug_top10": {
+        "KXMVESPORTSMULTIGAMEEXTENDED": 327,
+        "KXMVENBASINGLEGAME": 6
+      }
+    },
+    "sse_capture_auto_limit50.out": {
+      "file": "sse_capture_auto_limit50.out",
+      "mode": "search_keywords (auto-switched)",
+      "total_markets": 333,
+      "top1_prefix": "KXMVESPORTSMULTIGAMEEXTENDED",
+      "top1_count": 2790,
+      "top1_share": 8.378378378378379,
+      "request_id": "804fc752",
+      "debug_top10": {
+        "KXMVESPORTSMULTIGAMEEXTENDED": 2790,
+        "KXMVENBASINGLEGAME": 208,
+        "KXCS2TOTALMAPS": 2
+      }
+    }
+  }
+}

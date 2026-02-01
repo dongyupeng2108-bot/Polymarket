@@ -1,0 +1,12 @@
+{
+  "status": "DONE",
+  "task_id": "M1_5_PairsMgmt_AutoMatch_DeliverablesIndex_NonEmpty_And_EmptyCase_Evidence_260126_025",
+  "files": [
+    "src/app/api/pairs/auto-match/stream/route.ts",
+    "scripts/verify_task_025.mjs",
+    "scripts/finalize_task_v3.4.mjs"
+  ],
+  "commands_executed": 1,
+  "completed_at": "2026-01-26T10:45:00.000Z",
+  "message": "Task 025 completed. Evidence collected via Task 027."
+}

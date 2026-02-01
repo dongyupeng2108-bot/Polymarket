@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "timestamp": "2026-01-22T14:08:45.747Z",
+    "fill_model": "queue_trade_real",
+    "cancel_weight": 0.3,
+    "queue_buffer": 0,
+    "min_edge": "0.01",
+    "loops": 20,
+    "interval_ms": 2000
+  },
+  "stats": {
+    "total_orders": 0,
+    "filled_count": 0,
+    "fill_rate": "0.0000",
+    "ttf_p50_ms": 0,
+    "ttf_p90_ms": 0,
+    "hedge_slippage_p50": 0,
+    "ttf_dist": {
+      "<1s": 0,
+      "<5s": 0,
+      "<15s": 0,
+      "<1m": 0,
+      ">1m": 0
+    },
+    "fail_reasons": {}
+  },
+  "orders": []
+}

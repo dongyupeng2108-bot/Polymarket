@@ -1,0 +1,30 @@
+{
+  "healthcheck_53121.txt": {
+    "size": 226,
+    "sha256_short": "95d8a13e"
+  },
+  "sse_capture_public_limit50.out": {
+    "size": 67095,
+    "sha256_short": "2c14d481"
+  },
+  "sse_capture_search_limit50.out": {
+    "size": 83889,
+    "sha256_short": "ca203e75"
+  },
+  "sse_capture_auto_limit50.out": {
+    "size": 104659,
+    "sha256_short": "c0b870f5"
+  },
+  "manual_verification.json": {
+    "size": 820,
+    "sha256_short": "7f3355b1"
+  },
+  "run_M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060.log": {
+    "size": 896,
+    "sha256_short": "17093400"
+  },
+  "deliverables_index_M1_5_AutoMatch_Evidence_SearchKeywords_Effectiveness_And_SportsDominanceDelta_260127_060.json": {
+    "size": 774,
+    "sha256_short": "b19d4751"
+  }
+}

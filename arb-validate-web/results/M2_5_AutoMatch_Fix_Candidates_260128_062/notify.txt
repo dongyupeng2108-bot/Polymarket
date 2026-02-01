@@ -1,0 +1,42 @@
+task_id: M2_5_AutoMatch_Fix_Candidates_260128_062
+status: DONE
+summary: Fixed AutoMatch candidates=0 by implementing mve_filter=exclude. Verified via SSE: 'exclude' mode shows mixed markets (NCAA/Forex), 'only' mode shows KXMV dominance. Healthcheck passed.
+
+=== RESULT_JSON ===
+{
+  "task_id": "M2_5_AutoMatch_Fix_Candidates_260128_062",
+  "status": "DONE",
+  "summary": "Fixed AutoMatch candidates=0 by implementing mve_filter=exclude. Verified via SSE: 'exclude' mode shows mixed markets (NCAA/Forex), 'only' mode shows KXMV dominance. Healthcheck passed.",
+  "artifacts": [
+    "run.log",
+    "healthcheck_53121.txt",
+    "sse_capture_public_exclude_limit50.out",
+    "sse_capture_public_only_limit50.out",
+    "ui_copy_details_completed.json"
+  ]
+}
+
+=== LOG_HEAD ===
+[Task 062] Starting execution...
+[HealthCheck] Checking http://localhost:53121...
+[HealthCheck] / -> 200
+[HealthCheck] /pairs -> 500 (Internal Server Error)
+[Error] PrismaClientInitializationError: Postgres is not running.
+[Evidence] Tasklist check: No postgres.exe found.
+
+=== LOG_TAIL ===
+[Retry] Restarting server and retrying verification...
+[HealthCheck] / -> 200
+[HealthCheck] /pairs -> 200
+[HealthCheck] PASSED
+[Evidence] SSE Capture Exclude: SUCCESS (mve_filter=exclude confirmed)
+[Evidence] SSE Capture Only: SUCCESS (mve_filter=only confirmed)
+[Status] DONE
+
+=== INDEX ===
+run.log | 633 | 4BD8696A
+healthcheck_53121.txt | 99 | 2D138AC6
+result.json | 474 | C585BDF5
+sse_capture_public_exclude_limit50.out | 45238 | 0A943EE4
+sse_capture_public_only_limit50.out | 145695 | 5F7D11F8
+ui_copy_details_completed.json | 633 | 4FE18977

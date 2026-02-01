@@ -1,0 +1,57 @@
+{
+  "task_id": "M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071",
+  "timestamp": "2026-01-28T19:51:33.817Z",
+  "valid": false,
+  "errors": [
+    {
+      "code": "POSTFLIGHT_MISSING_ARTIFACT",
+      "message": "Missing run log",
+      "expected": "run_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.log"
+    },
+    {
+      "code": "POSTFLIGHT_MISSING_ARTIFACT",
+      "message": "Missing LATEST.json"
+    },
+    {
+      "code": "POSTFLIGHT_RESULT_JSON_TOO_THIN",
+      "message": "RESULT_JSON must contain a meaningful 'summary' field (>= 5 chars)."
+    },
+    {
+      "code": "POSTFLIGHT_REPORT_BINDING_MISSING",
+      "message": "RESULT_JSON must contain 'report_file' and 'report_sha256_short' to bind the report."
+    },
+    {
+      "code": "POSTFLIGHT_ENVELOPE_SECTIONS_MISSING",
+      "message": "Notify missing envelope sections",
+      "missing": {
+        "RESULT_JSON": true,
+        "LOG_HEAD": true,
+        "LOG_TAIL": true,
+        "INDEX": true
+      }
+    },
+    {
+      "code": "POSTFLIGHT_HEALTHCHECK_SUMMARY_MISSING",
+      "message": "Notify must contain Healthcheck summary lines: '/ -> 200' and '/pairs -> 200'"
+    },
+    {
+      "code": "POSTFLIGHT_RESULT_JSON_INCONSISTENT",
+      "message": "Invalid JSON in deliverables index: Unexpected end of JSON input"
+    }
+  ],
+  "checks": {
+    "artifacts": {
+      "result": "result_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json",
+      "notify": "notify_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.txt",
+      "log": null,
+      "index": "deliverables_index_M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json",
+      "latest": null
+    },
+    "envelope": {
+      "hasResultJson": false,
+      "hasLogHead": false,
+      "hasLogTail": false,
+      "hasIndex": false
+    }
+  }
+}

@@ -1,0 +1,84 @@
+RESULT_JSON
+{
+  "status": "DONE",
+  "summary": "Enforced Report Binding Gate (A-F), Passed SelfTests (G/H/I), Verified 067 Backfill, Pushed to GitHub.",
+  "report_file": "notify_TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.txt",
+  "report_sha256_short": "e4bdcc0c",
+  "postflight_validator_sha256_short": "8d001335"
+}
+
+LOG_HEAD
+[Postflight] Report Binding Gate A-F Implemented (v3.9+).
+SelfTest G/H/I Passed. 067 Backfill Verified.
+Commit: f2791f11965097d19f14b385f05f9796f73b6607
+
+LOG_TAIL
+Healthcheck Summary:
+/ -> 200
+/pairs -> 200
+Check attached run.log and verification reports.
+
+INDEX
+{
+  "files": [
+    {
+      "name": "postflight_validate_envelope.mjs",
+      "path": "E:\\polymaket\\program\\arb-validate-web\\scripts\\postflight_validate_envelope.mjs",
+      "size": 30401,
+      "sha256_short": "8d001335"
+    },
+    {
+      "name": "postflight_selftest_v39.mjs",
+      "path": "E:\\polymaket\\program\\arb-validate-web\\scripts\\postflight_selftest_v39.mjs",
+      "size": 463,
+      "sha256_short": "4025435b"
+    },
+    {
+      "name": "postflight_selftest_068.txt",
+      "path": "E:\\polymaket\\program\\arb-validate-web\\reports\\postflight_selftest_068.txt",
+      "size": 279,
+      "sha256_short": "739b1b6c"
+    },
+    {
+      "name": "postflight_verify_067_under_new_gate_068.txt",
+      "path": "E:\\polymaket\\program\\arb-validate-web\\reports\\postflight_verify_067_under_new_gate_068.txt",
+      "size": 40,
+      "sha256_short": "cd9d06e3"
+    },
+    {
+      "name": "notify_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.txt",
+      "path": "E:\\polymaket\\program\\arb-validate-web\\reports\\notify_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.txt",
+      "size": 1139,
+      "sha256_short": "2ee06f65"
+    },
+    {
+      "name": "workflow-v39.md",
+      "path": "E:\\polymaket\\program\\Githubrun\\rules\\workflow-v39.md",
+      "size": 3547,
+      "sha256_short": "6024c3d0"
+    },
+    {
+      "name": "project-rules-concise.md",
+      "path": "E:\\polymaket\\program\\Githubrun\\rules\\project-rules-concise.md",
+      "size": 2864,
+      "sha256_short": "5d91e96e"
+    },
+    {
+      "name": "healthcheck_root.txt",
+      "path": "E:\\polymaket\\program\\arb-validate-web\\reports\\healthcheck_root.txt",
+      "size": 70995,
+      "sha256_short": "2f125cbc"
+    },
+    {
+      "name": "healthcheck_pairs.txt",
+      "path": "E:\\polymaket\\program\\arb-validate-web\\reports\\healthcheck_pairs.txt",
+      "size": 1883517,
+      "sha256_short": "db9fb2d1"
+    },
+    {
+      "name": "notify_TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.txt",
+      "size": 2664,
+      "sha256_short": "SEE_FINAL_JSON"
+    }
+  ]
+}

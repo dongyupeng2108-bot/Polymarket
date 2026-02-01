@@ -1,0 +1,16 @@
+[Probe] Starting Kalshi Universe Probe...
+[Probe] Mode: public, BaseURL: Default
+[Probe] Auth Fingerprint: None
+[Probe] Fetching page 1...
+[ProxyConfig] Loading profiles...
+[ProxyConfig] Loaded defaults, count: 1
+[ProxyConfig] Found HTTPS_PROXY: http://127.0.0.1:51081
+[Probe] Fetching page 2...
+[Probe] Fetching page 3...
+[Probe] Fetched 300 markets in 3 pages.
+  KXMVESPORTSMULTIGAMEEXTENDED: 246 (82.0%)
+  KXMVENBASINGLEGAME: 54 (18.0%)
+Probe Result: SPORTS-ONLY
+Timestamp: 2026-01-27T12:33:07.631Z
+Auth Mode: public (KeyID: None)
+Conclusion: sports-only (Top Dominance: 82.0%)

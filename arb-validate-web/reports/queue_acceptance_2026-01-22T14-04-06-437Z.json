@@ -1,0 +1,468 @@
+{
+  "meta": {
+    "timestamp": "2026-01-22T14:04:06.439Z",
+    "config": {
+      "loops": 20,
+      "intervalMs": 2000,
+      "limit": 20,
+      "minEdge": "0.01",
+      "eventTicker": "",
+      "outputDir": "E:\\polymaket\\program\\arb-validate-web\\reports"
+    },
+    "ticker": "KXJAPANCRA172SEATS"
+  },
+  "summary": {
+    "total_loops": 0,
+    "total_scanned": 20,
+    "total_created": 0,
+    "degraded_count": 0,
+    "reason_codes": {
+      "ECONNABORTED": 8,
+      "edge_low": 12
+    },
+    "durations": [
+      16078,
+      16060,
+      16061,
+      16056,
+      16051,
+      8811,
+      16068,
+      778,
+      906,
+      8775,
+      8798,
+      964,
+      884,
+      762,
+      8767,
+      16063,
+      8841,
+      8812,
+      16059,
+      801
+    ]
+  },
+  "data": [
+    {
+      "loop": 1,
+      "ts": "2026-01-22T14:00:37.945Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": null,
+        "pm_ask": null,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 0,
+        "pm_asks": 0
+      }
+    },
+    {
+      "loop": 2,
+      "ts": "2026-01-22T14:00:56.020Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": null,
+        "pm_ask": null,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 0,
+        "pm_asks": 0
+      }
+    },
+    {
+      "loop": 3,
+      "ts": "2026-01-22T14:01:14.081Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": null,
+        "pm_ask": null,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 0,
+        "pm_asks": 0
+      }
+    },
+    {
+      "loop": 4,
+      "ts": "2026-01-22T14:01:32.140Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": null,
+        "pm_ask": null,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 0,
+        "pm_asks": 0
+      }
+    },
+    {
+      "loop": 5,
+      "ts": "2026-01-22T14:01:50.206Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 6,
+      "ts": "2026-01-22T14:02:01.026Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.99018571428572,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 7,
+      "ts": "2026-01-22T14:02:19.099Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": null,
+        "pm_ask": null,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 0,
+        "pm_asks": 0
+      }
+    },
+    {
+      "loop": 8,
+      "ts": "2026-01-22T14:02:21.892Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.9881857142857,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 9,
+      "ts": "2026-01-22T14:02:24.813Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -100.00088571428572,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 10,
+      "ts": "2026-01-22T14:02:35.599Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.99098571428571,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 11,
+      "ts": "2026-01-22T14:02:46.407Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.98898571428572,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 12,
+      "ts": "2026-01-22T14:02:49.386Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -100.0069857142857,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 13,
+      "ts": "2026-01-22T14:02:52.277Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.99898571428571,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 14,
+      "ts": "2026-01-22T14:02:55.051Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.98638571428572,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 15,
+      "ts": "2026-01-22T14:03:05.821Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -100.01068571428571,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 16,
+      "ts": "2026-01-22T14:03:23.898Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": null,
+        "pm_ask": null,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 0,
+        "pm_asks": 0
+      }
+    },
+    {
+      "loop": 17,
+      "ts": "2026-01-22T14:03:34.745Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.99278571428572,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 18,
+      "ts": "2026-01-22T14:03:45.565Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.99018571428572,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    },
+    {
+      "loop": 19,
+      "ts": "2026-01-22T14:04:03.634Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "ECONNABORTED",
+      "direction": "NONE",
+      "prices": {
+        "pm_bid": null,
+        "pm_ask": null,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "side": "NONE",
+      "depth_ok": false,
+      "expected_profit": null,
+      "market_data_summary": {
+        "pm_bids": 0,
+        "pm_asks": 0
+      }
+    },
+    {
+      "loop": 20,
+      "ts": "2026-01-22T14:04:06.436Z",
+      "pair_id": 213,
+      "result": "NO_OPPORTUNITY",
+      "reason_code": "edge_low",
+      "direction": "BUY_KH_SELL_PM",
+      "prices": {
+        "pm_bid": 0.001,
+        "pm_ask": 0.999,
+        "kh_bid": 0.25,
+        "kh_ask": 0.35
+      },
+      "side": "BUY_KH_SELL_PM",
+      "depth_ok": true,
+      "expected_profit": -99.9898857142857,
+      "market_data_summary": {
+        "pm_bids": 3,
+        "pm_asks": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "task_id": "M1_Bridge_Postflight_Enforce_Status_And_IndexHashSize_And_HealthcheckSummary_260127_057",
+  "timestamp": "2026-01-27T13:09:08.604Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_M1_Bridge_Postflight_Enforce_Status_And_IndexHashSize_And_HealthcheckSummary_260127_057.json",
+      "notify": "notify_M1_Bridge_Postflight_Enforce_Status_And_IndexHashSize_And_HealthcheckSummary_260127_057.txt",
+      "log": "run_M1_Bridge_Postflight_Enforce_Status_And_IndexHashSize_And_HealthcheckSummary_260127_057.log",
+      "index": "deliverables_index_M1_Bridge_Postflight_Enforce_Status_And_IndexHashSize_And_HealthcheckSummary_260127_057.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 549,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 6,
+      "failures": []
+    }
+  }
+}

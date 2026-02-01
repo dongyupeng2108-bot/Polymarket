@@ -1,0 +1,49 @@
+{
+  "config": {
+    "samples": 5,
+    "loops": 20,
+    "intervalMs": 2000,
+    "limit": 50,
+    "minEdge": -0.05,
+    "maxMs": 600000,
+    "stallLoops": 2,
+    "tickersToTry": 100,
+    "eventTicker": "",
+    "modelA": "queue_trade_real",
+    "modelB": "queue_trade_baseline",
+    "outputDir": "E:\\polymaket\\program\\arb-validate-web\\reports"
+  },
+  "total_samples": 5,
+  "stop_reason": "REACHED_SAMPLES",
+  "stall_switches": 1,
+  "final_min_edge": -0.05,
+  "tickers_used": [
+    {
+      "ticker": "KXNFLMENTION-NFLNFCCHAMP",
+      "valid_quotes": 20,
+      "samples": 2
+    },
+    {
+      "ticker": "KXNFLMENTION-NFLAFCCHAMP",
+      "valid_quotes": 20,
+      "samples": 3
+    }
+  ],
+  "unique_pairs": 4,
+  "unique_pair_sides": 4,
+  "model_A": {
+    "fill_rate": "0.000",
+    "reasons": {
+      "QUEUE_TIMEOUT": 5
+    }
+  },
+  "model_B": {
+    "fill_rate": "0.000",
+    "reasons": {
+      "NO_FILL_CHANCE": 5
+    }
+  },
+  "diff": {
+    "count": 0
+  }
+}

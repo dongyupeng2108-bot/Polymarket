@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-01-19T14:47:04.894Z",
+  "env": {
+    "http_proxy": null,
+    "https_proxy": null,
+    "no_proxy": null,
+    "global_agent_status": "unknown (check per-request proxy_used)"
+  },
+  "ping": {
+    "timestamp": "2026-01-19T14:47:04.999Z",
+    "proxy": {
+      "used": false
+    },
+    "steps": {
+      "dns": {
+        "step": "dns",
+        "status": "fail",
+        "latency_ms": 3,
+        "error": "ECONNREFUSED"
+      },
+      "tcp": {
+        "status": "skipped"
+      },
+      "http_public": {
+        "status": "skipped"
+      },
+      "http_auth": {
+        "status": "skipped"
+      }
+    }
+  },
+  "orderbook": {
+    "http_status": 0,
+    "latency_ms": 5024,
+    "bids_len": 0,
+    "asks_len": 0,
+    "error_code": "kh_proxy_not_active",
+    "error_class": "timeout",
+    "error_message": "timeout of 5000ms exceeded",
+    "parsed_book": {
+      "bids": [],
+      "asks": []
+    },
+    "url_used": "https://api.elections.kalshi.com/trade-api/v2/markets/kxgdp-26jan30/orderbook",
+    "proxy_used": false,
+    "raw_body": null
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "total_orders": 0,
+  "filled_baseline": 0,
+  "filled_queue": 0,
+  "diff_count": 0,
+  "files": {
+    "input": "reports/pm_capture_2026-01-22T18-48-42-524Z.ndjson",
+    "output": "E:\\polymaket\\program\\arb-validate-web\\reports\\paper_acceptance_2026-01-22T18-48-57-004Z.csv"
+  }
+}

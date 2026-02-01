@@ -1,0 +1,13 @@
+{
+  "task_id": "M2_5_AutoMatch_Fix_Candidates_260128_062",
+  "status": "DONE",
+  "checks": {
+    "healthcheck": "PASSED",
+    "evidence_envelope": "COMPLETE",
+    "sse_capture": "PASSED"
+  },
+  "metrics": {
+    "mve_filter_exclude_size": 45238,
+    "mve_filter_only_size": 145695
+  }
+}

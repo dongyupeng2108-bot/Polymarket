@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 16904,
+      "sha256_short": "5b8631e2"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 16908,
+      "sha256_short": "a703b6f0"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 30401,
+      "sha256_short": "8d001335"
+    },
+    {
+      "name": "notify_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.txt",
+      "size": 1139,
+      "sha256_short": "2ee06f65"
+    }
+  ]
+}

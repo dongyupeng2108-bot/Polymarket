@@ -1,0 +1,7 @@
+{
+  "status": "DONE",
+  "summary": "Enforced Report Binding Gate (A-F), Passed SelfTests (G/H/I), Verified 067 Backfill, Pushed to GitHub.",
+  "report_file": "notify_TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.txt",
+  "report_sha256_short": "3a89c944",
+  "postflight_validator_sha256_short": "8d001335"
+}

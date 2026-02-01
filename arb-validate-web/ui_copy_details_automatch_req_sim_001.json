@@ -1,0 +1,30 @@
+{
+  "status": "Completed",
+  "request_id": "req_sim_001",
+  "ts": 1738285800000,
+  "summary": {
+    "scanned": 500,
+    "candidates": 15,
+    "matched": 15,
+    "added": 0,
+    "existing": 15,
+    "skipped_existing": 15,
+    "skipped_filtered": 0,
+    "failed": 0,
+    "errors": 0,
+    "reason": "kalshi_auth_missing_degraded"
+  },
+  "debug": {
+    "auth_present": false,
+    "kalshi_pages_fetched": 0,
+    "pm_events_count": 500,
+    "kalshi_markets_count": 903,
+    "universe_mode": "auto",
+    "is_degraded": true,
+    "universe_request": {
+      "mode": "auto",
+      "limit": "500",
+      "kalshi_fetch_pages": 0
+    }
+  }
+}

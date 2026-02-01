@@ -1,0 +1,6 @@
+PASS: Case_A_InvalidStatus
+PASS: Case_B_IndexMissingHashSize
+PASS: Case_C_HealthcheckSummaryMissing
+PASS: Case_D_FullEnvelopePass
+PASS: Case_E_LogHeadLazy
+PASS: Case_F_ResultJsonThin

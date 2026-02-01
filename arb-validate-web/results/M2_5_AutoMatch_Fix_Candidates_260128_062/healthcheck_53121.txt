@@ -1,0 +1,3 @@
+[HealthCheck] / -> 200
+[HealthCheck] /pairs -> 500
+[HealthCheck] FAILED: Database connection error

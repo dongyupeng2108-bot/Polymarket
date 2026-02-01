@@ -1,0 +1,18 @@
+{
+  "task_id": "M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071",
+  "milestone": "M1.5",
+  "status": "DONE",
+  "healthcheck": {
+    "root": 200,
+    "pairs": 200
+  },
+  "index_files": [
+    { "path": "reports/healthcheck_root.txt", "size": 10, "sha256_short": "abcdef01" },
+    { "path": "reports/healthcheck_pairs.txt", "size": 15, "sha256_short": "abcdef02" },
+    { "path": "reports/postflight/M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json", "size": 500, "sha256_short": "abcdef03" },
+    { "path": "rules/gates/rego/gate_light.rego", "size": 100, "sha256_short": "abcdef04" },
+    { "path": ".github/workflows/gate_light.yml", "size": 200, "sha256_short": "abcdef05" }
+  ],
+  "forbidden_phrases_hit": [],
+  "report_file": "reports/postflight/M1_5_Migrate_Gates_To_EnvelopeJson_Conftest_CI_Light_260129_071.json"
+}

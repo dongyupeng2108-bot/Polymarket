@@ -1,0 +1,35 @@
+{
+  "task_id": "M1_Bridge_Postflight_Enforce_Status_And_IndexHashSize_And_HealthcheckSummary_260127_057",
+  "files": [
+    {
+      "path": "scripts/postflight_validate_envelope.mjs",
+      "size": 21476,
+      "sha256_short": "c3596a8e"
+    },
+    {
+      "path": "postflight_selftest_057.txt",
+      "size": 182,
+      "sha256_short": "b6624521"
+    },
+    {
+      "path": "healthcheck_53121.txt",
+      "size": 179,
+      "sha256_short": "fd250cf1"
+    },
+    {
+      "path": "scripts/docs_locate_057.txt",
+      "size": 108,
+      "sha256_short": "5ffbe579"
+    },
+    {
+      "path": "../.trae/rules/workflow-v39.md",
+      "size": 3361,
+      "sha256_short": "6f614973"
+    },
+    {
+      "path": "../.trae/rules/project-rules-concise.md",
+      "size": 2766,
+      "sha256_short": "476513c5"
+    }
+  ]
+}

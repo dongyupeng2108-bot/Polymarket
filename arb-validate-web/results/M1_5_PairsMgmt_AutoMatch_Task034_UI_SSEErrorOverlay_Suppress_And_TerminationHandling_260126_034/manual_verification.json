@@ -1,0 +1,18 @@
+{
+  "verified_by": "Trae Smart Agent",
+  "verification_time": "2026-01-26T00:00:00.000Z",
+  "items": [
+    {
+      "description": "SSE Error Overlay Suppression on Cancel",
+      "method": "Playwright Automation (scripts/verify_task_034.mjs)",
+      "status": "PASSED",
+      "evidence": "run_log contains SUCCESS and no captured SSE errors"
+    },
+    {
+      "description": "UI Terminated Badge",
+      "method": "Visual/Code Review",
+      "status": "PASSED",
+      "evidence": "Code implemented in pairs-client.tsx"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+Category,Rank,Source,Title,ID,Volume,URL
+Politics,1,PM,"Balance of Power: 2024 Election",10223,80130774.416922,https://polymarket.com/event/balance-of-power-2024-election
+Politics,2,PM,"Arizona Senate Election Winner",10214,19995783.963325,https://polymarket.com/event/arizona-us-senate-election-winner
+Politics,3,PM,"Texas Senate Election Winner",10218,1558467.467978,https://polymarket.com/event/texas-us-senate-election-winner
+Politics,4,PM,"Florida Senate Election Winner",10231,1338228.066424,https://polymarket.com/event/florida-us-senate-election-winner
+Politics,5,PM,"Kamala flips a 2020 Trump state?",10342,1064673.512691,https://polymarket.com/event/dems-flip-a-2020-trump-state
+Politics,6,PM,"Kamala Harris wins a solid red state?",10373,869286.716847,https://polymarket.com/event/us-presidential-election-democrats-win-a-solid-red-state
+Politics,7,PM,"Maryland Senate Election Winner",10219,801653.327038,https://polymarket.com/event/maryland-us-senate-election-winner
+Politics,8,PM,"Mike Johnson out as Speaker before June?",10397,203963.083819,https://polymarket.com/event/mike-johnson-out-as-speaker-before-june
+Politics,9,PM,"Trump convicted of felony before Election?",10115,145583.300764,https://polymarket.com/event/trump-convicted-by-election
+Politics,10,PM,"MO-1 Democratic Primary Winner",10268,143946.449273,https://polymarket.com/event/mo-1-democratic-primary-winner
+Politics,1,Kalshi,"Will Nigel Farage be the next Prime Minister of United Kingdom?",KXNEXTUKPM-30-NF,77510,https://kalshi.com/markets/KXNEXTUKPM-30-NF
+Politics,2,Kalshi,"Will the U.S. State Department issue a Level 4 warning for Taiwan before Jan 1, 2027?",KXTAIWANLVL4-27JAN01,71823,https://kalshi.com/markets/KXTAIWANLVL4-27JAN01
+Politics,3,Kalshi,"Will the national debt hit $40 trillion during the Trump Administration?",KXDEBTGROWTH-28DEC31-40,42347,https://kalshi.com/markets/KXDEBTGROWTH-28DEC31-40
+Politics,4,Kalshi,"Will the Democratic party win the House, the Democratic party win the Senate, and the Democratic party win the Presidency?",POWER-28-DH-DS-DP,36365,https://kalshi.com/markets/POWER-28-DH-DS-DP
+Politics,5,Kalshi,"Will Trump balance the budget?",KXBALANCE-29,34840,https://kalshi.com/markets/KXBALANCE-29
+Politics,6,Kalshi,"Will Angela Rayner be the next Prime Minister of United Kingdom?",KXNEXTUKPM-30-AR,31888,https://kalshi.com/markets/KXNEXTUKPM-30-AR
+Politics,7,Kalshi,"Will  become President of the United States before 2045?",KXPERSONPRESFUENTES-45,31213,https://kalshi.com/markets/KXPERSONPRESFUENTES-45
+Politics,8,Kalshi,"Will Alberta vote to secede from Canada before the next general election?",KXALBERTAREFYES-29,29074,https://kalshi.com/markets/KXALBERTAREFYES-29
+Politics,9,Kalshi,"Will the Republican party win the House, the Republican party win the Senate, and the Republican party win the Presidency?",POWER-28-RH-RS-RP,28049,https://kalshi.com/markets/POWER-28-RH-RS-RP
+Politics,10,Kalshi,"Will government spending decrease by 250 before 2028?",KXGOVTCUTS-28-250,26975,https://kalshi.com/markets/KXGOVTCUTS-28-250
+Sports,1,PM,"NCAA March Madness Winner",10060,1435863.174066,https://polymarket.com/event/march-madness-winner
+Sports,2,PM,"NBA MVP",10088,585796.724317,https://polymarket.com/event/nba-mvp
+Sports,3,PM,"Premier League Winner",10090,216450.820597,https://polymarket.com/event/premier-league-winner
+Sports,4,PM,"Nic Carter vs. David Hoffman: Who will win?",10199,191577.635909,https://polymarket.com/event/nic-carter-vs-david-hoffman-Fight
+Sports,5,PM,"March Madness: How many #1 seeds in Final Four?",10069,184598.552603,https://polymarket.com/event/march-madness-how-many-1-seeds-in-final-four
+Sports,6,PM,"English Premier League Top Scorer",10209,171986.845176,https://polymarket.com/event/premier-league-top-scorer
+Sports,7,PM,"March Madness Sweet 16",10159,127597.230599,https://polymarket.com/event/march-madness-3-28-2024
+Sports,8,PM,"Shohei Ohtani suspension in March?",10104,66540.642857,https://polymarket.com/event/shohei-ohtani-suspension-in-march
+Sports,9,PM,"Steelers' Week 1 starter?",10187,64659.030249,https://polymarket.com/event/steelers-week-1-starter
+Sports,10,PM,"March Madness: UConn vs. Alabama",10195,56010.150297,https://polymarket.com/event/march-madness-uconn-vs-alabama
+Sports,1,Kalshi,"Will a Seattle NBA team play a game before 2030?",KXNBASEATTLE-30,11362,https://kalshi.com/markets/KXNBASEATTLE-30
+Sports,2,Kalshi,"Will the Portland Trailblazers be bought and become the Seattle SuperSonics?",KXSONICS-30,5835,https://kalshi.com/markets/KXSONICS-30
+Sports,3,Kalshi,"Will LeBron James be a majority owner of a pro men's basketball team before 2030?",KXSPORTSOWNERLBJ-30,4472,https://kalshi.com/markets/KXSPORTSOWNERLBJ-30
+Sports,4,Kalshi,"Will the NBA approve a new franchise before 2030?",KXNBATEAM-30,4182,https://kalshi.com/markets/KXNBATEAM-30
+Sports,5,Kalshi,"Will a Canadian team win the pro hockey championship by the end of the 2030 season?",KXCANADACUP-30,754,https://kalshi.com/markets/KXCANADACUP-30
+Crypto,1,PM,"Eigenlayer market cap (FDV) one day after launch?",10228,6594448.03891,https://polymarket.com/event/eigenlayer-market-cap-fdv-one-day-after-launch
+Crypto,2,PM,"Ethena USDe flips USDC market cap in 2024?",10225,659293.833661003,https://polymarket.com/event/ethena-usde-flips-usdc-market-cap-in-2024
+Crypto,3,PM,"What price will $BTC reach in April?",10178,571927.101859,https://polymarket.com/event/what-price-will-btc-reach-in-april
+Crypto,4,PM,"Will ETH or SOL reach all-time high first?",10035,497965.892559,https://polymarket.com/event/will-eth-or-sol-reach-alltime-high-first
+Crypto,5,PM,"Ethena crash in 2024?",10198,314751.299607,https://polymarket.com/event/ethena-exploit-depeg-in-2024
+Crypto,6,PM,"Will Trump mention $boden before July?",10239,205741.145702,https://polymarket.com/event/will-trump-mention-boden-before-july
+Crypto,7,PM,"Nic Carter vs. David Hoffman: Who will win?",10199,191577.635909,https://polymarket.com/event/nic-carter-vs-david-hoffman-Fight
+Crypto,8,PM,"$SAFE Market Cap (FDV) one week after launch? ",10145,116716.814444,https://polymarket.com/event/safe-market-cap-fdv-one-week-after-launch
+Crypto,9,PM,"Ethena market cap (FDV) one day after launch?",10161,97997.555646,https://polymarket.com/event/ethena-market-cap-fdv-one-day-after-airdrop
+Crypto,10,PM,"ETH above $3,500 on Mar 29?",10119,82114.165211,https://polymarket.com/event/eth-above-3500-on-mar-29
+Crypto,1,Kalshi,"Will quarterly GDP be above 5% in any quarter in Q1 2025 to Q4 2028?",KXGDPUSMAX-28-5,127115,https://kalshi.com/markets/KXGDPUSMAX-28-5
+Crypto,2,Kalshi,"Will Elon Musk be a trillionaire before 2027?",KXMUSKTRILLION-27,103958,https://kalshi.com/markets/KXMUSKTRILLION-27
+Crypto,3,Kalshi,"Will Elon Musk be the world's first trillionaire?",KXTRILLIONAIRE-30-EM,76131,https://kalshi.com/markets/KXTRILLIONAIRE-30-EM
+Crypto,4,Kalshi,"Will Elon Musk be a trillionaire before 2026?",KXMUSKTRILLION-26,45976,https://kalshi.com/markets/KXMUSKTRILLION-26
+Crypto,5,Kalshi,"Will China overtake US GDP by 2030?",CHINAUSGDP-30,43978,https://kalshi.com/markets/CHINAUSGDP-30
+Crypto,6,Kalshi,"Will Elon Musk be a trillionaire before 2028?",KXMUSKTRILLION-28,34925,https://kalshi.com/markets/KXMUSKTRILLION-28
+Crypto,7,Kalshi,"Will Elon Musk be a trillionaire before 2030?",KXMUSKTRILLION-30,31232,https://kalshi.com/markets/KXMUSKTRILLION-30
+Crypto,8,Kalshi,"Will Elon Musk be a trillionaire before 2029?",KXMUSKTRILLION-29,27147,https://kalshi.com/markets/KXMUSKTRILLION-29
+Crypto,9,Kalshi,"Will Jensen Huang be the world's first trillionaire?",KXTRILLIONAIRE-30-JH,12917,https://kalshi.com/markets/KXTRILLIONAIRE-30-JH
+Crypto,10,Kalshi,"Will Trump bring back manufacturing?",KXGDPSHAREMANU-29,12524,https://kalshi.com/markets/KXGDPSHAREMANU-29
+Finance,1,PM,"Fed Interest Rates: June 2024",10535,2287333.129899,https://polymarket.com/event/fed-interest-rates-june-2024
+Finance,2,PM,"U.S. Recession in 2024?",10262,875848.13851399,https://polymarket.com/event/us-recession-in-2024-1
+Finance,3,PM,"Ethereum ETF begins trading by July 4?",10785,529779.053004,https://polymarket.com/event/ethereum-etf-begins-trading-by-july-4
+Finance,4,PM,"NVIDIA largest company before June 15?",10784,352823.435588,https://polymarket.com/event/nvidia-largest-company-by-june-30
+Finance,5,PM,"$DJT market cap on April 30?",10374,254266.650449,https://polymarket.com/event/djt-market-cap-on-april-30
+Finance,6,PM,"$DJT market cap on May 15",10529,190390.614636,https://polymarket.com/event/djt-market-cap-on-may-15-1
+Finance,7,PM,"$AMC all time high by Friday?",10654,100044.653999,https://polymarket.com/event/amc-all-time-high-by-friday
+Finance,8,PM,"'Godzilla x Kong: The New Empire' Opening Weekend Box Office",10111,77279.243913,https://polymarket.com/event/godzilla-x-kong-the-new-empire
+Finance,9,PM,"# of Roaring Kitty tweets by May 17?",10646,54064.208691,https://polymarket.com/event/of-roaring-kitty-tweets-by-may-17
+Finance,10,PM,"VanEck tweet ""retardio"" in April?",10314,50273.458788,https://polymarket.com/event/vaneck-tweet-retardio-in-april
+Finance,1,Kalshi,"Will Open AI or Anthropic IPO first?",KXOAIANTH-40-ANTH,15915,https://kalshi.com/markets/KXOAIANTH-40-ANTH
+Finance,2,Kalshi,"Will OpenAI or Anthropic IPO first?",KXOAIANTH-40-OAI,10707,https://kalshi.com/markets/KXOAIANTH-40-OAI
+Finance,3,Kalshi,"Will Ramp or Brex IPO first?",KXRAMPBREX-40-BREX,4569,https://kalshi.com/markets/KXRAMPBREX-40-BREX
+Finance,4,Kalshi,"Will Ramp or Brex IPO first?",KXRAMPBREX-40-RAMP,3560,https://kalshi.com/markets/KXRAMPBREX-40-RAMP
+Finance,5,Kalshi,"Will Deel or Rippling IPO first?",KXDEELRIP-40-DEEL,2321,https://kalshi.com/markets/KXDEELRIP-40-DEEL
+Finance,6,Kalshi,"Will Deel or Rippling IPO first?",KXDEELRIP-40-RIPP,1197,https://kalshi.com/markets/KXDEELRIP-40-RIPP
+Geopolitics,1,PM,"Will Ukraine join NATO in 2024?",10259,2220103.217027,https://polymarket.com/event/will-ukraine-join-nato-in-2024
+Geopolitics,2,PM,"Will Putin remain President of Russia through 2024?",10140,2187634.15316501,https://polymarket.com/event/will-putin-remain-president-of-russia-through-2024
+Geopolitics,3,PM,"Next Israel x Hamas ceasefire in…?",11022,1541692.656028,https://polymarket.com/event/next-israel-x-hamas-ceasefire-in
+Geopolitics,4,PM,"Will Israel invade Lebanon before September?",10798,1345780.163692,https://polymarket.com/event/will-israel-invade-lebanon-before-september
+Geopolitics,5,PM,"Israel x Hamas ceasefire before September?",10799,972382.169621,https://polymarket.com/event/israel-x-hamas-ceasefire-before-september
+Geopolitics,6,PM,"Israel military action against Iran by end of 2024?",10804,934236.515399,https://polymarket.com/event/israel-military-action-against-iran-by-end-of-2024
+Geopolitics,7,PM,"Ukraine responsible for Moscow attack? ",10127,349784.90005,https://polymarket.com/event/ukraine-responsible-for-russia-attack
+Geopolitics,8,PM,"Ceasefire between Russia and Ukraine before October?",10766,315612.939817,https://polymarket.com/event/ceasefire-between-russia-and-ukraine-before-october
+Geopolitics,9,PM,"Zelensky remains President of Ukraine through September?",10600,209495.323909,https://polymarket.com/event/will-zelensky-remain-president-of-ukraine-through-september
+Geopolitics,10,PM,"Israel and Saudi Arabia normalize relations before U.S. election?",10451,133184.532627,https://polymarket.com/event/israel-and-saudi-arabia-normalize-relations-before-us-election
+Geopolitics,1,Kalshi,"Will Nigel Farage be the next Prime Minister of United Kingdom?",KXNEXTUKPM-30-NF,77510,https://kalshi.com/markets/KXNEXTUKPM-30-NF
+Geopolitics,2,Kalshi,"Will the U.S. State Department issue a Level 4 warning for Taiwan before Jan 1, 2027?",KXTAIWANLVL4-27JAN01,71823,https://kalshi.com/markets/KXTAIWANLVL4-27JAN01
+Geopolitics,3,Kalshi,"Will the national debt hit $40 trillion during the Trump Administration?",KXDEBTGROWTH-28DEC31-40,42347,https://kalshi.com/markets/KXDEBTGROWTH-28DEC31-40
+Geopolitics,4,Kalshi,"Will Elon Musk visit Mars before Aug 1, 2099?",KXELONMARS-99,37286,https://kalshi.com/markets/KXELONMARS-99
+Geopolitics,5,Kalshi,"Will the Democratic party win the House, the Democratic party win the Senate, and the Democratic party win the Presidency?",POWER-28-DH-DS-DP,36365,https://kalshi.com/markets/POWER-28-DH-DS-DP
+Geopolitics,6,Kalshi,"Will Trump balance the budget?",KXBALANCE-29,34840,https://kalshi.com/markets/KXBALANCE-29
+Geopolitics,7,Kalshi,"Will Angela Rayner be the next Prime Minister of United Kingdom?",KXNEXTUKPM-30-AR,31888,https://kalshi.com/markets/KXNEXTUKPM-30-AR
+Geopolitics,8,Kalshi,"Will  become President of the United States before 2045?",KXPERSONPRESFUENTES-45,31213,https://kalshi.com/markets/KXPERSONPRESFUENTES-45
+Geopolitics,9,Kalshi,"Will Alberta vote to secede from Canada before the next general election?",KXALBERTAREFYES-29,29074,https://kalshi.com/markets/KXALBERTAREFYES-29
+Geopolitics,10,Kalshi,"Will the Republican party win the House, the Republican party win the Senate, and the Republican party win the Presidency?",POWER-28-RH-RS-RP,28049,https://kalshi.com/markets/POWER-28-RH-RS-RP
+Earnings,1,PM,"Roaring Kitty billionaire by Friday?",10873,296143.767705,https://polymarket.com/event/roaring-kitty-billionaire-by-friday
+Earnings,2,PM,"$DJT market cap on April 30?",10374,254266.650449,https://polymarket.com/event/djt-market-cap-on-april-30
+Earnings,3,PM,"$DJT market cap on May 15",10529,190390.614636,https://polymarket.com/event/djt-market-cap-on-may-15-1
+Earnings,4,PM,"$DJT Market Cap on April 5",10162,106970.625204,https://polymarket.com/event/djt-market-cap-on-april-5
+Earnings,5,PM,"$AMC all time high by Friday?",10654,100044.653999,https://polymarket.com/event/amc-all-time-high-by-friday
+Earnings,6,PM,"Roaring Kitty billionaire before July?",10958,60554.373535,https://polymarket.com/event/roaring-kitty-billionaire-before-july
+Earnings,7,PM,"# of Roaring Kitty tweets by May 17?",10646,54064.208691,https://polymarket.com/event/of-roaring-kitty-tweets-by-may-17
+Earnings,8,PM,"# GME trading halts today?",10640,20541.12,https://polymarket.com/event/number-gme-trading-halts-today
+Earnings,9,PM,"Roaring Kitty dumps GME calls by Friday?",10871,13620.200917,https://polymarket.com/event/roaring-kitty-dumps-gme-position-by-friday
+Earnings,10,PM,"$GME halted on Wednesday?",10660,12856.192431,https://polymarket.com/event/gme-halted-on-wednesday
+Earnings,1,Kalshi,"Will quarterly GDP be above 5% in any quarter in Q1 2025 to Q4 2028?",KXGDPUSMAX-28-5,127115,https://kalshi.com/markets/KXGDPUSMAX-28-5
+Earnings,2,Kalshi,"Will Elon Musk be a trillionaire before 2027?",KXMUSKTRILLION-27,103958,https://kalshi.com/markets/KXMUSKTRILLION-27
+Earnings,3,Kalshi,"Will Elon Musk be the world's first trillionaire?",KXTRILLIONAIRE-30-EM,76131,https://kalshi.com/markets/KXTRILLIONAIRE-30-EM
+Earnings,4,Kalshi,"Will Elon Musk be a trillionaire before 2026?",KXMUSKTRILLION-26,45976,https://kalshi.com/markets/KXMUSKTRILLION-26
+Earnings,5,Kalshi,"Will China overtake US GDP by 2030?",CHINAUSGDP-30,43978,https://kalshi.com/markets/CHINAUSGDP-30
+Earnings,6,Kalshi,"Will Elon Musk be a trillionaire before 2028?",KXMUSKTRILLION-28,34925,https://kalshi.com/markets/KXMUSKTRILLION-28
+Earnings,7,Kalshi,"Will Elon Musk be a trillionaire before 2030?",KXMUSKTRILLION-30,31232,https://kalshi.com/markets/KXMUSKTRILLION-30
+Earnings,8,Kalshi,"Will Elon Musk be a trillionaire before 2029?",KXMUSKTRILLION-29,27147,https://kalshi.com/markets/KXMUSKTRILLION-29
+Earnings,9,Kalshi,"Will Open AI or Anthropic IPO first?",KXOAIANTH-40-ANTH,15915,https://kalshi.com/markets/KXOAIANTH-40-ANTH
+Earnings,10,Kalshi,"Will Jensen Huang be the world's first trillionaire?",KXTRILLIONAIRE-30-JH,12917,https://kalshi.com/markets/KXTRILLIONAIRE-30-JH
+Tech,1,PM,"GPT ads by...?",38528,1034988.149525,https://polymarket.com/event/openai-implements-ads-on-llm-by-december-31
+Tech,2,PM,"$EIGEN transferable before CZ gets out of prison?",10534,676393.15367,https://polymarket.com/event/eigen-transferable-before-cz-gets-out-of-prison
+Tech,3,PM,"GPT transaction fees by December 31?",38530,26411.53724,https://polymarket.com/event/openai-implements-transaction-based-commission-model-on-llm-by-december-31
+Tech,4,PM,"Sam Altman out as OpenAI CEO before July?",10746,17260.557587,https://polymarket.com/event/sam-altman-out-as-openai-ceo-before-july
+Tech,5,PM,"Microsoft buys Steam before July?",10747,16402.851936,https://polymarket.com/event/microsoft-buys-steam-before-july
+Tech,6,PM,"X banned in Brazil before May?",10287,13614.027816,https://polymarket.com/event/xtwitter-illegal-in-brazil-before-may
+Tech,7,PM,"Apple + OpenAI deal announced by Friday?",10648,9322.522017,https://polymarket.com/event/apple-openai-deal-announced-by-friday
+Tech,8,PM,"Another state bans lab-grown meat in May?",10661,9141.247639,https://polymarket.com/event/another-state-bans-lab-grown-meat-in-may
+Tech,9,PM,"Friend.Tech airdrop in 2023?",902855,7366.56,https://polymarket.com/event/friendtech-airdrop-in-2023
+Tech,10,PM,"Boeing emergency landing in US by Mar 31?",10100,5663.976185,https://polymarket.com/event/boeing-emergency-landing-in-us-by-mar-31
+Tech,1,Kalshi,"DOJ wins their anti-trust case against Apple?",APPLEUS-29DEC31,43843,https://kalshi.com/markets/APPLEUS-29DEC31
+Tech,2,Kalshi,"Will SpaceX land anything on Mars before 2030?",KXSPACEXMARS-30,39348,https://kalshi.com/markets/KXSPACEXMARS-30
+Tech,3,Kalshi,"Which country will be the next to send humans to the Moon?",KXMOONMAN-31-USA,37429,https://kalshi.com/markets/KXMOONMAN-31-USA
+Tech,4,Kalshi,"Will a humanoid robot walk on Mars before a human does?",KXROBOTMARS-35,27959,https://kalshi.com/markets/KXROBOTMARS-35
+Tech,5,Kalshi,"Manned Starship mission to Mars before 2030?",STARSHIPMARS-29DEC31,27955,https://kalshi.com/markets/STARSHIPMARS-29DEC31
+Tech,6,Kalshi,"Will Blue Origin land an uncrewed Blue Moon MK1 lander on the moon before SpaceX lands an uncrewed Starship?",KXBLUESPACEX-30,26305,https://kalshi.com/markets/KXBLUESPACEX-30
+Tech,7,Kalshi,"Which country will be the next to send humans to the Moon?",KXMOONMAN-31-PRC,23671,https://kalshi.com/markets/KXMOONMAN-31-PRC
+Tech,8,Kalshi,"When will nuclear fusion be achieved?",KXFUSION-30-JAN01,12971,https://kalshi.com/markets/KXFUSION-30-JAN01
+Tech,9,Kalshi,"Will the DOJ win their antitrust lawsuit against Live Nation before Jan 1, 2030?",KXLIVENATIONUS-30-JAN01,7566,https://kalshi.com/markets/KXLIVENATIONUS-30-JAN01
+Tech,10,Kalshi,"Will humans colonize Mars before 2050?",KXCOLONIZEMARS-50,6452,https://kalshi.com/markets/KXCOLONIZEMARS-50
+Culture,1,PM,"'Dune: Part Two' Opening Weekend Box Office",903285,1328226.58,https://polymarket.com/event/dune-part-two-opening-weekend-box-office
+Culture,2,PM,"Oscars: Best Picture",903246,687116.47,https://polymarket.com/event/oscars-2024-best-picture
+Culture,3,PM,"Oscars: Best Actor",903277,345217.35,https://polymarket.com/event/oscars-2024-best-actor
+Culture,4,PM,"Tyson Fury vs. Oleksandr Usyk: Who will win?",903319,307554.68878,https://polymarket.com/event/tyson-fury-vs-oleksandr-usyk-who-will-win
+Culture,5,PM,"Oscars: Best Actress",903316,198936.43,https://polymarket.com/event/oscars-2024-best-actress
+Culture,6,PM,"Will Kanye release ‘Vultures’ Vol. 1 by Feb 9?",903314,192214.28,https://polymarket.com/event/will-kanye-release-vultures-vol-1-by-feb-9
+Culture,7,PM,"'The Marvels' opening weekend",902783,156612.87,https://polymarket.com/event/the-marvels-opening-weekend
+Culture,8,PM,"2023 Time Person of the Year",902703,134569.95,https://polymarket.com/event/2023-time-person-of-the-year
+Culture,9,PM,"Box Office: Nov 22-26",902911,130745.86,https://polymarket.com/event/box-office-nov-22-26
+Culture,10,PM,"'Hunger Games: Ballad of Songbirds & Snakes' opening weekend",902850,102369.29,https://polymarket.com/event/hunger-games-ballad-of-songbirds-snakes-opening-weekend
+Culture,1,Kalshi,"What will the price of GTA VI be?",KXGTAPRICE-100,89159,https://kalshi.com/markets/KXGTAPRICE-100
+Culture,2,Kalshi,"What will the price of GTA VI be?",KXGTAPRICE-70,71440,https://kalshi.com/markets/KXGTAPRICE-70
+Culture,3,Kalshi,"Will Aaron Taylor-Johnson be the next James Bond?",KXBOND-30-ATJ,71200,https://kalshi.com/markets/KXBOND-30-ATJ
+Culture,4,Kalshi,"Will Callum Turner be the next James Bond?",KXBOND-30-CAL,61359,https://kalshi.com/markets/KXBOND-30-CAL
+Culture,5,Kalshi,"What will the price of GTA VI be?",KXGTAPRICE-80,54801,https://kalshi.com/markets/KXGTAPRICE-80
+Culture,6,Kalshi,"What will the price of GTA VI be?",KXGTAPRICE-90,54780,https://kalshi.com/markets/KXGTAPRICE-90
+Culture,7,Kalshi,"Will Henry Cavill be the next James Bond?",KXBOND-30-HC,16995,https://kalshi.com/markets/KXBOND-30-HC
+Culture,8,Kalshi,"Will Jacob Elordi be the next James Bond?",KXBOND-30-JACO,14275,https://kalshi.com/markets/KXBOND-30-JACO
+Culture,9,Kalshi,"Will Harris Dickinson be the next James Bond?",KXBOND-30-HAR,9417,https://kalshi.com/markets/KXBOND-30-HAR
+Culture,10,Kalshi,"Will Johnny Depp be casted in the next Pirates of the Caribbean?",KXJOHNNYDEPP-35-JOH,8106,https://kalshi.com/markets/KXJOHNNYDEPP-35-JOH
+World,1,PM,"Poland Presidential Election",14874,128972884.206035,https://polymarket.com/event/poland-presidential-election
+World,2,PM,"Trump ends Ukraine war in first 90 days?",13551,56491984.2956951,https://polymarket.com/event/trump-wins-ends-ukraine-war-in-90-days
+World,3,PM,"Yoon out as president of South Korea before April?",15080,32369092.703828,https://polymarket.com/event/yoon-out-as-president-of-south-korea-before-april
+World,4,PM,"Khamenei out as Supreme Leader of Iran by June 30?",15036,8130895.805353,https://polymarket.com/event/khamenei-out-as-supreme-leader-of-iran-by-june-30
+World,5,PM,"Which candidates will advance in Romanian Election 1st round?",15196,5955649.670416,https://polymarket.com/event/which-candidates-will-advance-in-romanian-presidential-election-1st-round
+World,6,PM,"Romania Presidential Election 1st round winner?",15369,5473038.493854,https://polymarket.com/event/romania-presidential-election-1st-round-winner
+World,7,PM,"Ecuador Presidential Election",14882,4911039.956261,https://polymarket.com/event/ecuador-presidential-election
+World,8,PM,"Will Russia abandon Syrian naval base before April?",14977,2431621.702986,https://polymarket.com/event/will-russia-abandon-syrian-naval-base-before-april-2025
+World,9,PM,"Who will recognize Syrian Government by March 31?",15394,1511230.637928,https://polymarket.com/event/who-will-recognize-syrian-government-by-march-31
+World,10,PM,"Trump imposes 40% tariff on China in first 100 days?",14589,1142692.023306,https://polymarket.com/event/trump-imposes-40-blanket-tariff-on-china-in-first-100-days
+World,1,Kalshi,"Will Nigel Farage be the next Prime Minister of United Kingdom?",KXNEXTUKPM-30-NF,77510,https://kalshi.com/markets/KXNEXTUKPM-30-NF
+World,2,Kalshi,"Will the U.S. State Department issue a Level 4 warning for Taiwan before Jan 1, 2027?",KXTAIWANLVL4-27JAN01,71823,https://kalshi.com/markets/KXTAIWANLVL4-27JAN01
+World,3,Kalshi,"Will the national debt hit $40 trillion during the Trump Administration?",KXDEBTGROWTH-28DEC31-40,42347,https://kalshi.com/markets/KXDEBTGROWTH-28DEC31-40
+World,4,Kalshi,"Will Elon Musk visit Mars before Aug 1, 2099?",KXELONMARS-99,37286,https://kalshi.com/markets/KXELONMARS-99
+World,5,Kalshi,"Will the Democratic party win the House, the Democratic party win the Senate, and the Democratic party win the Presidency?",POWER-28-DH-DS-DP,36365,https://kalshi.com/markets/POWER-28-DH-DS-DP
+World,6,Kalshi,"Will Trump balance the budget?",KXBALANCE-29,34840,https://kalshi.com/markets/KXBALANCE-29
+World,7,Kalshi,"Will Angela Rayner be the next Prime Minister of United Kingdom?",KXNEXTUKPM-30-AR,31888,https://kalshi.com/markets/KXNEXTUKPM-30-AR
+World,8,Kalshi,"Will  become President of the United States before 2045?",KXPERSONPRESFUENTES-45,31213,https://kalshi.com/markets/KXPERSONPRESFUENTES-45
+World,9,Kalshi,"Will Alberta vote to secede from Canada before the next general election?",KXALBERTAREFYES-29,29074,https://kalshi.com/markets/KXALBERTAREFYES-29
+World,10,Kalshi,"Will the Republican party win the House, the Republican party win the Senate, and the Republican party win the Presidency?",POWER-28-RH-RS-RP,28049,https://kalshi.com/markets/POWER-28-RH-RS-RP
+Economy,1,PM,"Fed decision in December?",11878,58771668.63480185,https://polymarket.com/event/fed-interest-rates-december-2024
+Economy,2,PM,"Fed Interest Rates: September 2024",11696,58692039.867388,https://polymarket.com/event/fed-interest-rates-september-2024
+Economy,3,PM,"U.S. Recession in 2024?",10262,875848.13851399,https://polymarket.com/event/us-recession-in-2024-1
+Economy,4,PM,"Fed emergency rate cut in 2024?",11821,835804.641916001,https://polymarket.com/event/fed-emergency-rate-cut-in-2024
+Economy,5,PM,"Fed cuts rates by 75 basis points in Sept meeting?",11862,493260.757524,https://polymarket.com/event/will-the-fed-cut-rates-by-75-basis-points-in-september
+Economy,6,PM,"Fed emergency rate cut in August?",11864,432105.437772,https://polymarket.com/event/fed-emergency-rate-cut-in-august
+Economy,7,PM,"US GDP declines in Q3 2024?",11872,346721.350513,https://polymarket.com/event/us-gdp-declines-in-q3-2024
+Economy,8,PM,"US bank failure by October 31?",11822,204194.479453,https://polymarket.com/event/us-bank-failure-by-october
+Economy,9,PM,"Largest company on September 30?",12677,172167.208131,https://polymarket.com/event/largest-company-on-september-30
+Economy,10,PM,"Bank of Japan emergency rate cut in August?",11851,144937.019099,https://polymarket.com/event/boj-emergency-rate-cut-in-august
+Economy,1,Kalshi,"Will quarterly GDP be above 5% in any quarter in Q1 2025 to Q4 2028?",KXGDPUSMAX-28-5,127115,https://kalshi.com/markets/KXGDPUSMAX-28-5
+Economy,2,Kalshi,"Will Elon Musk be a trillionaire before 2027?",KXMUSKTRILLION-27,103958,https://kalshi.com/markets/KXMUSKTRILLION-27
+Economy,3,Kalshi,"Will Elon Musk be the world's first trillionaire?",KXTRILLIONAIRE-30-EM,76131,https://kalshi.com/markets/KXTRILLIONAIRE-30-EM
+Economy,4,Kalshi,"Will Elon Musk be a trillionaire before 2026?",KXMUSKTRILLION-26,45976,https://kalshi.com/markets/KXMUSKTRILLION-26
+Economy,5,Kalshi,"Will China overtake US GDP by 2030?",CHINAUSGDP-30,43978,https://kalshi.com/markets/CHINAUSGDP-30
+Economy,6,Kalshi,"Will Elon Musk be a trillionaire before 2028?",KXMUSKTRILLION-28,34925,https://kalshi.com/markets/KXMUSKTRILLION-28
+Economy,7,Kalshi,"Will Elon Musk be a trillionaire before 2030?",KXMUSKTRILLION-30,31232,https://kalshi.com/markets/KXMUSKTRILLION-30
+Economy,8,Kalshi,"Will Elon Musk be a trillionaire before 2029?",KXMUSKTRILLION-29,27147,https://kalshi.com/markets/KXMUSKTRILLION-29
+Economy,9,Kalshi,"Will Open AI or Anthropic IPO first?",KXOAIANTH-40-ANTH,15915,https://kalshi.com/markets/KXOAIANTH-40-ANTH
+Economy,10,Kalshi,"Will Jensen Huang be the world's first trillionaire?",KXTRILLIONAIRE-30-JH,12917,https://kalshi.com/markets/KXTRILLIONAIRE-30-JH

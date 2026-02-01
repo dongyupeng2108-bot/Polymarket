@@ -1,0 +1,30 @@
+{
+  "task_id": "M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069",
+  "timestamp": "2026-01-28T18:59:05.685Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069.json",
+      "notify": "notify_M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069.txt",
+      "log": "run_M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069.log",
+      "index": "deliverables_index_M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 617,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 6,
+      "failures": []
+    }
+  }
+}

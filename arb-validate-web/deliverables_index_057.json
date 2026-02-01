@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 18943,
+      "sha256_short": "1309246c"
+    },
+    {
+      "name": "scripts/postflight_selftest_v39.mjs",
+      "size": 748,
+      "sha256_short": "5bf0762b"
+    },
+    {
+      "name": "postflight_selftest_057.txt",
+      "size": 129,
+      "sha256_short": "72932a9c"
+    },
+    {
+      "name": "healthcheck_53121.txt",
+      "size": 372,
+      "sha256_short": "d1b5f485"
+    },
+    {
+      "name": "scripts/docs_locate_057.txt",
+      "size": 108,
+      "sha256_short": "5ffbe579"
+    },
+    {
+      "name": "workflow-v39.md",
+      "size": 3361,
+      "sha256_short": "6f614973"
+    },
+    {
+      "name": "project-rules-concise.md",
+      "size": 2766,
+      "sha256_short": "476513c5"
+    }
+  ]
+}

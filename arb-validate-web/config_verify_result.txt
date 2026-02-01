@@ -1,0 +1,58 @@
+{
+  "case1": {
+    "opp_mode": "prod",
+    "opp_threshold": 0.01,
+    "opp_threshold_source": "fallback",
+    "proxy_env_present": true,
+    "warning": false,
+    "sim": {
+      "notional": 100,
+      "fee_rate_pm": 0,
+      "fee_rate_kh": 0,
+      "slippage_bps": 10,
+      "latency_penalty_bps_per_100ms": 1
+    }
+  },
+  "case2": {
+    "opp_mode": "prod",
+    "opp_threshold": 0.02,
+    "opp_threshold_source": "OPP_EDGE_THRESHOLD",
+    "proxy_env_present": true,
+    "warning": false,
+    "sim": {
+      "notional": 100,
+      "fee_rate_pm": 0,
+      "fee_rate_kh": 0,
+      "slippage_bps": 10,
+      "latency_penalty_bps_per_100ms": 1
+    }
+  },
+  "case3": {
+    "opp_mode": "dev",
+    "opp_threshold": -0.5,
+    "opp_threshold_source": "OPP_EDGE_THRESHOLD_DEV",
+    "proxy_env_present": true,
+    "warning": false,
+    "sim": {
+      "notional": 100,
+      "fee_rate_pm": 0,
+      "fee_rate_kh": 0,
+      "slippage_bps": 10,
+      "latency_penalty_bps_per_100ms": 1
+    }
+  },
+  "case4": {
+    "opp_mode": "dev",
+    "opp_threshold": 0.03,
+    "opp_threshold_source": "OPP_EDGE_THRESHOLD",
+    "proxy_env_present": true,
+    "warning": false,
+    "sim": {
+      "notional": 100,
+      "fee_rate_pm": 0,
+      "fee_rate_kh": 0,
+      "slippage_bps": 10,
+      "latency_penalty_bps_per_100ms": 1
+    }
+  }
+}

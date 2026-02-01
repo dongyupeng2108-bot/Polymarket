@@ -1,0 +1,49 @@
+{
+  "files": [
+    {
+      "name": "deliverables_index_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.json",
+      "size": 587,
+      "sha256_short": "e879ad2d"
+    },
+    {
+      "name": "healthcheck_53121.txt",
+      "size": 93,
+      "sha256_short": "2e5d506f"
+    },
+    {
+      "name": "kalshi_universe_mode_diff_061.json",
+      "size": 5550,
+      "sha256_short": "a7021dcc"
+    },
+    {
+      "name": "LATEST.json",
+      "size": 360,
+      "sha256_short": "31177762"
+    },
+    {
+      "name": "notify_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.txt",
+      "size": 2275,
+      "sha256_short": "5a2e88b8"
+    },
+    {
+      "name": "result_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.json",
+      "size": 360,
+      "sha256_short": "31177762"
+    },
+    {
+      "name": "run_064_v2.log",
+      "size": 635,
+      "sha256_short": "5d0937e4"
+    },
+    {
+      "name": "run_M2_5_AutoMatch_Fix_ZeroCandidates_260128_064_v2.log",
+      "size": 635,
+      "sha256_short": "5d0937e4"
+    },
+    {
+      "name": "sse_capture_064_v2.out",
+      "size": 600414,
+      "sha256_short": "9fe1d95c"
+    }
+  ]
+}

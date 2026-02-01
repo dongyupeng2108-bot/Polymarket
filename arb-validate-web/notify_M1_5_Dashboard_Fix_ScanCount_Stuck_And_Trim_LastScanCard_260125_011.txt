@@ -1,0 +1,4 @@
+RESULT_READY
+task_id: M1_5_Dashboard_Fix_ScanCount_Stuck_And_Trim_LastScanCard_260125_011
+status: DONE
+local_path: E:\polymaket\program\arb-validate-web

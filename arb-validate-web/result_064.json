@@ -1,0 +1,11 @@
+{
+  "task_id": "064",
+  "status": "DONE",
+  "summary": "Fixed AutoMatch candidates=0 by implementing fail-fast retry, expanded sports prefixes, and robust domain mismatch detection (15% threshold). Verified auto-switch to topic_aligned mode.",
+  "artifacts": [
+    "sse_capture_auto_limit50_064.out",
+    "sse_capture_topic_aligned_limit50_064.out",
+    "ui_copy_details_completed_064.json",
+    "healthcheck_53121.txt"
+  ]
+}

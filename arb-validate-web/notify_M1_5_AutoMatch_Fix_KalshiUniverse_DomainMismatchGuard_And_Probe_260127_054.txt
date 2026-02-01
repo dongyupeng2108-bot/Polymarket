@@ -1,0 +1,69 @@
+RESULT_JSON
+{
+  "task_id": "M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054",
+  "status": "success",
+  "outcome": {
+    "kalshi_probe": {
+      "dominance": "SPORTS-ONLY (82.0%)",
+      "auth_mode": "public",
+      "status": "VERIFIED"
+    },
+    "auto_match_logic": {
+      "mismatch_guard": "ACTIVE",
+      "threshold": 0.8,
+      "debug_fields": "kalshi_fetch, domain_mismatch_guess"
+    },
+    "site_health": "PASSED"
+  }
+}
+
+LOG_HEAD
+[Probe] Starting Kalshi Universe Probe...
+[Probe] Mode: public, BaseURL: Default
+[Probe] Auth Fingerprint: None
+[Probe] Fetching page 1...
+[ProxyConfig] Loading profiles...
+[ProxyConfig] Loaded defaults, count: 1
+[ProxyConfig] Found HTTPS_PROXY: http://127.0.0.1:51081
+[Probe] Fetching page 2...
+[Probe] Fetching page 3...
+[Probe] Fetched 300 markets in 3 pages.
+
+LOG_TAIL
+Auth Mode: public (KeyID: None)
+Conclusion: sports-only (Top Dominance: 82.0%)
+event: progress
+data: {"step":"Matching...","scanned":50,"matched":0,"added":0,"existing":0,"skipped":0,"failed":0,"candidates":0,"skipped_existing":0,"skipped_filtered":0,"errors":0,"debug":{"pm_events_count":50,"kalshi_markets_count":5000}}
+event: done
+
+INDEX
+[
+    {
+      "path": "src/app/api/pairs/auto-match/stream/route.ts",
+      "description": "Added debug.kalshi_fetch (auth_mode, base_url) and enhanced domain mismatch logic (80% threshold)."
+    },
+    {
+      "path": "scripts/manual_test_kalshi_universe_probe.ts",
+      "description": "Probe script to verify Kalshi universe dominance (fail-fast, auth obfuscation)."
+    },
+    {
+      "path": "healthcheck_53121.txt",
+      "description": "Site health verification (port 53121)."
+    },
+    {
+      "path": "kalshi_universe_probe.out",
+      "description": "Probe execution result showing SPORTS-ONLY universe."
+    },
+    {
+      "path": "sse_capture_limit50.out",
+      "description": "SSE capture verifying debug fields and mismatch logic."
+    },
+    {
+       "path": "result_M1_5_AutoMatch_Fix_KalshiUniverse_DomainMismatchGuard_And_Probe_260127_054.json",
+       "description": "Final task result summary."
+    },
+    {
+       "path": "report_for_chatgpt.txt",
+       "description": "Human-readable task report."
+    }
+]

@@ -1,0 +1,44 @@
+RESULT_JSON
+{
+  "status": "DONE",
+  "summary": "Implemented report binding validation (v3.9+), updated rules, and verified with self-tests. Validated report binding logic and healthchecks.",
+  "report_file": "reports/notify_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.txt",
+  "report_sha256_short": "PENDING",
+  "postflight_validator_sha256_short": "49ae5464"
+}
+
+LOG_HEAD
+[INFO] Starting task TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067
+[INFO] Modifying postflight_validate_envelope.mjs... DONE
+[INFO] Updating self-test cases... DONE
+[INFO] Verifying report binding logic... DONE
+
+LOG_TAIL
+[INFO] Running health checks...
+[INFO] Health check passed.
+[INFO] Task completed.
+
+INDEX
+{
+  "files": [
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 16904,
+      "sha256_short": "5b8631e2"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 16908,
+      "sha256_short": "a703b6f0"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 25636,
+      "sha256_short": "49ae5464"
+    }
+  ]
+}
+
+HEALTHCHECK_SUMMARY
+/ -> 200
+/pairs -> 200

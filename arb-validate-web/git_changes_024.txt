@@ -1,0 +1,3 @@
+src/app/api/pairs/auto-match/stream/route.ts
+src/app/pairs/pairs-client.tsx
+scripts/verify_task_024.mjs

@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-01-19T14:54:50.247Z",
+  "profiles": [
+    {
+      "profile": "Direct",
+      "step": "exception",
+      "status": "fail",
+      "latency": 5045,
+      "error": "timeout of 5000ms exceeded"
+    },
+    {
+      "profile": "Bad Proxy (Test)",
+      "step": "exception",
+      "status": "fail",
+      "latency": 3,
+      "error": "connect ECONNREFUSED 127.0.0.1:9999"
+    }
+  ],
+  "auto_switch_test": {
+    "http_status": 0,
+    "latency_ms": 0,
+    "bids_len": 0,
+    "asks_len": 0,
+    "error_code": "ECONNREFUSED",
+    "error_class": "tcp",
+    "error_message": "connect ECONNREFUSED 127.0.0.1:9999",
+    "raw_body": null,
+    "parsed_book": {
+      "bids": [],
+      "asks": []
+    },
+    "proxy_used": false,
+    "proxy_value": "exhausted"
+  }
+}

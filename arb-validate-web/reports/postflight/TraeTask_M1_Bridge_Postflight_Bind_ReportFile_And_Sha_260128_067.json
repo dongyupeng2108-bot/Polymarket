@@ -1,0 +1,30 @@
+{
+  "task_id": "TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067",
+  "timestamp": "2026-01-28T18:59:57.225Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.json",
+      "notify": "notify_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.txt",
+      "log": "run_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.log",
+      "index": "deliverables_index_TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 1102,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 4,
+      "failures": []
+    }
+  }
+}

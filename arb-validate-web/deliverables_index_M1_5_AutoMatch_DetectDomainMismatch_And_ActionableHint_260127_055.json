@@ -1,0 +1,11 @@
+{
+  "task_id": "M1_5_AutoMatch_DetectDomainMismatch_And_ActionableHint_260127_055",
+  "files": [
+    "src/app/api/pairs/auto-match/stream/route.ts",
+    "src/app/pairs/pairs-client.tsx",
+    "scripts/manual_capture_sse_autmatch.ts",
+    "sse_capture_limit50.out",
+    "manual_verification.json",
+    "healthcheck_53121.txt"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "files": [
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 41797,
+      "sha256_short": "59c6e86e"
+    },
+    {
+      "name": "scripts/postflight_selftest_v39.mjs",
+      "size": 463,
+      "sha256_short": "4025435b"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 10,
+      "sha256_short": "f8ae89c2"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 15,
+      "sha256_short": "110ce58a"
+    },
+    {
+      "name": "reports/postflight/TraeTask_M1_Bridge_Postflight_Bind_ReportFile_And_Sha_260128_067.json",
+      "size": 1344,
+      "sha256_short": "d6e84e87"
+    },
+    {
+      "name": "reports/postflight/TraeTask_M1_Bridge_Postflight_Strict_ReportBinding_NoBypass_260128_068.json",
+      "size": 1701,
+      "sha256_short": "d9f2caf2"
+    },
+    {
+      "name": "reports/postflight/M1_5_Postflight_Block_ReportFile_IndexHash_Placeholder_And_NoSeeRunlog_260128_069.json",
+      "size": 1194,
+      "sha256_short": "9273cc74"
+    },
+    {
+      "name": "run_M1_5_Postflight_Gate_Fix_Healthcheck_Excerpt_And_Index_Completeness_260129_070.log",
+      "size": 999,
+      "sha256_short": "e6b4cd55"
+    },
+    {
+      "name": "report_for_chatgpt.txt",
+      "size": 2046,
+      "sha256_short": "b8b19d0d"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "task_id": "M1_5_PairsMgmt_AutoMatch_Task025_Evidence_FullEnvelope_PublishNotify_260126_029",
+  "version": "2.0",
+  "status": "DONE",
+  "started_at": "2026-01-26T04:09:00.370Z",
+  "ended_at": "2026-01-26T04:09:00.373Z",
+  "parser_mode": "strict",
+  "commands_total": 1,
+  "commands_executed": 1,
+  "retries": 0,
+  "acceptance_check": [
+    {
+      "item": "Log Found",
+      "pass": true,
+      "note": "existing_run_log"
+    },
+    {
+      "item": "Markers Detected",
+      "pass": false,
+      "note": ""
+    },
+    {
+      "item": "R2: Non-Zero Commands",
+      "pass": true
+    },
+    {
+      "item": "Manual Verification (Trae)",
+      "pass": true
+    },
+    {
+      "item": "Deliverables Index Present",
+      "pass": true
+    },
+    {
+      "item": "Deliverables Index References Exist",
+      "pass": true
+    }
+  ],
+  "markers_detected": [],
+  "zip_disabled": true,
+  "zip_requested": "off",
+  "zip_generated": false,
+  "artifacts": {
+    "result_json": "result_M1_5_PairsMgmt_AutoMatch_Task025_Evidence_FullEnvelope_PublishNotify_260126_029.json",
+    "notify_txt": "notify_M1_5_PairsMgmt_AutoMatch_Task025_Evidence_FullEnvelope_PublishNotify_260126_029.txt",
+    "latest_json": "LATEST.json"
+  }
+}
