@@ -7,8 +7,8 @@ import { I18nProvider } from '@/lib/i18n/context';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Arb-Validate Web",
-  description: "Cross-market arbitrage validation platform for Polymarket & Kalshi",
+  title: "Arb-Validate 套利验证",
+  description: "Polymarket & Kalshi 跨市场套利验证平台",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body className={`${inter.className} bg-gray-50 text-gray-900`}>
         <I18nProvider>
           <div className="flex min-h-screen">

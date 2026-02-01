@@ -52,6 +52,7 @@ model Pair {
   last_light_check_at DateTime?
   verify_fail_reason  String?
   consecutive_verify_failures Int @default(0)
+  deleted_at      DateTime?
 
   created_at      DateTime   @default(now())
   updated_at      DateTime   @updatedAt

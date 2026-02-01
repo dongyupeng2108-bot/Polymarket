@@ -33,11 +33,11 @@ export function KalshiPanel() {
         setOrderbook(data.parsed_book);
         setLastUpdated(new Date());
       } else {
-        setError(data.error || data.final?.error_message || 'Failed to fetch');
+        setError(data.error || data.final?.error_message || t('Failed to fetch'));
         setOrderbook(null);
       }
     } catch (err: any) {
-      setError(err.message || 'Network error');
+      setError(err.message || t('Network error'));
       setOrderbook(null);
     } finally {
       setLoading(false);

@@ -43,10 +43,10 @@ export function AddPairDialog({ triggerClassName }: { triggerClassName?: string 
         setPmData(data);
         setPairTitle(data.title); // Default title
       } else {
-        alert('Error: ' + data.error);
+        alert(t('Error: ') + data.error);
       }
     } catch (e) {
-      alert('Failed to resolve PM');
+      alert(t('Failed to resolve PM'));
     } finally {
       setLoading(false);
     }
@@ -57,16 +57,19 @@ export function AddPairDialog({ triggerClassName }: { triggerClassName?: string 
     try {
       const res = await fetch('/api/resolve/kh', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ input: khInput }),
       });
       const data = await res.json();
       if (res.ok) {
         setKhData(data);
       } else {
-        alert('Error: ' + data.error);
+        alert(t('Error: ') + data.error);
       }
     } catch (e) {
-      alert('Failed to resolve KH');
+      alert(t('Failed to resolve KH'));
     } finally {
       setLoading(false);
     }
@@ -248,7 +251,7 @@ export function AddPairDialog({ triggerClassName }: { triggerClassName?: string 
                 <span className="font-bold block mb-2">{t('Polymarket')}</span>
                 <p className="truncate" title={pmData?.title}>{pmData?.title}</p>
                 <div className="mt-2 text-xs text-muted-foreground">
-                    <p>Slug: {pmData?.slug}</p>
+                    <p>{t('Slug')}: {pmData?.slug}</p>
                     <p>{t('Outcome')}: {pmData?.markets[parseInt(selectedPmMarketIndex)]?.tokens[parseInt(selectedPmOutcomeIndex)]?.label}</p>
                     <p>{t('Token')}: {pmData?.markets[parseInt(selectedPmMarketIndex)]?.tokens[parseInt(selectedPmOutcomeIndex)]?.tokenId?.slice(0, 10)}...</p>
                 </div>

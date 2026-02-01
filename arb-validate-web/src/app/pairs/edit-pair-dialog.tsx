@@ -43,10 +43,10 @@ export function EditPairDialog({ pair }: { pair: Pair }) {
             router.refresh();
         } else {
             const err = await res.json().catch(() => ({}));
-            alert(`Failed to update pair: ${err.error || res.statusText}`);
+            alert(t('Failed to update pair: ') + (err.error || res.statusText));
         }
     } catch (e: any) {
-        alert(`Error updating pair: ${e.message}`);
+        alert(t('Error updating pair: ') + e.message);
     } finally {
         setLoading(false);
     }

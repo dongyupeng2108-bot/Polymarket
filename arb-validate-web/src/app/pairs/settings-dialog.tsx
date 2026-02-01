@@ -55,7 +55,7 @@ export function SettingsDialog({ triggerClassName }: { triggerClassName?: string
       if (res.ok) {
         setOpen(false);
       } else {
-        alert('Failed to save');
+        alert(t('Failed to save'));
       }
     } finally {
       setLoading(false);
@@ -78,7 +78,7 @@ export function SettingsDialog({ triggerClassName }: { triggerClassName?: string
         {!loading && (
             <div className="grid gap-4 py-4">
             <div className="flex items-center justify-between">
-                <Label htmlFor="light-verify">{t('Light Verify Gate (Pre-Scan)')}</Label>
+                <Label htmlFor="light-verify">{t('Light Verify Gate')}</Label>
                 <Switch id="light-verify" checked={lightVerifyEnabled} onCheckedChange={setLightVerifyEnabled} />
             </div>
             
@@ -99,7 +99,7 @@ export function SettingsDialog({ triggerClassName }: { triggerClassName?: string
             </div>
         )}
         <DialogFooter>
-          <Button onClick={handleSave} disabled={loading}>{t('Save changes')}</Button>
+          <Button onClick={handleSave} disabled={loading}>{t('Save Changes')}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -4,7 +4,10 @@ import { Pair, PairStatus, Prisma } from '@prisma/client';
 export type PairWithReason = Pair & { unverified_reason: string | null };
 
 export async function getPairs(status?: PairStatus): Promise<PairWithReason[]> {
-  const where: Prisma.PairWhereInput = status ? { status } : {};
+  const where: Prisma.PairWhereInput = {
+    deleted_at: null,
+    ...(status ? { status } : {})
+  };
   const pairs = await prisma.pair.findMany({
     where,
     orderBy: { created_at: 'desc' },
@@ -72,5 +75,12 @@ export async function updatePairStatus(id: number, status: PairStatus) {
   return prisma.pair.update({
     where: { id },
     data: { status },
+  });
+}
+
+export async function deletePair(id: number) {
+  return prisma.pair.update({
+    where: { id },
+    data: { deleted_at: new Date() },
   });
 }

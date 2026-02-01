@@ -58,7 +58,7 @@ export function Sidebar() {
           className="w-full bg-gray-800 text-white border border-gray-700 rounded px-2 py-1.5 text-sm focus:outline-none focus:border-emerald-500 mb-4"
         >
           <option value="zh">中文 (Chinese)</option>
-          <option value="en">English</option>
+          <option value="en">英文 (English)</option>
         </select>
         <div className="text-xs text-gray-500">
           {t('v0.1.0 MVP')}

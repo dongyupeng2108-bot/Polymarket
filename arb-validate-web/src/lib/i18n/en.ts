@@ -209,7 +209,6 @@ export const EN = {
   'KH Ticker': 'KH Ticker',
   'KH Open URL': 'KH Open URL',
   'Delete Pair': 'Delete Pair',
-  'Save Changes': 'Save Changes',
   'Are you sure you want to delete this pair? This cannot be undone.': 'Are you sure you want to delete this pair? This cannot be undone.',
 
   // Trade Explanation Page

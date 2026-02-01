@@ -210,7 +210,7 @@ export async function evaluateOpportunity(snapshot: any, debugStats?: { pm: Fetc
   if (reasonCode === 'contract_not_found') {
       await prisma.pair.update({
           where: { id: pair.id },
-          data: { status: 'needs_review', notes: 'Downgraded by Evaluator: contract_not_found' }
+          data: { status: 'unverified', notes: 'Downgraded by Evaluator: contract_not_found' }
       });
   }
   

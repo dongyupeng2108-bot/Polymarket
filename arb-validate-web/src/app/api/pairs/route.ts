@@ -1,6 +1,11 @@
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createPair } from '@/lib/services/pairs';
+import { createPair, getPairs } from '@/lib/services/pairs';
+
+export async function GET() {
+  const pairs = await getPairs();
+  return NextResponse.json(pairs);
+}
 
 export async function POST(req: NextRequest) {
   try {

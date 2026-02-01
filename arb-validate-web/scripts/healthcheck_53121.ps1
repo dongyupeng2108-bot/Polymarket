@@ -1,35 +1,27 @@
+# scripts/healthcheck_53121.ps1
+# 必须使用 curl.exe 避免 PowerShell Alias 问题
 $ErrorActionPreference = "Stop"
 
-function Check-Url ($url) {
+function Check-Endpoint ($path) {
+    $url = "http://localhost:53121$path"
     Write-Host "Checking $url ..." -NoNewline
     try {
-        # explicit use of curl.exe to bypass PowerShell alias
-        $output = & curl.exe -I -s $url 2>&1
-        
-        if ($LASTEXITCODE -ne 0) { 
-            Write-Host " [FAIL] curl.exe exit code $LASTEXITCODE" -ForegroundColor Red
-            exit 1 
-        }
-        
-        # Check for 200 OK (HTTP/1.1 or HTTP/2)
-        if ($output -match "200 OK") {
-            Write-Host " [OK] 200" -ForegroundColor Green
+        # -f (fail), -s (silent), -o NUL (output null), -w (write code)
+        $code = curl.exe -f -s -o NUL -w "%{http_code}" $url
+        if ($code -eq "200") {
+            Write-Host " OK ($code)" -ForegroundColor Green
         } else {
-            Write-Host " [FAIL] Non-200 Response" -ForegroundColor Red
-            Write-Host "Raw Output:"
-            Write-Host $output
+            Write-Host " FAIL ($code)" -ForegroundColor Red
             exit 1
         }
     } catch {
-        Write-Host " [ERROR] Exception" -ForegroundColor Red
-        Write-Host $_
+        Write-Host " ERROR (Connection Refused or Timeout)" -ForegroundColor Red
         exit 1
     }
 }
 
-Write-Host "Starting Healthcheck on Port 53121..."
-Check-Url "http://127.0.0.1:53121/"
-Check-Url "http://127.0.0.1:53121/pairs"
+Check-Endpoint "/"
+Check-Endpoint "/pairs"
 
-Write-Host "All Checks Passed." -ForegroundColor Green
+Write-Host "Healthcheck Passed." -ForegroundColor Green
 exit 0

@@ -210,8 +210,8 @@ export default function PaperTradingPage() {
                                     <span className="text-[10px] text-red-500 mt-1 font-semibold">⚠ {t('DEPTH_INSUFFICIENT').toUpperCase()}</span>
                                 )}
                                 {r.sanity_status !== 'OK' && (
-                                    <Badge variant="destructive" className="mt-1 w-fit text-[10px] h-5">BUG SUSPECT</Badge>
-                                )}
+                            <Badge variant="destructive" className="mt-1 w-fit text-[10px] h-5">{t('BUG SUSPECT')}</Badge>
+                        )}
                                 
                                 <div className="mt-2 text-[10px] text-muted-foreground grid grid-cols-2 gap-x-2 gap-y-0.5 bg-muted/30 p-1.5 rounded border border-muted/50">
                                     <div title="Shares Used">{t('Shares Used')}: {r.shares_used.toFixed(0)}</div>

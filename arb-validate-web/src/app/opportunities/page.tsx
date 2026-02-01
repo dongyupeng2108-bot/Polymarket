@@ -33,6 +33,7 @@ interface RuntimeConfig {
 
 // Lazy Accordion Component
 const TickerGroup = ({ ticker, items, renderItem, limit }: { ticker: string, items: any[], renderItem: (item: any) => React.ReactNode, limit: number }) => {
+    const { t } = useI18n();
     const [isOpen, setIsOpen] = useState(false);
     
     // Only render content if open
@@ -53,7 +54,9 @@ const TickerGroup = ({ ticker, items, renderItem, limit }: { ticker: string, ite
                     {items.slice(0, limit).map(renderItem)}
                     {items.length > limit && (
                         <div className="text-center py-2 text-sm text-muted-foreground bg-muted/20 rounded">
-                            Showing top {limit} of {items.length} items
+                            {t('Showing top {limit} of {total} items')
+                                .replace('{limit}', String(limit))
+                                .replace('{total}', String(items.length))}
                         </div>
                     )}
                 </div>
@@ -186,7 +189,7 @@ export default function OpportunitiesPage() {
               } else {
                   // If no longer an opportunity, maybe remove it? Or show status?
                   // For now, let's just alert
-                  alert(`Scan complete: ${newResult.result} (Net EV: ${newResult.simulation?.expected_profit?.toFixed(2) || 0})`);
+                  alert(`${t('Scan complete: ')}${newResult.result} (${t('Net EV: ')}${newResult.simulation?.expected_profit?.toFixed(2) || 0})`);
               }
           }
       } catch (e) {
@@ -455,9 +458,9 @@ export default function OpportunitiesPage() {
                  <span className="text-xs text-muted-foreground self-center flex items-center gap-1">
                      {new Date(item.ts).toLocaleString()}
                      {isSnapshotStale(item.ts) ? (
-                         <Badge variant="destructive" className="text-[10px] px-1 h-4">STALE</Badge>
+                         <Badge variant="destructive" className="text-[10px] px-1 h-4">{t('STALE')}</Badge>
                      ) : (
-                         <Badge variant="outline" className="text-[10px] px-1 h-4 text-green-600 border-green-600">FRESH</Badge>
+                         <Badge variant="outline" className="text-[10px] px-1 h-4 text-green-600 border-green-600">{t('FRESH')}</Badge>
                      )}
                  </span>
             </div>
@@ -475,7 +478,7 @@ export default function OpportunitiesPage() {
                     title={t('Verify Now')}
                 >
                     <RefreshCw className="h-3 w-3 mr-1" />
-                    Verify
+                    {t('Verify')}
                 </Button>
             </div>
             {/* Net EV Display */}
@@ -483,7 +486,7 @@ export default function OpportunitiesPage() {
                 ${evResult.net_ev.toFixed(2)}
             </div>
             <div className="text-xs text-muted-foreground mt-1">
-                Shares: {evResult.shares_used}
+                {t('Shares')}: {evResult.shares_used}
             </div>
           </div>
         </div>
@@ -539,15 +542,15 @@ export default function OpportunitiesPage() {
                 {/* Enhanced Debug Stats */}
                 <div className="text-xs text-muted-foreground flex flex-col items-end font-mono">
                     <div className="flex gap-2">
-                         <span>Last Scan: {lastScanMeta?.timestamp ? new Date(lastScanMeta.timestamp).toLocaleTimeString() : '-'}</span>
-                         <span>Mode: {lastScanMeta?.scanMode || '-'}</span>
-                         <span>Scanned: {lastScanMeta?.scannedPairs || 0}</span>
+                         <span>{t('Last Scan: ')}{lastScanMeta?.timestamp ? new Date(lastScanMeta.timestamp).toLocaleTimeString() : '-'}</span>
+                         <span>{t('Mode: ')}{lastScanMeta?.scanMode || '-'}</span>
+                         <span>{t('Scanned: ')}{lastScanMeta?.scannedPairs || 0}</span>
                     </div>
                     <div className="flex gap-2 text-foreground/80">
-                         <span>Raw Opps: {filterStats.raw}</span>
-                         <span>Shown: {filterStats.shown}</span>
-                         <span className={filterStats.filteredOut > 0 ? "text-amber-500" : ""}>Skipped: {filterStats.filteredOut}</span>
-                         <span>Unique: {lastScanMeta?.uniqueCount || 0}</span>
+                         <span>{t('Raw Opps: ')}{filterStats.raw}</span>
+                         <span>{t('Shown: ')}{filterStats.shown}</span>
+                         <span className={filterStats.filteredOut > 0 ? "text-amber-500" : ""}>{t('Skipped: ')}{filterStats.filteredOut}</span>
+                         <span>{t('Unique: ')}{lastScanMeta?.uniqueCount || 0}</span>
                     </div>
                 </div>
             </div>
@@ -561,8 +564,8 @@ export default function OpportunitiesPage() {
                 <div className="flex flex-col gap-2 min-w-[300px]">
                      <Tabs value={scanMode} onValueChange={(v) => setScanMode(v as 'single' | 'all')} className="w-full h-8">
                         <TabsList className="grid w-full grid-cols-2 h-8">
-                            <TabsTrigger value="single" className="text-xs">Single</TabsTrigger>
-                            <TabsTrigger value="all" className="text-xs">Full Lib</TabsTrigger>
+                            <TabsTrigger value="single" className="text-xs">{t('Single')}</TabsTrigger>
+                            <TabsTrigger value="all" className="text-xs">{t('Full Lib')}</TabsTrigger>
                         </TabsList>
                     </Tabs>
                     
@@ -571,11 +574,11 @@ export default function OpportunitiesPage() {
                             options={eventTickers}
                             value={eventFilter}
                             onChange={setEventFilter}
-                            placeholder="Select Event..."
+                            placeholder={t('Select Event...')}
                         />
                     ) : (
                          <div className="flex items-center gap-2 h-10">
-                            <span className="text-sm whitespace-nowrap text-muted-foreground">Max:</span>
+                            <span className="text-sm whitespace-nowrap text-muted-foreground">{t('Max:')}</span>
                             <Input 
                                 type="number"
                                 value={maxPairs}
@@ -675,26 +678,26 @@ export default function OpportunitiesPage() {
                   {/* Explanation Logic */}
                   {filterStats.raw > 0 ? (
                       <div className="text-sm text-muted-foreground max-w-md bg-muted/50 p-4 rounded-md text-left">
-                          <p className="font-bold mb-2">Scan found {filterStats.raw} items, but all were filtered:</p>
+                          <p className="font-bold mb-2">{t('Scan found {count} items, but all were filtered:').replace('{count}', String(filterStats.raw))}</p>
                           <ul className="list-disc pl-5 space-y-1">
                               {filterStats.reasons.onlyTradeable > 0 && (
-                                  <li><span className="font-mono text-foreground">Only Tradeable</span> hidden {filterStats.reasons.onlyTradeable} items</li>
+                                  <li><span className="font-mono text-foreground">{t('Only Tradeable')}</span> {t('hidden {count} items').replace('{count}', String(filterStats.reasons.onlyTradeable))}</li>
                               )}
                               {filterStats.reasons.minNetEv > 0 && (
-                                  <li><span className="font-mono text-foreground">Min Net EV</span> hidden {filterStats.reasons.minNetEv} items</li>
+                                  <li><span className="font-mono text-foreground">{t('Min Net EV')}</span> {t('hidden {count} items').replace('{count}', String(filterStats.reasons.minNetEv))}</li>
                               )}
                               {filterStats.reasons.depth > 0 && (
-                                  <li><span className="font-mono text-foreground">Insufficient Depth</span> hidden {filterStats.reasons.depth} items</li>
+                                  <li><span className="font-mono text-foreground">{t('Show Insufficient Depth')}</span> {t('hidden {count} items').replace('{count}', String(filterStats.reasons.depth))}</li>
                               )}
                               {filterStats.reasons.eventTicker > 0 && (
-                                  <li><span className="font-mono text-foreground">Event Ticker Mismatch</span> hidden {filterStats.reasons.eventTicker} items</li>
+                                  <li><span className="font-mono text-foreground">{t('Event Ticker Mismatch')}</span> {t('hidden {count} items').replace('{count}', String(filterStats.reasons.eventTicker))}</li>
                               )}
                           </ul>
-                          <p className="mt-3 text-xs italic opacity-80">Try disabling "Only Tradeable" or lowering "Min Net EV".</p>
+                          <p className="mt-3 text-xs italic opacity-80">{t('Try disabling "Only Tradeable" or lowering "Min Net EV".')}</p>
                       </div>
                   ) : (
                       <div className="text-sm text-muted-foreground">
-                          {scanMode === 'single' ? "No opportunities returned from API for this event." : "No opportunities found in full library scan."}
+                          {scanMode === 'single' ? t('No opportunities returned from API for this event.') : t('No opportunities found in full library scan.')}
                       </div>
                   )}
               </div>

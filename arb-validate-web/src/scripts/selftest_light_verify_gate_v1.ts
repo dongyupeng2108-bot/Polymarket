@@ -9,7 +9,7 @@ async function main() {
     console.log('\nTest 1: Skip Non-Verified Pair');
     const p1 = await prisma.pair.upsert({
         where: { id: 999901 },
-        update: { status: 'ready', last_light_check_at: null },
+        update: { status: 'unverified', last_light_check_at: null },
         create: {
             id: 999901,
             title_pm: 'Test Pair 1',

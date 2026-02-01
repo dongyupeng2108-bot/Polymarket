@@ -42,6 +42,11 @@ if (!url && values.universe_mode) {
     url = `${baseUrl}?${params.toString()}`;
 }
 
+if (!url) {
+    console.error('URL construction failed');
+    process.exit(1);
+}
+
 // Ensure directory exists
 const outDir = path.dirname(outFile);
 if (!fs.existsSync(outDir)) {
@@ -62,7 +67,7 @@ const timeoutId = setTimeout(() => {
 
 async function run() {
   try {
-    const response = await fetch(url, {
+    const response = await fetch(url!, {
       signal: controller.signal,
     });
 
@@ -78,7 +83,7 @@ async function run() {
 
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
-    const fileStream = fs.createWriteStream(outFile, { flags: 'w' });
+    const fileStream = fs.createWriteStream(outFile!, { flags: 'w' });
     
     let buffer = '';
     let seenComplete = false;
@@ -128,7 +133,7 @@ async function run() {
         const verificationPath = path.join(outDir, 'manual_verification.json');
         
         // Extract debug info from buffer (last chunk) or read file
-        const fileContent = fs.readFileSync(outFile, 'utf-8');
+        const fileContent = fs.readFileSync(outFile!, 'utf-8');
         
         // Simple regex extraction for key metrics
         const candidateCounts = [...fileContent.matchAll(/"candidate_count":\s*(\d+)/g)].map(m => parseInt(m[1]));

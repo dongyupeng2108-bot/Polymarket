@@ -14,7 +14,7 @@ async function verify() {
             console.error('❌ Kalshi Fetch FAILED:', res.meta);
             process.exit(1);
         }
-    } catch (e) {
+    } catch (e: any) {
         console.error('❌ Kalshi Fetch EXCEPTION:', e);
         process.exit(1);
     }
@@ -29,7 +29,7 @@ async function verify() {
         } else {
              console.warn('⚠️ Unexpected result for status=active:', res.success, res.meta?.error_code);
         }
-    } catch (e) {
+    } catch (e: any) {
         console.error('❌ Diagnostics EXCEPTION:', e);
     }
 
@@ -52,8 +52,8 @@ async function verify() {
             console.log('⚠️ Site Health Check SKIPPED (Server likely not running or unreachable)');
             console.log('   Note: This is expected if Next.js server is not started.');
         }
-    } catch (e) {
-        console.log('⚠️ Site Health Check ERROR:', e.message);
+    } catch (e: any) {
+        console.log('⚠️ Site Health Check ERROR:', e?.message || String(e));
     }
 
     console.log('\n✅ Verification Complete.');

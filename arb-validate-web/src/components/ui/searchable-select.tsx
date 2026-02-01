@@ -5,6 +5,7 @@ import { Check, ChevronsUpDown, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useI18n } from "@/lib/i18n/context";
 
 export interface SearchableSelectProps {
   options: { value: string; label: string }[];
@@ -21,6 +22,7 @@ export function SearchableSelect({
   placeholder = "Select...",
   disabled = false,
 }: SearchableSelectProps) {
+  const { t } = useI18n();
   const [open, setOpen] = React.useState(false);
   const [search, setSearch] = React.useState("");
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -29,7 +31,7 @@ export function SearchableSelect({
     option.label.toLowerCase().includes(search.toLowerCase())
   );
 
-  const selectedLabel = options.find((o) => o.value === value)?.label || placeholder;
+  const selectedLabel = options.find((o) => o.value === value)?.label || (placeholder === "Select..." ? t('Select...') : placeholder);
 
   // Click outside to close
   React.useEffect(() => {
@@ -61,7 +63,7 @@ export function SearchableSelect({
                 <div className="relative">
                     <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                     <Input 
-                        placeholder="Search..." 
+                        placeholder={t("Search...")}
                         value={search} 
                         onChange={(e) => setSearch(e.target.value)} 
                         className="pl-8"
@@ -72,7 +74,7 @@ export function SearchableSelect({
             <div className="p-1">
                 {filteredOptions.length === 0 ? (
                     <div className="relative cursor-default select-none py-2 px-4 text-sm text-muted-foreground">
-                        No results found.
+                        {t("No results found.")}
                     </div>
                 ) : (
                     filteredOptions.map((option) => (

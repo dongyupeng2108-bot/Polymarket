@@ -42,13 +42,16 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
     }
     console.log(`[API] Deleting Pair #${id}...`);
     
+    // Fetch current pair to get identifiers for renaming (Soft Delete)
+    const current = await prisma.pair.findUnique({ where: { id } });
+    if (!current) return NextResponse.json({ error: 'Pair not found' }, { status: 404 });
+
     await prisma.$transaction(async (tx) => {
-        // 1. Delete Opportunities (depends on Pair)
+        // 1. Delete Heavy Dependent Data (Clear state, keep history in Pair)
         const opps = await tx.opportunity.deleteMany({ where: { pair_id: id } });
         console.log(`  Deleted ${opps.count} opportunities`);
 
-        // 2. Find Snapshots to ensure we delete ALL dependent evaluations
-        // (Even if data corruption caused pair_id mismatch in evaluations)
+        // Delete Snapshots & Evaluations to free space
         const snapshots = await tx.snapshot.findMany({
             where: { pair_id: id },
             select: { id: true }
@@ -56,23 +59,27 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
         const snapshotIds = snapshots.map(s => s.id);
 
         if (snapshotIds.length > 0) {
-            const evalsBySnap = await tx.evaluation.deleteMany({
+            await tx.evaluation.deleteMany({
                 where: { snapshot_id: { in: snapshotIds } }
             });
-            console.log(`  Deleted ${evalsBySnap.count} evaluations by snapshot_id`);
         }
+        await tx.evaluation.deleteMany({ where: { pair_id: id } });
+        await tx.snapshot.deleteMany({ where: { pair_id: id } });
 
-        // 3. Delete any remaining Evaluations by pair_id
-        const evalsByPair = await tx.evaluation.deleteMany({ where: { pair_id: id } });
-        console.log(`  Deleted ${evalsByPair.count} evaluations by pair_id`);
-
-        // 4. Delete Snapshots (depends on Pair)
-        const snaps = await tx.snapshot.deleteMany({ where: { pair_id: id } });
-        console.log(`  Deleted ${snaps.count} snapshots`);
-
-        // 5. Delete Pair
-        await tx.pair.delete({ where: { id } });
-        console.log(`  Deleted Pair #${id}`);
+        // 2. Soft Delete Pair & Release Unique Constraint
+        // Use 'as any' to bypass potential missing type in generated client
+        const ts = Date.now();
+        await (tx.pair as any).update({
+            where: { id },
+            data: {
+                deleted_at: new Date(),
+                status: 'unverified',
+                // Rename identifiers to allow re-creation of same pair later
+                pm_market_id: current.pm_market_id ? `${current.pm_market_id}_del_${ts}` : null,
+                kh_ticker: current.kh_ticker ? `${current.kh_ticker}_del_${ts}` : null
+            }
+        });
+        console.log(`  Soft Deleted Pair #${id} (renamed to avoid unique constraint)`);
     });
 
     return NextResponse.json({ success: true });

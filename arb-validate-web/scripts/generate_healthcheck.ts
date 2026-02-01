@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
 // Helper to fetch with timeout
 async function fetchWithTimeout(url: string, timeout = 5000) {

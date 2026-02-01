@@ -49,3 +49,11 @@
   - **Contract (v3.9)**: Status=DONE/FAILED; Index=size+hash; Notify=Healthcheck Summary(/ & /pairs 200).
 - **Port Standard**: arb-validate-web 必须使用端口 `53121`。
 - **Report Binding (v3.9)**: report_file in JSON must match INDEX & actual file SHA (8-char hex).
+
+## 8. UI Localization (UI 文案规范)
+- **Language**: 所有用户可见 UI (按钮/标题/状态/提示/弹窗/表格列名/导航等) 必须统一使用中文 (zh-CN)。
+- **Format**: 新增/修改 UI 文案不得使用纯英文。
+- **Technical Terms**: 若不可避免英文术语，必须采用 "中文 (英文)" 格式，且中文在前。
+  - 例: "模拟交易 (Paper Trading)", "添加为交易对 (Add as Pair)".
+- **Implementation**: 必须使用集中式文案表 (`src/lib/i18n/zh.ts`)，禁止硬编码。
+- **Scope**: 覆盖左侧导航、自动扫描弹窗/结果面板、列表页与详情页、Toast/Notification/Confirm 对话框、错误提示、loading 文案等。

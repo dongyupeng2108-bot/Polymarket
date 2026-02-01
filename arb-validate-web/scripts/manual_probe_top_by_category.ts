@@ -317,7 +317,7 @@ async function getKalshiByCategory(category: string): Promise<MarketItem[]> {
         slug: s.ticker,
         volume: s.volume || 0,
         url: `https://kalshi.com/markets/${s.ticker}`,
-        source: 'KALSHI',
+        source: 'KALSHI' as const,
         category: s.category || category,
         tags: s.tags,
         fetch_info: `via_events=[${fetchLog.join(', ')}]; event_cat=${s._enriched_category}`

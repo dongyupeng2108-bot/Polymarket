@@ -108,7 +108,7 @@ export default function DashboardClient({ stats: initialStats }: { stats: Dashbo
           </CardHeader>
           <CardContent>
             <div className="text-lg font-bold">
-              Run ID: <span className="text-gray-500">#{lastRunId ?? '-'}</span>
+              {t('Run ID')}: <span className="text-gray-500">#{lastRunId ?? '-'}</span>
             </div>
             <p className="text-xs text-muted-foreground">
               {stats.lastOppsScan?.completed_at ? new Date(stats.lastOppsScan.completed_at).toLocaleString() : t('Never')}
@@ -135,7 +135,7 @@ export default function DashboardClient({ stats: initialStats }: { stats: Dashbo
                 {stats.recentOpportunities.map((opp: any) => (
                     <div key={opp.id} className="flex justify-between items-center border-b pb-2">
                         <div>
-                            <div className="font-semibold">{opp.pair?.title_pm || 'Unknown'}</div>
+                            <div className="font-semibold">{opp.pair?.title_pm || t('Unknown')}</div>
                             <div className="text-xs text-gray-500">{new Date(opp.ts).toLocaleTimeString()}</div>
                         </div>
                         <div className="text-green-600 font-bold">${opp.profit_total?.toFixed(2)}</div>

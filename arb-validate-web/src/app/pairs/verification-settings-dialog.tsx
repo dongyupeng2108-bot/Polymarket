@@ -65,10 +65,10 @@ export function VerificationSettingsDialog() {
         setOpen(false);
         router.refresh();
       } else {
-        alert('Failed to save settings');
+        alert(t('Failed to save settings'));
       }
     } catch (e: any) {
-      alert('Error saving settings: ' + e.message);
+      alert(t('Error saving settings: ') + e.message);
     } finally {
       setSaving(false);
     }
