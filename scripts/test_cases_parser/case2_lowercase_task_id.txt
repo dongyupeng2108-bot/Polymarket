@@ -1,0 +1,4 @@
+task_id: CASE_2_LOWER
+RUN:
+CMD: echo 1
+本次任务发布完毕。
