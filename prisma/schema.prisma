@@ -1,0 +1,184 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PairStatus {
+  verified
+  unverified
+}
+
+enum OpportunityDirection {
+  PM_YES_KH_NO
+  PM_NO_KH_YES
+}
+
+model Pair {
+  id              Int        @id @default(autoincrement())
+  
+  // Polymarket Fields
+  pm_yes_token_id String?    
+  pm_no_token_id  String?    
+  pm_market_slug  String?    
+  pm_market_id    String?    // Gamma Market ID
+  pm_open_url     String?    // Canonical URL for opening
+  
+  // Kalshi Fields
+  kh_ticker          String? // Series ticker or legacy
+  kh_yes_contract_id String? // Specific YES contract ticker
+  kh_no_contract_id  String? // Specific NO contract ticker
+  kh_open_url        String? // Canonical URL for opening
+  
+  title_pm        String
+  title_kh        String
+  resolve_time_pm DateTime
+  resolve_time_kh DateTime
+  rules_pm        String     @db.Text
+  rules_kh        String     @db.Text
+  status          PairStatus @default(unverified)
+  confidence      Float      @default(0)
+  tags            String[]
+  notes           String?    @db.Text
+  is_binary       Boolean    @default(true)
+  last_health_check DateTime?
+  verified_at       DateTime?
+  last_light_check_at DateTime?
+  verify_fail_reason  String?
+  consecutive_verify_failures Int @default(0)
+
+  created_at      DateTime   @default(now())
+  updated_at      DateTime   @updatedAt
+
+  snapshots     Snapshot[]
+  evaluations   Evaluation[]
+  opportunities Opportunity[]
+
+  @@map("pairs")
+}
+
+// ... rest is same ...
+model Snapshot {
+  id                  BigInt   @id @default(autoincrement())
+  ts                  DateTime @default(now())
+  pair_id             Int
+  pm_book             Json 
+  kh_book             Json
+  pm_best_yes_bid     Float?
+  pm_best_yes_ask     Float?
+  pm_best_no_bid      Float?
+  pm_best_no_ask      Float?
+  kh_best_yes_bid     Float?
+  kh_best_yes_ask     Float?
+  kh_best_no_bid      Float?
+  kh_best_no_ask      Float?
+
+  pair        Pair         @relation(fields: [pair_id], references: [id])
+  evaluations Evaluation[]
+
+  @@index([ts])
+  @@map("snapshots")
+}
+
+model Evaluation {
+  id          BigInt   @id @default(autoincrement())
+  ts          DateTime @default(now())
+  pair_id     Int
+  snapshot_id BigInt
+
+  pm_price_bid Float?
+  pm_price_ask Float?
+  kh_price_bid Float?
+  kh_price_ask Float?
+  edge_raw     Float?
+
+  is_opportunity Boolean @default(false)
+  reason         String? 
+  reason_code    String? 
+  debug_info     Json?   
+
+  pair     Pair     @relation(fields: [pair_id], references: [id])
+  snapshot Snapshot @relation(fields: [snapshot_id], references: [id])
+
+  @@index([ts])
+  @@index([pair_id])
+  @@map("evaluations")
+}
+
+model Opportunity {
+  id               BigInt               @id @default(autoincrement())
+  ts               DateTime             @default(now())
+  pair_id          Int
+  direction        OpportunityDirection
+  qty              Float
+  pm_vwap          Float
+  kh_vwap          Float
+  fee_total        Float
+  misc_total       Float
+  exec_cost_total  Float
+  profit_per_share Float
+  profit_total     Float
+  edge_pct         Float
+  depth_ok         Boolean
+  reason           String?
+  debug_info       Json?
+
+  pair Pair @relation(fields: [pair_id], references: [id])
+
+  @@index([ts])
+  @@map("opportunities")
+}
+
+model Settings {
+  id                      Int     @id @default(1)
+  poll_interval_sec       Int     @default(15)
+  qty_default             Float   @default(100)
+  min_edge_pct            Float   @default(0.8)
+  min_profit_usd          Float   @default(5)
+  fee_pm                  Float   @default(0)
+  fee_kh                  Float   @default(0)
+  misc_cost_per_trade_usd Float   @default(0)
+  capital_rate_annual     Float   @default(0)
+  task_enabled            Boolean @default(false)
+
+  // Verification Settings
+  light_verify_enabled    Boolean @default(true)
+  deep_verify_schedule_h  Int     @default(24) // hours
+  verified_ttl_days       Int     @default(7)
+  failure_demotion_count  Int     @default(1)
+
+  @@map("settings")
+}
+
+model SystemStatus {
+  id                Int       @id @default(1)
+  last_scan_at      DateTime?
+  pairs_scanned     Int       @default(0)
+  pm_ok_count       Int       @default(0)
+  pm_fail_count     Int       @default(0)
+  kh_ok_count       Int       @default(0)
+  kh_fail_count     Int       @default(0)
+  eval_count        Int       @default(0)
+  opportunity_count Int       @default(0)
+  last_error        String?   @db.Text
+  updated_at        DateTime  @updatedAt
+
+  @@map("system_status")
+}
+
+model ScanRun {
+  id              Int       @id @default(autoincrement())
+  started_at      DateTime  @default(now())
+  completed_at    DateTime?
+  pairs_processed Int       @default(0)
+  status          String 
+  error           String?
+
+  @@map("scan_runs")
+}

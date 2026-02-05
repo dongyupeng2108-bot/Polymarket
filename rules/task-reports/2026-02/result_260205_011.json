@@ -1,0 +1,7 @@
+{
+  "task_id": "260205_011",
+  "status": "DONE",
+  "summary": "Repo-wide curl alias cleanup: Before=0, After=0. Verified compliance.",
+  "report_file": "Task_M0_RepoWide_Replace_CurlAlias_260205_011.md",
+  "report_sha256_short": "e99244e9"
+}

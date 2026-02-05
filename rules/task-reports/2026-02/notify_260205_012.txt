@@ -1,0 +1,75 @@
+HEALTHCHECK
+(Repaired)
+
+RESULT_JSON
+{
+  "task_id": "260205_012",
+  "status": "DONE",
+  "summary": "Fixed empty notify vulnerability, hardened postflight, remediated 010/011.",
+  "report_file": "TraeTask_M0_Postflight_FixEmptyNotify_And_HardenValidator_260205_012.md",
+  "report_sha256_short": "aa743478"
+}
+LOG_HEAD
+Run log start - 2026-02-05T02:31:09.266Z
+CMD: node scripts/postflight_validate_envelope.mjs --task_id 260205_010
+PASS
+CMD: node scripts/postflight_validate_envelope.mjs --task_id 260205_011
+PASS
+CMD: powershell scripts/healthcheck_53121.ps1
+/ -> 200 OK
+/pairs -> 200 OK
+[INFO] Postflight hardening verified.
+[INFO] Notify files repaired.
+LOG_TAIL
+PASS
+CMD: node scripts/postflight_validate_envelope.mjs --task_id 260205_011
+PASS
+CMD: powershell scripts/healthcheck_53121.ps1
+/ -> 200 OK
+/pairs -> 200 OK
+[INFO] Postflight hardening verified.
+[INFO] Notify files repaired.
+Execution successful.
+
+Healthcheck / -> 200
+Healthcheck /pairs -> 200
+INDEX
+{
+  "files": [
+    {
+      "name": "TraeTask_M0_Postflight_FixEmptyNotify_And_HardenValidator_260205_012.md",
+      "size": 1205,
+      "sha256_short": "aa743478"
+    },
+    {
+      "name": "rules/task-reports/2026-02/result_260205_012.json",
+      "size": 269,
+      "sha256_short": "bae4f51f"
+    },
+    {
+      "name": "rules/task-reports/2026-02/run_260205_012.log",
+      "size": 524,
+      "sha256_short": "1406e848"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 46430,
+      "sha256_short": "b1381297"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 16,
+      "sha256_short": "a2306f73"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 21,
+      "sha256_short": "3900afaf"
+    },
+    {
+      "name": "rules/task-reports/2026-02/notify_260205_012.txt",
+      "size": 1875,
+      "sha256_short": "SELF_REF"
+    }
+  ]
+}

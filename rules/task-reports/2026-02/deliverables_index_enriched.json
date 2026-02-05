@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "path": "rules/task-reports/2026-02/TraeTask_M0_FixGitleaks_Blocking_GateLight_260205_017.md",
+      "sha256_short": "37111b00",
+      "description": "Task Report",
+      "size": 629
+    },
+    {
+      "path": "rules/task-reports/2026-02/result_260205_017.json",
+      "sha256_short": "1a98d137",
+      "description": "Result JSON",
+      "size": 467
+    },
+    {
+      "path": "rules/task-reports/2026-02/run_260205_017.log",
+      "sha256_short": "3961359d",
+      "description": "Run Log",
+      "size": 1033
+    },
+    {
+      "path": "rules/task-reports/2026-02/notify_260205_017.txt",
+      "sha256_short": "7e9cecc9",
+      "description": "Notify Envelope",
+      "size": 1598
+    }
+  ]
+}

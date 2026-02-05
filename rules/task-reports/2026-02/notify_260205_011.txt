@@ -1,0 +1,70 @@
+RESULT_JSON
+{
+  "task_id": "260205_011",
+  "status": "DONE",
+  "summary": "Repo-wide curl alias cleanup: Before=0, After=0. Verified compliance.",
+  "report_file": "Task_M0_RepoWide_Replace_CurlAlias_260205_011.md",
+  "report_sha256_short": "e99244e9"
+}
+LOG_HEAD
+Run log start - 2026-02-04T21:54:20.469Z
+CMD: rg -n -P "\bcurl\b\s+-I\b" .
+(No matches found)
+CMD: rg -n -P "\bcurl\b(?!.exe)\b" -g"*.ps1" scripts rules .
+(No matches found - checked .ps1 files manually, all use curl.exe or Invoke-WebRequest)
+CMD: powershell -NoProfile -ExecutionPolicy Bypass -File scripts\healthcheck_53121.ps1
+/ -> 200 OK
+/pairs -> 200 OK
+Execution successful.
+
+LOG_TAIL
+Run log start - 2026-02-04T21:54:20.469Z
+CMD: rg -n -P "\bcurl\b\s+-I\b" .
+(No matches found)
+CMD: rg -n -P "\bcurl\b(?!.exe)\b" -g"*.ps1" scripts rules .
+(No matches found - checked .ps1 files manually, all use curl.exe or Invoke-WebRequest)
+CMD: powershell -NoProfile -ExecutionPolicy Bypass -File scripts\healthcheck_53121.ps1
+/ -> 200 OK
+/pairs -> 200 OK
+Execution successful.
+
+INDEX
+{
+  "files": [
+    {
+      "name": "Task_M0_RepoWide_Replace_CurlAlias_260205_011.md",
+      "size": 789,
+      "sha256_short": "e99244e9"
+    },
+    {
+      "name": "rules/task-reports/2026-02/result_260205_011.json",
+      "size": 241,
+      "sha256_short": "9d4949c3"
+    },
+    {
+      "name": "rules/task-reports/2026-02/run_260205_011.log",
+      "size": 545,
+      "sha256_short": "26888229"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 16,
+      "sha256_short": "a2306f73"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 21,
+      "sha256_short": "3900afaf"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 46430,
+      "sha256_short": "b1381297"
+    },
+    {
+      "name": "rules/task-reports/2026-02/notify_260205_011.txt",
+      "size": 0,
+      "sha256_short": "SELF_REF"
+    }
+  ]
+}

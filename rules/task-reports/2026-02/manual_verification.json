@@ -1,0 +1,10 @@
+{
+  "task_id": "260205_016",
+  "verification_method": "curl_healthcheck",
+  "endpoints": {
+    "/": "200",
+    "/pairs": "200"
+  },
+  "notes": "Manually verified site availability via curl in healthcheck script.",
+  "timestamp": "2026-02-05T09:58:24.952Z"
+}

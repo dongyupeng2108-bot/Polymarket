@@ -1,0 +1,41 @@
+{
+  "task_id": "T004",
+  "timestamp": "2026-01-26T20:39:57.883Z",
+  "valid": false,
+  "errors": [
+    {
+      "code": "POSTFLIGHT_ENVELOPE_SECTIONS_MISSING",
+      "message": "Notify missing envelope sections",
+      "missing": {
+        "RESULT_JSON": false,
+        "LOG_HEAD": false,
+        "LOG_TAIL": true,
+        "INDEX": true
+      }
+    }
+  ],
+  "checks": {
+    "artifacts": {
+      "result": "result_T004.json",
+      "notify": "notify_T004.txt",
+      "log": "run_T004.log",
+      "index": "deliverables_index_T004.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": false,
+      "hasIndex": false
+    },
+    "log": {
+      "size": 200,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 0,
+      "failures": []
+    }
+  }
+}

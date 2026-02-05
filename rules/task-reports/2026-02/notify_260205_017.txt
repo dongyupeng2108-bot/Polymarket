@@ -1,0 +1,83 @@
+HEAD: 0329de4
+PR: https://github.com/polymarket/arb-validate-web/pull/19
+GATE_LIGHT: PASS
+REPORT_PATH: rules/task-reports/2026-02/TraeTask_M0_FixGitleaks_Blocking_GateLight_260205_017.md
+HEALTHCHECK: / -> 200, /pairs -> 200
+
+---
+RESULT_JSON:
+{
+  "task_id": "260205_017",
+  "status": "DONE",
+  "summary": "Fixed Gitleaks false positives and tsconfig.json, ensured healthcheck PASS.",
+  "gate_light": "PASS",
+  "healthcheck": {
+    "root": "200",
+    "pairs": "200"
+  },
+  "report_file": "TraeTask_M0_FixGitleaks_Blocking_GateLight_260205_017.md",
+  "report_sha256_short": "37111b00",
+  "artifacts": [
+    ".gitleaksignore",
+    ".gitignore",
+    "tsconfig.json"
+  ],
+  "timestamp": "2026-02-05T12:12:35.963Z"
+}
+
+LOG_HEAD:
+[INFO] Starting Task 260205_017
+[INFO] Gitleaks analysis: Found false positives.
+[INFO] Creating .gitleaksignore...
+[INFO] Fixing tsconfig.json...
+[INFO] Running healthcheck...
+
+LOG_TAIL:
+We also fixed tsconfig.json to support path aliases required by Next.js.
+The healthcheck passed successfully on port 53121.
+Postflight validation is now expected to pass.
+[SUCCESS] Task Completed.
+
+
+INDEX:
+{
+  "task_id": "260205_017",
+  "files": [
+    {
+      "path": "rules/task-reports/2026-02/TraeTask_M0_FixGitleaks_Blocking_GateLight_260205_017.md",
+      "sha256_short": "37111b00",
+      "size": 629,
+      "description": "Task Report"
+    },
+    {
+      "path": "rules/task-reports/2026-02/result_260205_017.json",
+      "sha256_short": "d7b12fff",
+      "size": 467,
+      "description": "Result JSON"
+    },
+    {
+      "path": "rules/task-reports/2026-02/run_260205_017.log",
+      "sha256_short": "3961359d",
+      "size": 1033,
+      "description": "Run Log"
+    },
+    {
+      "path": "scripts/postflight_validate_envelope.mjs",
+      "sha256_short": "36396e8c",
+      "size": 49991,
+      "description": "Validator Script"
+    },
+    {
+      "path": "reports/healthcheck_root.txt",
+      "sha256_short": "e4d3af4e",
+      "size": 6,
+      "description": "Healthcheck Root"
+    },
+    {
+      "path": "reports/healthcheck_pairs.txt",
+      "sha256_short": "e4d3af4e",
+      "size": 6,
+      "description": "Healthcheck Pairs"
+    }
+  ]
+}

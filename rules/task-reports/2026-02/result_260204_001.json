@@ -1,0 +1,20 @@
+{
+  "task_id": "task_id: K0_1_StrategyRadar_Foundation_260204_001",
+  "status": "DONE",
+  "timestamp": "2026-02-04T15:32:54.511Z",
+  "metrics": {
+    "server_port": 53121,
+    "health_root": 200,
+    "health_pairs": 200,
+    "radar_items": 0
+  },
+  "artifacts": [
+    "src/app/api/radar",
+    "src/app/radar",
+    "prisma/schema.prisma",
+    "src/lib/i18n/zh.ts"
+  ],
+  "summary": "Strategy Radar K0.1 Foundation: PM Fetch & q-Prob models, API routes, and UI dashboard established.",
+  "report_file": "notify_260204_001.txt",
+  "report_sha256_short": "9c46f307"
+}

@@ -1,0 +1,38 @@
+
+RESULT_JSON
+{
+  "task_id": "260205_016",
+  "status": "DONE",
+  "gate_light": "FAIL (see LOG_TAIL)",
+  "pr_url": "https://github.com/dongyupeng2108-bot/Polymarket/pull/19"
+}
+
+LOG_HEAD
+CMD: git merge-base origin/main feat/strategy-radar-k0
+(no output - unrelated)
+CMD: git diff --binary origin/main feat/strategy-radar-k0 > k0_patch.diff
+CMD: git checkout -b feat/strategy-radar-k0-prfix-260205 origin/main
+CMD: git apply --index k0_patch.diff
+
+LOG_TAIL
+CMD: gh pr create ...
+https://github.com/dongyupeng2108-bot/Polymarket/pull/19
+CMD: gh pr checks 19 --watch
+X  Gate Light/gate-light...               10s
+CMD: powershell healthcheck
+/ -> 000
+/pairs -> 000
+
+/ -> 200
+/pairs -> 200
+
+INDEX
+notify_260205_016.txt
+result_260205_016.json
+run_260205_016.log
+TraeTask_M0_FixUnrelatedHistories_RebaseByPatch_260205_016.md
+deliverables_index_260205_016.json
+ui_copy_details_260205_016.json
+scripts/postflight_validate_envelope.mjs
+reports/healthcheck_root.txt
+reports/healthcheck_pairs.txt

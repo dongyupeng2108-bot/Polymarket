@@ -1,0 +1,39 @@
+{
+  "task_id": "T_case_A",
+  "timestamp": "2026-01-27T10:39:11.506Z",
+  "valid": false,
+  "errors": [
+    {
+      "code": "POSTFLIGHT_HEALTHCHECK_MISSING",
+      "message": "缺少 healthcheck 证据（/ 与 /pairs 必须 200）"
+    }
+  ],
+  "checks": {
+    "artifacts": {
+      "result": "result_T_case_A.json",
+      "notify": "notify_T_case_A.txt",
+      "log": "run_T_case_A.log",
+      "index": "deliverables_index_T_case_A.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 657,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 0,
+      "failures": []
+    },
+    "domain": {
+      "isArbWeb": true,
+      "healthcheckFound": false
+    }
+  }
+}

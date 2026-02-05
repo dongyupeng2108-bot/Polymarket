@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "path": "TraeTask_K0_3_StrategyRadar_ResultSnapshot_260205_006.md",
+      "size": 1237,
+      "sha256_short": "80675614"
+    },
+    {
+      "path": "manual_verification.json",
+      "size": 3281,
+      "sha256_short": "a4a3b05b"
+    },
+    {
+      "path": "reports/healthcheck_root.txt",
+      "size": 6,
+      "sha256_short": "f9bafc82"
+    },
+    {
+      "path": "reports/healthcheck_pairs.txt",
+      "size": 6,
+      "sha256_short": "f9bafc82"
+    },
+    {
+      "path": "scripts/postflight_validate_envelope.mjs",
+      "size": 45481,
+      "sha256_short": "e3461799"
+    },
+    {
+      "path": "run_260205_006.log",
+      "size": 2058,
+      "sha256_short": "b8a29757"
+    }
+  ]
+}

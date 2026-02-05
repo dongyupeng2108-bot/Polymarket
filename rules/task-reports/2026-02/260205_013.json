@@ -1,0 +1,30 @@
+{
+  "task_id": "260205_013",
+  "timestamp": "2026-02-05T03:39:32.823Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_260205_013.json",
+      "notify": "notify_260205_013.txt",
+      "log": "run_260205_013.log",
+      "index": "deliverables_index_260205_013.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 748,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 7,
+      "failures": []
+    }
+  }
+}

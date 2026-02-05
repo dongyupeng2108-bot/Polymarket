@@ -35,7 +35,12 @@ const ERR = {
     // v3.9+ Completeness (Task 070)
     INDEX_COMPLETENESS_MISSING: 'POSTFLIGHT_INDEX_COMPLETENESS_MISSING',
     EXTERNAL_EVIDENCE_FORBIDDEN: 'POSTFLIGHT_EXTERNAL_EVIDENCE_FORBIDDEN',
-    AUTOMATCH_METRICS_MISSING: 'POSTFLIGHT_AUTOMATCH_METRICS_MISSING'
+    AUTOMATCH_METRICS_MISSING: 'POSTFLIGHT_AUTOMATCH_METRICS_MISSING',
+    NOTIFY_EMPTY_OR_SELFREF: 'POSTFLIGHT_NOTIFY_EMPTY_OR_SELFREF', // Legacy
+    // Task 260205_013 Hardening
+    NOTIFY_EMPTY_OR_MISSING: 'POSTFLIGHT_NOTIFY_EMPTY_OR_MISSING',
+    NOTIFY_SIZE_MISMATCH: 'POSTFLIGHT_NOTIFY_SIZE_MISMATCH',
+    NOTIFY_ZERO_IN_INDEX: 'POSTFLIGHT_NOTIFY_ZERO_IN_INDEX'
 };
 
 // --- Utils ---
@@ -374,6 +379,15 @@ async function runSelfTest(outputFile) {
         fs.writeFileSync(path.join(dir, 'LATEST.json'), '{}');
     }, ERR.EMPTY_FILE_FORBIDDEN);
 
+    // Case O: Notify Empty or Missing (Task 013)
+    await runTest('Case_O_NotifyEmpty', (dir) => {
+        fs.writeFileSync(path.join(dir, 'result_M_TEST.json'), JSON.stringify({ status: 'DONE', summary: 'Valid', report_file: 'notify_M_TEST.txt', report_sha256_short: '12345678' }));
+        fs.writeFileSync(path.join(dir, 'notify_M_TEST.txt'), ''); // Empty file
+        fs.writeFileSync(path.join(dir, 'run_M_TEST.log'), 'x'.repeat(1000));
+        fs.writeFileSync(path.join(dir, 'deliverables_index_M_TEST.json'), JSON.stringify({ files: [] }));
+        fs.writeFileSync(path.join(dir, 'LATEST.json'), '{}');
+    }, ERR.NOTIFY_EMPTY_OR_MISSING);
+
     const summary = results.join('\n');
     if (outputFile) fs.writeFileSync(outputFile, summary);
     console.log(summary);
@@ -474,51 +488,98 @@ async function validate(resultDir, taskId, report) {
 
     // 2. Notify Full Envelope Check
     if (found.notify) {
-        const notifyContent = fs.readFileSync(path.join(resultDir, found.notify), 'utf8');
-        const hasResultJson = notifyContent.includes('RESULT_JSON');
-        const hasLogHead = notifyContent.includes('LOG_HEAD');
-        const hasLogTail = notifyContent.includes('LOG_TAIL');
-        const hasIndex = notifyContent.includes('INDEX');
-
-        report.checks.envelope = { hasResultJson, hasLogHead, hasLogTail, hasIndex };
-
-        if (!hasResultJson || !hasLogHead || !hasLogTail || !hasIndex) {
-            fail(report, ERR.ENVELOPE_MISSING, `Notify missing envelope sections`, { missing: { 
-                RESULT_JSON: !hasResultJson, LOG_HEAD: !hasLogHead, LOG_TAIL: !hasLogTail, INDEX: !hasIndex 
-            }});
-        } else {
-            // Check LOG_HEAD content
-            const logHeadMatch = notifyContent.match(/LOG_HEAD([\s\S]*?)(?:LOG_TAIL|INDEX|$)/);
-            if (logHeadMatch) {
-                const logHeadContent = logHeadMatch[1].trim();
-                // Ban "See run.log", "Padding line", or extremely short content
-                if (logHeadContent.length < 5 || 
-                    /padding\s+line/i.test(logHeadContent)) {
-                     fail(report, ERR.LOG_HEAD_INVALID, `LOG_HEAD content is too thin or contains padding. Must contain actual log excerpt.`);
-                }
-            }
-            
-            // Global External Evidence Check (Task 070)
-            // Ban "See run.log", "See attached", "See verification reports" in ENTIRE notify content
-            const forbiddenPhrases = [
-                /see\s+run\.log/i,
-                /see\s+attached/i,
-                /see\s+verification\s+reports/i
-            ];
-            
-            for (const phrase of forbiddenPhrases) {
-                if (phrase.test(notifyContent)) {
-                    fail(report, ERR.EXTERNAL_EVIDENCE_FORBIDDEN, `Notify content contains forbidden external evidence reference: ${phrase}`);
-                    break;
-                }
-            }
-        }
+        const notifyPath = path.join(resultDir, found.notify);
         
-        // Check Healthcheck Summary in Notify (v3.9+)
-        const healthcheckPattern1 = /\/\s*->\s*200/i; // / -> 200
-        const healthcheckPattern2 = /\/pairs\s*->\s*200/i; // /pairs -> 200
-        if (!healthcheckPattern1.test(notifyContent) || !healthcheckPattern2.test(notifyContent)) {
-             fail(report, ERR.HEALTHCHECK_SUMMARY_MISSING, `Notify must contain Healthcheck summary lines: '/ -> 200' and '/pairs -> 200'`);
+        // 1. Check if file exists and has content (Hardened for Task 013)
+        if (!fs.existsSync(notifyPath)) {
+             fail(report, ERR.NOTIFY_EMPTY_OR_MISSING, `Notify file '${found.notify}' does not exist.`);
+        } else {
+            const notifyStats = fs.statSync(notifyPath);
+            if (notifyStats.size === 0) {
+                fail(report, ERR.NOTIFY_EMPTY_OR_MISSING, `Notify file '${found.notify}' is empty (0 bytes).`);
+            }
+
+            // 2. Check against index if index exists (Hardened for Task 013)
+            if (found.index) {
+                 const indexPath = path.join(resultDir, found.index);
+                 if (fs.existsSync(indexPath)) {
+                     try {
+                         const indexContent = fs.readFileSync(indexPath, 'utf8');
+                         const indexJson = JSON.parse(indexContent);
+                         if (indexJson.files && Array.isArray(indexJson.files)) {
+                             // Match by name (exact or endsWith for path)
+                             const notifyEntry = indexJson.files.find(f => {
+                                 const fName = f.name || f.path;
+                                 return fName === found.notify || fName.endsWith('/' + found.notify) || fName.endsWith('\\' + found.notify);
+                             });
+                             
+                             if (notifyEntry) {
+                                 // Check for zero size in index
+                                 if (notifyEntry.size === 0) {
+                                      fail(report, ERR.NOTIFY_ZERO_IN_INDEX, `Notify index entry '${fname}' has size 0.`);
+                                 }
+                                 // Check for mismatch
+                                 if (notifyEntry.size !== notifyStats.size) {
+                                      fail(report, ERR.NOTIFY_SIZE_MISMATCH, 
+                                          `Notify size mismatch: File=${notifyStats.size}, Index=${notifyEntry.size}.`);
+                                 }
+                             }
+                         }
+                     } catch (e) {
+                         // JSON parse errors are handled in the Index section
+                     }
+                 }
+            }
+
+            // Content checks
+            if (notifyStats.size > 0) {
+                const notifyContent = fs.readFileSync(notifyPath, 'utf8');
+                const hasResultJson = notifyContent.includes('RESULT_JSON');
+                const hasLogHead = notifyContent.includes('LOG_HEAD');
+                const hasLogTail = notifyContent.includes('LOG_TAIL');
+                const hasIndex = notifyContent.includes('INDEX');
+
+                report.checks.envelope = { hasResultJson, hasLogHead, hasLogTail, hasIndex };
+
+                if (!hasResultJson || !hasLogHead || !hasLogTail || !hasIndex) {
+                    fail(report, ERR.ENVELOPE_MISSING, `Notify missing envelope sections`, { missing: { 
+                        RESULT_JSON: !hasResultJson, LOG_HEAD: !hasLogHead, LOG_TAIL: !hasLogTail, INDEX: !hasIndex 
+                    }});
+                } else {
+                    // Check LOG_HEAD content
+                    const logHeadMatch = notifyContent.match(/LOG_HEAD([\s\S]*?)(?:LOG_TAIL|INDEX|$)/);
+                    if (logHeadMatch) {
+                        const logHeadContent = logHeadMatch[1].trim();
+                        // Ban "See run.log", "Padding line", or extremely short content
+                        if (logHeadContent.length < 5 || 
+                            /padding\s+line/i.test(logHeadContent)) {
+                             fail(report, ERR.LOG_HEAD_INVALID, `LOG_HEAD content is too thin or contains padding. Must contain actual log excerpt.`);
+                        }
+                    }
+                    
+                    // Global External Evidence Check (Task 070)
+                    // Ban "See run.log", "See attached", "See verification reports" in ENTIRE notify content
+                    const forbiddenPhrases = [
+                        /see\s+run\.log/i,
+                        /see\s+attached/i,
+                        /see\s+verification\s+reports/i
+                    ];
+                    
+                    for (const phrase of forbiddenPhrases) {
+                        if (phrase.test(notifyContent)) {
+                            fail(report, ERR.EXTERNAL_EVIDENCE_FORBIDDEN, `Notify content contains forbidden external evidence reference: ${phrase}`);
+                            break;
+                        }
+                    }
+                }
+                
+                // Check Healthcheck Summary in Notify (v3.9+)
+                const healthcheckPattern1 = /\/\s*->\s*200/i; // / -> 200
+                const healthcheckPattern2 = /\/pairs\s*->\s*200/i; // /pairs -> 200
+                if (!healthcheckPattern1.test(notifyContent) || !healthcheckPattern2.test(notifyContent)) {
+                     fail(report, ERR.HEALTHCHECK_SUMMARY_MISSING, `Notify must contain Healthcheck summary lines: '/ -> 200' and '/pairs -> 200'`);
+                }
+            }
         }
     }
 
@@ -550,7 +611,10 @@ async function validate(resultDir, taskId, report) {
             
             // Rule C: Report File in Index (v3.9+)
             if (resultData && resultData.report_file) {
-                 const reportFileInIndex = Array.isArray(indexData.files) ? indexData.files.find(f => (f.name || f.path) === resultData.report_file) : null;
+                 const reportFileInIndex = Array.isArray(indexData.files) ? indexData.files.find(f => {
+                     const fName = f.name || f.path;
+                     return fName === resultData.report_file || fName.endsWith('/' + resultData.report_file) || fName.endsWith('\\' + resultData.report_file);
+                 }) : null;
                  if (!reportFileInIndex) {
                      fail(report, ERR.REPORT_BINDING_INDEX_MISSING, `Report file '${resultData.report_file}' must be listed in deliverables index.`);
                  } else {
@@ -577,6 +641,17 @@ async function validate(resultDir, taskId, report) {
                     if (!f.size || f.size <= 0) {
                         fail(report, ERR.EMPTY_FILE_FORBIDDEN, `Index entry '${f.name || f.path}' has invalid size: ${f.size}. Must be > 0.`);
                     }
+
+                    // Gate: Notify Specific Hardening (Task 012/013)
+                    const fname = f.name || f.path;
+                    if (fname.includes(`notify_${taskId}.txt`)) {
+                        if (f.size === 0) {
+                             fail(report, ERR.NOTIFY_ZERO_IN_INDEX, `Notify index entry '${fname}' has size 0.`);
+                        }
+                        if (f.sha256_short === 'SELF_REF') {
+                             // Allowed if size > 0
+                        }
+                    }
                 });
                 
                 // Gate_INDEX_COMPLETENESS: Required Files Check
@@ -596,18 +671,6 @@ async function validate(resultDir, taskId, report) {
                          fail(report, ERR.INDEX_COMPLETENESS_MISSING, `INDEX missing required file: ${req}`);
                     }
                 });
-                
-                // Check for reports/postflight/*.json
-                // We can't know exact filenames, but we can check if any exist on disk and aren't in index?
-                // Or simply enforce that IF they exist, they are in index?
-                // The user requirement says: "reports/postflight/*067*.json（如存在该验证产物）"
-                // This implies we should scan disk and check index?
-                // That's expensive and complex for this script.
-                // But we can check if index contains them if we know they should be there.
-                // Let's rely on the user adding them. If they are missing from index, we might miss them.
-                // But the user says "INDEX 必须包含...".
-                // I will skip the disk scan for now to avoid complexity/errors, assuming the Task ensures they are added.
-                // The main gate is the EXPLICIT list.
             }
 
             const missingHashFiles = [];
