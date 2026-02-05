@@ -516,7 +516,7 @@ async function validate(resultDir, taskId, report) {
                              if (notifyEntry) {
                                  // Check for zero size in index
                                  if (notifyEntry.size === 0) {
-                                      fail(report, ERR.NOTIFY_ZERO_IN_INDEX, `Notify entry in index has size 0.`);
+                                      fail(report, ERR.NOTIFY_ZERO_IN_INDEX, `Notify index entry '${fname}' has size 0.`);
                                  }
                                  // Check for mismatch
                                  if (notifyEntry.size !== notifyStats.size) {
@@ -611,7 +611,10 @@ async function validate(resultDir, taskId, report) {
             
             // Rule C: Report File in Index (v3.9+)
             if (resultData && resultData.report_file) {
-                 const reportFileInIndex = Array.isArray(indexData.files) ? indexData.files.find(f => (f.name || f.path) === resultData.report_file) : null;
+                 const reportFileInIndex = Array.isArray(indexData.files) ? indexData.files.find(f => {
+                     const fName = f.name || f.path;
+                     return fName === resultData.report_file || fName.endsWith('/' + resultData.report_file) || fName.endsWith('\\' + resultData.report_file);
+                 }) : null;
                  if (!reportFileInIndex) {
                      fail(report, ERR.REPORT_BINDING_INDEX_MISSING, `Report file '${resultData.report_file}' must be listed in deliverables index.`);
                  } else {

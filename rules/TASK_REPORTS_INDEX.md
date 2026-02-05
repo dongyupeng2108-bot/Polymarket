@@ -13,3 +13,4 @@
 | 2026-02-05 | [Task_M0_RepoWide_Replace_CurlAlias_260205_011](task-reports/2026-02/Task_M0_RepoWide_Replace_CurlAlias_260205_011.md) | [Result](task-reports/2026-02/result_260205_011.json) | DONE |
 | 2026-02-05 | [TraeTask_M0_Postflight_FixEmptyNotify_And_HardenValidator_260205_012](task-reports/2026-02/TraeTask_M0_Postflight_FixEmptyNotify_And_HardenValidator_260205_012.md) | [Result](task-reports/2026-02/result_260205_012.json) | DONE |
 | 2026-02-05 | [TraeTask_M0_FixNotifySizeMismatch_And_EnforcePostflight_260205_013](task-reports/2026-02/TraeTask_M0_FixNotifySizeMismatch_And_EnforcePostflight_260205_013.md) | [Result](task-reports/2026-02/result_260205_013.json) | DONE |
+| 2026-02-05 | [TraeTask_M0_FixHeadNotMoving_CommitAndReport_260205_014](task-reports/2026-02/TraeTask_M0_FixHeadNotMoving_CommitAndReport_260205_014.md) | [Result](task-reports/2026-02/result_260205_014.json) | DONE |
