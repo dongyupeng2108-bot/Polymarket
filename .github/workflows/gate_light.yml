@@ -1,0 +1,108 @@
+name: Gate Light
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  gate-light-check:
+    name: gate-light
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # a) actionlint (Workflow static check)
+      - name: Actionlint
+        uses: devops-actions/actionlint@e7ee33fbf5aa8c9f9ee1145137f3e52e25d6a35b # v0.1.3
+
+      # b) gitleaks
+      - name: Gitleaks
+        uses: gacts/gitleaks@v1
+
+      # c) Schema validation
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Schema validation (rules/gates/fixtures/*.json)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --no-cache-dir jsonschema
+
+          python - <<'PY'
+          import glob, json, sys
+          from pathlib import Path
+          import jsonschema
+
+          schema_path = Path("rules/gates/schema/envelope.schema.json")
+          if not schema_path.exists():
+              print(f"::error::Missing schema: {schema_path}")
+              sys.exit(1)
+
+          schema = json.loads(schema_path.read_text(encoding="utf-8"))
+          files = sorted(glob.glob("rules/gates/fixtures/*.json"))
+          if not files:
+              print("::error::No fixture json files found under rules/gates/fixtures/")
+              sys.exit(1)
+
+          ok = True
+          for fp in files:
+              try:
+                  data = json.loads(Path(fp).read_text(encoding="utf-8"))
+                  jsonschema.validate(instance=data, schema=schema)
+                  print(f"[PASS] {fp}")
+              except Exception as e:
+                  ok = False
+                  print(f"::error file={fp}::{e}")
+
+          sys.exit(0 if ok else 1)
+          PY
+
+      # d) Dictionary Sync Check
+      - name: Dictionary Sync Check
+        run: |
+          node scripts/check_dictionary_update.mjs
+
+      # e) Conftest
+      - name: Install Conftest
+        run: |
+          LATEST_VERSION=$(curl -s "https://api.github.com/repos/open-policy-agent/conftest/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
+          curl -LO "https://github.com/open-policy-agent/conftest/releases/download/v${LATEST_VERSION}/conftest_${LATEST_VERSION}_Linux_x86_64.tar.gz"
+          tar xzf "conftest_${LATEST_VERSION}_Linux_x86_64.tar.gz"
+          sudo mv conftest /usr/local/bin
+          conftest --version
+
+      - name: Run Conftest Policies (Good Fixtures)
+        run: |
+          conftest test --namespace gates -p rules/gates/rego rules/gates/fixtures/good_*.json
+
+      - name: Resolve Policy Set Path
+        run: |
+          VERSION=$(cat rules/gates/policy_sets/gate_light/CURRENT)
+          echo "POLICY_DIR=rules/gates/policy_sets/gate_light/$VERSION/policy" >> "$GITHUB_ENV"
+          echo "FIXTURES_DIR=rules/gates/policy_sets/gate_light/$VERSION/fixtures" >> "$GITHUB_ENV"
+
+      - name: Run Fixture Sanity Check
+        run: |
+          node scripts/gate_light_fixture_sanity.mjs
+
+      - name: Run Conftest Policies (Good Fixtures - New Path)
+        run: |
+          conftest test --namespace gates -p "$POLICY_DIR" "$FIXTURES_DIR"/good_*.json
+
+      - name: Run Conftest Policies (Bad Fixtures - Expected Deny - New Path)
+        run: |
+          # We expect this command to fail (exit code 1) because of policy violations.
+          # If it succeeds (exit code 0), then our negative tests failed to catch the issue.
+          if conftest test --namespace gates -p "$POLICY_DIR" "$FIXTURES_DIR"/bad_*.json; then
+            echo "::error::Bad fixtures unexpectedly PASSED the policy check!"
+            exit 1
+          else
+            echo "::notice::Bad fixtures were DENIED as expected."
+            exit 0
+          fi
+# Baseline check trigger
