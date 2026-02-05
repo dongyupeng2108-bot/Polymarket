@@ -1,0 +1,19 @@
+{
+  "task_id": "260205_006",
+  "status": "DONE",
+  "summary": "Implemented StrategyResultSnapshot model, API, and UI. Passed automated verification.",
+  "report_file": "TraeTask_K0_3_StrategyRadar_ResultSnapshot_260205_006.md",
+  "report_sha256_short": "80675614",
+  "artifacts": {
+    "report": "TraeTask_K0_3_StrategyRadar_ResultSnapshot_260205_006.md",
+    "evidence": [
+      "notify_260205_006.txt",
+      "run_260205_006.log",
+      "deliverables_index_260205_006.json"
+    ]
+  },
+  "metrics": {
+    "tests_passed": true,
+    "healthcheck": "passed"
+  }
+}
