@@ -1,0 +1,45 @@
+{
+  "task_id": "260205_016",
+  "files": [
+    {
+      "name": "rules/task-reports/2026-02/result_260205_016.json",
+      "size": 612,
+      "sha256_short": "e89db404"
+    },
+    {
+      "name": "rules/task-reports/2026-02/run_260205_016.log",
+      "size": 1770,
+      "sha256_short": "70681084"
+    },
+    {
+      "name": "rules/task-reports/2026-02/TraeTask_M0_FixUnrelatedHistories_RebaseByPatch_260205_016.md",
+      "size": 925,
+      "sha256_short": "204011e7"
+    },
+    {
+      "name": "rules/task-reports/2026-02/notify_260205_016.txt",
+      "size": 982,
+      "sha256_short": "SELF_REF"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 6,
+      "sha256_short": "5b379e3b"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 6,
+      "sha256_short": "5b379e3b"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 49991,
+      "sha256_short": "36396e8c"
+    },
+    {
+      "name": "ui_copy_details_260205_016.json",
+      "size": 257,
+      "sha256_short": "1d3a1398"
+    }
+  ]
+}

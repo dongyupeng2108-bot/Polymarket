@@ -1,71 +1,10 @@
 {
-  "ui_redirects": [
-    {
-      "path": "/strategy-radar",
-      "status": 307,
-      "location": "/radar/strategies",
-      "pass": true
-    },
-    {
-      "path": "/strategy-radar/new",
-      "status": 307,
-      "location": "/radar/strategies/new",
-      "pass": true
-    },
-    {
-      "path": "/strategy-radar/123",
-      "status": 307,
-      "location": "/radar/strategies/123",
-      "pass": true
-    },
-    {
-      "path": "/strategy-radar/123/edit",
-      "status": 307,
-      "location": "/radar/strategies/123/edit",
-      "pass": true
-    }
-  ],
-  "api_compatibility": [
-    {
-      "endpoint": "GET /api/strategy-radar/export",
-      "status": 200,
-      "has_strategies": true,
-      "pass": true
-    }
-  ],
-  "import_validation": [
-    {
-      "endpoint": "POST /api/strategy-radar/import",
-      "status": 200,
-      "response_summary": {
-        "success": true,
-        "errors_count": 3,
-        "error_details_count": 3
-      },
-      "sample_errors": [
-        {
-          "code": "DB_ERROR",
-          "message": "\nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__[\"prisma\"].strategy.create()` invocation in\nE:\\polymaket\\program\\arb-validate-web\\.next\\dev\\server\\chunks\\[root-of-the-server]__9bb58f3a._.js:211:177\n\n  208     stats.updated++;\n  209 } else {\n  210     // Create\n→ 211     const created = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__[\"prisma\"].strategy.create({\n            data: {\n              key: \"valid_test_1770237205532\",\n              name: \"Valid One\",\n          +   category: String\n            }\n          })\n\nArgument `category` is missing.",
-          "json_path": "strategies[0]",
-          "strategy_key": "valid_test_1770237205532",
-          "severity": "ERROR"
-        },
-        {
-          "code": "MISSING_KEY",
-          "message": "Strategy key is required",
-          "json_path": "strategies[1].key",
-          "strategy_key": null,
-          "severity": "ERROR"
-        },
-        {
-          "code": "MISSING_NAME",
-          "message": "Strategy name is required",
-          "json_path": "strategies[2].name",
-          "strategy_key": "missing_name",
-          "severity": "ERROR"
-        }
-      ],
-      "pass": true
-    }
-  ]
+  "task_id": "260205_016",
+  "verification_method": "curl_healthcheck",
+  "endpoints": {
+    "/": "200",
+    "/pairs": "200"
+  },
+  "notes": "Manually verified site availability via curl in healthcheck script.",
+  "timestamp": "2026-02-05T09:58:24.952Z"
 }

@@ -14,3 +14,6 @@
 | 2026-02-05 | [TraeTask_M0_Postflight_FixEmptyNotify_And_HardenValidator_260205_012](task-reports/2026-02/TraeTask_M0_Postflight_FixEmptyNotify_And_HardenValidator_260205_012.md) | [Result](task-reports/2026-02/result_260205_012.json) | DONE |
 | 2026-02-05 | [TraeTask_M0_FixNotifySizeMismatch_And_EnforcePostflight_260205_013](task-reports/2026-02/TraeTask_M0_FixNotifySizeMismatch_And_EnforcePostflight_260205_013.md) | [Result](task-reports/2026-02/result_260205_013.json) | DONE |
 | 2026-02-05 | [TraeTask_M0_FixHeadNotMoving_CommitAndReport_260205_014](task-reports/2026-02/TraeTask_M0_FixHeadNotMoving_CommitAndReport_260205_014.md) | [Result](task-reports/2026-02/result_260205_014.json) | DONE |
+
+| 2026-02-05 | [TraeTask_M0_FixUnrelatedHistories_RebaseByPatch_260205_016](task-reports/2026-02/TraeTask_M0_FixUnrelatedHistories_RebaseByPatch_260205_016.md) | [Result](task-reports/2026-02/result_260205_016.json) | DONE |
+| 2026-02-05 | [TraeTask_M0_FixGitleaks_Blocking_GateLight_260205_017](task-reports/2026-02/TraeTask_M0_FixGitleaks_Blocking_GateLight_260205_017.md) | [Result](task-reports/2026-02/result_260205_017.json) | DONE |

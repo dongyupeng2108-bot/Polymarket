@@ -1,44 +1,28 @@
 {
   "files": [
     {
-      "name": "TraeTask_K0_7_StrategyRadar_SnapshotHistory_260205_010.md",
-      "size": 885,
-      "sha256_short": "150343b4"
+      "path": "rules/task-reports/2026-02/TraeTask_M0_FixGitleaks_Blocking_GateLight_260205_017.md",
+      "sha256_short": "37111b00",
+      "description": "Task Report",
+      "size": 629
     },
     {
-      "name": "rules/task-reports/2026-02/result_260205_010.json",
-      "size": 239,
-      "sha256_short": "71ef3dec"
+      "path": "rules/task-reports/2026-02/result_260205_017.json",
+      "sha256_short": "1a98d137",
+      "description": "Result JSON",
+      "size": 467
     },
     {
-      "name": "reports/manual_verification_strategy_radar_snapshot_history_260205_010.json",
-      "size": 937,
-      "sha256_short": "cb07aec7"
+      "path": "rules/task-reports/2026-02/run_260205_017.log",
+      "sha256_short": "3961359d",
+      "description": "Run Log",
+      "size": 1033
     },
     {
-      "name": "reports/healthcheck_root.txt",
-      "size": 44,
-      "sha256_short": "6e88465f"
-    },
-    {
-      "name": "reports/healthcheck_pairs.txt",
-      "size": 54,
-      "sha256_short": "ec146bd8"
-    },
-    {
-      "name": "scripts/postflight_validate_envelope.mjs",
-      "size": 46430,
-      "sha256_short": "b1381297"
-    },
-    {
-      "name": "rules/task-reports/2026-02/notify_260205_010.txt",
-      "size": 3643,
-      "sha256_short": "a7979b3d"
-    },
-    {
-      "name": "rules/task-reports/2026-02/run_260205_010.log",
-      "size": 1725,
-      "sha256_short": "6b5c274e"
+      "path": "rules/task-reports/2026-02/notify_260205_017.txt",
+      "sha256_short": "7e9cecc9",
+      "description": "Notify Envelope",
+      "size": 1598
     }
   ]
 }
