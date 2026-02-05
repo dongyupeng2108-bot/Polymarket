@@ -1,0 +1,38 @@
+{
+  "task_id": "T_case_B",
+  "timestamp": "2026-01-27T10:39:11.590Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_T_case_B.json",
+      "notify": "notify_T_case_B.txt",
+      "log": "run_T_case_B.log",
+      "index": "deliverables_index_T_case_B.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 657,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 1,
+      "failures": []
+    },
+    "domain": {
+      "isArbWeb": true,
+      "healthcheckFound": true,
+      "healthcheckContent": {
+        "hasRoot": true,
+        "hasPairs": true
+      }
+    }
+  }
+}

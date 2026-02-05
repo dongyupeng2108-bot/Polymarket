@@ -1,0 +1,66 @@
+RESULT_JSON
+{
+  "status": "DONE",
+  "summary": "Fixed 012 notify size and hardened postflight.",
+  "report_file": "TraeTask_M0_FixNotifySizeMismatch_And_EnforcePostflight_260205_013.md",
+  "report_sha256_short": "552d61fa"
+}
+
+LOG_HEAD
+[2026-02-05] Start Task 260205_013
+[2026-02-05] Analyzed 012 notify issue.
+[2026-02-05] Created repair_notify_index.mjs.
+[2026-02-05] Repaired 012 notify/index (Size=1851).
+[2026-02-05] Hardened postf...
+
+LOG_TAIL
+...vergence.
+- Step 3: Harden validator. Added NOTIFY_ZERO_IN_INDEX check.
+- Step 4: Verify validator. Self-test passed.
+- Step 5: Regression testing. 010/011/012 passed.
+- Step 6: Generate 013 evidence.
+
+HEALTHCHECK
+/ -> 200 OK
+/pairs -> 200 OK
+
+INDEX
+{
+  "files": [
+    {
+      "name": "rules/task-reports/2026-02/result_260205_013.json",
+      "size": 212,
+      "sha256_short": "f4bff6d0"
+    },
+    {
+      "name": "rules/task-reports/2026-02/run_260205_013.log",
+      "size": 748,
+      "sha256_short": "6557612e"
+    },
+    {
+      "name": "TraeTask_M0_FixNotifySizeMismatch_And_EnforcePostflight_260205_013.md",
+      "size": 1569,
+      "sha256_short": "552d61fa"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 16,
+      "sha256_short": "a2306f73"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 21,
+      "sha256_short": "3900afaf"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 48819,
+      "sha256_short": "e70cdfd7"
+    },
+    {
+      "name": "rules/task-reports/2026-02/notify_260205_013.txt",
+      "size": 1612,
+      "sha256_short": "SELF_REF"
+    }
+  ]
+}

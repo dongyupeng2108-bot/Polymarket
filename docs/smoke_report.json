@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-01-20T09:40:00.000Z",
+  "verify_kh_proxy": {
+    "timestamp": "2026-01-20T07:39:59.610Z",
+    "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status",
+    "proxy_used": true,
+    "proxy_agent_name": "HttpsProxyAgent",
+    "env_proxy": "http://127.0.0.1:51081",
+    "http_status": 200,
+    "elapsed_ms": 1411,
+    "error": null
+  },
+  "network_health": {
+    "status": 200,
+    "data": {
+      "checked_at": "2026-01-20T07:39:58.164Z",
+      "kalshi_status": "OK",
+      "reason": "ok",
+      "http_status": 200,
+      "latency_ms": 1443,
+      "stage": null,
+      "error_code": null,
+      "error_message": null,
+      "url_used": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
+    }
+  },
+  "scan_once": {
+    "status": 200,
+    "data": {
+      "pair_id": 44,
+      "timestamp": "2026-01-20T09:31:02.620Z",
+      "status": "ok",
+      "result": "NO_OPPORTUNITY",
+      "reason": "no_orderbook (KH)",
+      "reason_code": "no_orderbook_kh",
+      "prices": {
+        "pm_bid": 0.01,
+        "pm_ask": 0.99,
+        "kh_bid": null,
+        "kh_ask": null
+      },
+      "edge_raw": null,
+      "threshold": "default(0.01)",
+      "debug_stats": {
+        "pm_http": 200,
+        "kh_http": 200,
+        "pm_latency": 2168,
+        "kh_latency": 1433
+      }
+    }
+  },
+  "opportunities_list": {
+    "status": 200,
+    "data": []
+  },
+  "summary": {
+    "status": "COMPLETED",
+    "passed_checks": 4,
+    "total_checks": 4,
+    "opportunities_found": 0
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "task_id": "task_id: K0_1_StrategyRadar_Foundation_260204_001",
+  "files": [
+    {
+      "name": "healthcheck_260204_001.txt",
+      "size": 98,
+      "sha256_short": "de18a1b7"
+    },
+    {
+      "name": "result_260204_001.json",
+      "size": 563,
+      "sha256_short": "687849d2"
+    },
+    {
+      "name": "notify_260204_001.txt",
+      "size": 272,
+      "sha256_short": "9c46f307"
+    },
+    {
+      "name": "TraeTask_K0_1_StrategyRadar_Foundation_260204_001.md",
+      "size": 1368,
+      "sha256_short": "a8fe2315"
+    },
+    {
+      "name": "run_260204_001.log",
+      "size": 1131,
+      "sha256_short": "251cb7cd"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 44,
+      "sha256_short": "6e88465f"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 54,
+      "sha256_short": "ec146bd8"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 45481,
+      "sha256_short": "e3461799"
+    }
+  ]
+}

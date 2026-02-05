@@ -1,0 +1,34 @@
+{
+  "task_id": "260205_008",
+  "timestamp": "2026-02-04T20:33:25.749Z",
+  "valid": true,
+  "errors": [],
+  "checks": {
+    "artifacts": {
+      "result": "result_260205_008.json",
+      "notify": "notify_260205_008.txt",
+      "log": "run_260205_008.log",
+      "index": "deliverables_index.json",
+      "latest": "LATEST.json"
+    },
+    "envelope": {
+      "hasResultJson": true,
+      "hasLogHead": true,
+      "hasLogTail": true,
+      "hasIndex": true
+    },
+    "log": {
+      "size": 2628,
+      "isPlaceholder": false
+    },
+    "index": {
+      "parsed": true,
+      "file_count": 9,
+      "failures": []
+    },
+    "domain": {
+      "isArbWeb": true,
+      "healthcheckFound": true
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "name": "TraeTask_K0_6_StrategyRadar_ListFilters_260205_009.md",
+      "sha256_short": "c8b2cda8",
+      "size": 726
+    },
+    {
+      "name": "rules/task-reports/2026-02/result_260205_009.json",
+      "sha256_short": "16cccaf8",
+      "size": 228
+    },
+    {
+      "name": "reports/manual_verification_strategy_radar_list_filters_260205_009.json",
+      "sha256_short": "43dd7c11",
+      "size": 1459
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "sha256_short": "e35b1a26",
+      "size": 8
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "sha256_short": "e359a3ac",
+      "size": 13
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "sha256_short": "e3461799",
+      "size": 45481
+    },
+    {
+      "name": "rules/task-reports/2026-02/notify_260205_009.txt",
+      "sha256_short": "f42dc9ef",
+      "size": 1437
+    },
+    {
+      "name": "rules/task-reports/2026-02/run_260205_009.log",
+      "sha256_short": "a226f883",
+      "size": 639
+    }
+  ]
+}

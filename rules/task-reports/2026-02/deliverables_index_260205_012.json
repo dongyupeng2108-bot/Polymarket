@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "name": "TraeTask_M0_Postflight_FixEmptyNotify_And_HardenValidator_260205_012.md",
+      "size": 1205,
+      "sha256_short": "aa743478"
+    },
+    {
+      "name": "rules/task-reports/2026-02/result_260205_012.json",
+      "size": 269,
+      "sha256_short": "bae4f51f"
+    },
+    {
+      "name": "rules/task-reports/2026-02/run_260205_012.log",
+      "size": 524,
+      "sha256_short": "1406e848"
+    },
+    {
+      "name": "scripts/postflight_validate_envelope.mjs",
+      "size": 46430,
+      "sha256_short": "b1381297"
+    },
+    {
+      "name": "reports/healthcheck_root.txt",
+      "size": 16,
+      "sha256_short": "a2306f73"
+    },
+    {
+      "name": "reports/healthcheck_pairs.txt",
+      "size": 21,
+      "sha256_short": "3900afaf"
+    },
+    {
+      "name": "rules/task-reports/2026-02/notify_260205_012.txt",
+      "size": 1875,
+      "sha256_short": "SELF_REF"
+    }
+  ]
+}

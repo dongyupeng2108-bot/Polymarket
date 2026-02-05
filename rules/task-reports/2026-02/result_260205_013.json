@@ -1,0 +1,6 @@
+{
+  "status": "DONE",
+  "summary": "Fixed 012 notify size and hardened postflight.",
+  "report_file": "TraeTask_M0_FixNotifySizeMismatch_And_EnforcePostflight_260205_013.md",
+  "report_sha256_short": "552d61fa"
+}

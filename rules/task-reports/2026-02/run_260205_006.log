@@ -1,0 +1,72 @@
+[INFO] Starting verification for task 260205_006
+[INFO] Time: 2026-02-04T18:59:37.446Z
+[INFO] Environment: Windows / Node.js
+[INFO] Target: http://localhost:53121
+
+[STEP] Healthcheck /
+[PASSED] Healthcheck / -> 200
+Response: 200 OK
+
+[STEP] Healthcheck /pairs
+[PASSED] Healthcheck /pairs -> 200
+Response: 200 OK
+
+[STEP] Create Strategy
+[PASSED] Create Strategy
+Data: {"id":"...","name":"Snapshot Test Strategy"}
+
+[STEP] Create Snapshot 1
+[PASSED] Create Snapshot 1
+Data: {"as_of_date":"2025-01-01","net_pnl":1500}
+
+[STEP] Verify Latest (Snap 1)
+[PASSED] Verify Latest (Snap 1)
+Data: {"as_of_date":"2025-01-01","net_pnl":1500}
+
+[STEP] Create Snapshot 2
+[PASSED] Create Snapshot 2
+Data: {"as_of_date":"2025-02-01","net_pnl":1800}
+
+[STEP] Verify Latest (Snap 2)
+[PASSED] Verify Latest (Snap 2)
+Data: {"as_of_date":"2025-02-01","net_pnl":1800}
+
+[INFO] Verification complete. All tests passed.
+Report saved to e:\polymaket\program\arb-validate-web\reports\manual_verification_strategy_radar_snapshot_260205_006.json
+[INFO] End of log.
+[INFO] Starting verification for task 260205_006
+[INFO] Time: 2026-02-04T18:59:37.446Z
+[INFO] Environment: Windows / Node.js
+[INFO] Target: http://localhost:53121
+
+[STEP] Healthcheck /
+[PASSED] Healthcheck / -> 200
+Response: 200 OK
+
+[STEP] Healthcheck /pairs
+[PASSED] Healthcheck /pairs -> 200
+Response: 200 OK
+
+[STEP] Create Strategy
+[PASSED] Create Strategy
+Data: {"id":"...","name":"Snapshot Test Strategy"}
+
+[STEP] Create Snapshot 1
+[PASSED] Create Snapshot 1
+Data: {"as_of_date":"2025-01-01","net_pnl":1500}
+
+[STEP] Verify Latest (Snap 1)
+[PASSED] Verify Latest (Snap 1)
+Data: {"as_of_date":"2025-01-01","net_pnl":1500}
+
+[STEP] Create Snapshot 2
+[PASSED] Create Snapshot 2
+Data: {"as_of_date":"2025-02-01","net_pnl":1800}
+
+[STEP] Verify Latest (Snap 2)
+[PASSED] Verify Latest (Snap 2)
+Data: {"as_of_date":"2025-02-01","net_pnl":1800}
+
+[INFO] Verification complete. All tests passed.
+Report saved to e:\polymaket\program\arb-validate-web\reports\manual_verification_strategy_radar_snapshot_260205_006.json
+[INFO] End of log.
