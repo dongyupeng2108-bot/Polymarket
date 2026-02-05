@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "task_id",
+    "milestone",
+    "status",
+    "healthcheck",
+    "report_file",
+    "index_files"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^M[0-9]+(_[0-9]+)?_.*"
+    },
+    "milestone": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["DONE", "FAILED"]
+    },
+    "healthcheck": {
+      "type": "object",
+      "required": ["root", "pairs"],
+      "properties": {
+        "root": { "type": "integer" },
+        "pairs": { "type": "integer" }
+      }
+    },
+    "report_file": {
+      "type": "string"
+    },
+    "index_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "size", "sha256_short"],
+        "properties": {
+          "path": { "type": "string" },
+          "size": { "type": "integer", "minimum": 1 },
+          "sha256_short": { "type": "string", "pattern": "^[0-9a-f]{8}$" }
+        }
+      }
+    },
+    "forbidden_phrases_hit": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
