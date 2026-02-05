@@ -9,7 +9,7 @@
     },
     {
       "path": "rules/task-reports/2026-02/result_260205_017.json",
-      "sha256_short": "bd1da63e",
+      "sha256_short": "d7b12fff",
       "size": 467,
       "description": "Result JSON"
     },
@@ -39,7 +39,7 @@
     },
     {
       "path": "rules/task-reports/2026-02/notify_260205_017.txt",
-      "sha256_short": "da8cc17e",
+      "sha256_short": "58f6dfb5",
       "size": 2161,
       "description": "Notify Envelope"
     }
